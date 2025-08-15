@@ -1,48 +1,43 @@
 ---
 // About section component
-import { Image } from 'astro:assets';
-import dummyImage from '../assets/dummy_image.png';
 ---
 
 <section id="about" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left side with content -->
-      <div class="bg-yellow-50 p-8 rounded-lg">
+  <div class="flex">
+    <!-- Left black bar -->
+    <div class="w-16 bg-black"></div>
+    
+    <!-- Center content area -->
+    <div class="flex-1 bg-amber-50 px-8 py-12">
+      <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
           About the Cooperative AI South Africa Fellowship
         </h2>
         
-        <div class="space-y-6 text-gray-700">
+        <div class="space-y-6 text-gray-900 mb-8">
           <p class="text-lg leading-relaxed">
-            The Cooperative AI South Africa Fellowship is a 6-month research project for talented South African researchers to explore how to ensure that future AI systems are cooperative and beneficial to humanity.
+            Participants from around the world will pursue cooperative AI research for 3 months from January - April 2026. The fellowship kicks off with a week-long retreat and culminates with a conference.
           </p>
           
           <p class="text-lg leading-relaxed">
-            Fellows will work on a research project, receive mentorship from leading researchers in cooperative AI, and participate in workshops and events to support their research and career development.
+            Fellows will work with collaborators from partner organisations such as the Cooperative AI Foundation (CAIF), Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS) and The University of Cape Town (UCT) AI Initiative.
           </p>
           
           <p class="text-lg leading-relaxed">
-            The fellowship aims to build a community of researchers in South Africa working on cooperative AI, contribute to the global understanding of cooperative AI, and support the development of safe and beneficial AI in Africa.
+            Participants will receive 1:1 mentorship from top researchers in the field of cooperative AI, resources for building knowledge in AI safety and comprehensive financial support covering their living and travel expenses while in Cape Town. There will be opportunities for collaboration with other cohort members, a week-long retreat, workshops and access to the AI Safety Cape Town co-working space.
           </p>
         </div>
-      </div>
-      
-      <!-- Right side with placeholder panel -->
-      <div class="bg-gray-100 h-96 rounded-lg overflow-hidden">
-        <Image 
-          src={dummyImage} 
-          alt="Abstract textured surface" 
-          class="w-full h-full object-cover"
-        />
+        
+        <!-- Apply button centered -->
+        <div class="text-center">
+          <a href="#apply" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
+            APPLY NOW
+          </a>
+        </div>
       </div>
     </div>
     
-    <!-- Apply button centered at bottom -->
-    <div class="text-center mt-12">
-      <a href="#apply" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors duration-200">
-        APPLY NOW
-      </a>
-    </div>
+    <!-- Right black bar -->
+    <div class="w-16 bg-black"></div>
   </div>
 </section>
