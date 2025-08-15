@@ -1,5 +1,49 @@
 ---
-// FAQ section component
+import FAQItem from './FAQItem.astro';
+
+// FAQ data
+const faqData = [
+  {
+    question: "How does mentor matching work?",
+    answer: "Each fellow will be matched with an expert mentor, who will provide in-person feedback on their project. In addition, fellows will be guided by a research manager who will facilitate their research process and connect them to relevant resources during weekly meetings."
+  },
+  {
+    question: "Who is eligible?",
+    answer: "Students and early career researchers who can make an impactful contribution to the field of cooperative AI. Early career researchers interested in applying their skills to AI Safety with a background in machine learning, MARL, Game Theory, complex systems or Math are preferred."
+  },
+  {
+    question: "Where will fellows work?",
+    answer: "At the AI Safety Cape Town co-working space."
+  },
+  {
+    question: "What is offered?",
+    answer: "Fellows will receive mentorship, access to a global AI safety research community and a stipend covering housing and living expenses."
+  },
+  {
+    question: "Can I participate part time/remotely?",
+    answer: "We are unable to accommodate part time participation. This is a full time, in-person opportunity."
+  },
+  {
+    question: "Can I refer someone?",
+    answer: "Yes! Please make use of our referral form here."
+  },
+  {
+    question: "What if I am new to AI safety?",
+    answer: "We care about your intent to make an impact and as such will offer an introduction to the field during our onboarding process, including readings prior to the start of the in-person course."
+  },
+  {
+    question: "What will I work on if selected?",
+    answer: "Research will focus on the interactions that emerge in multi-agent AI systems and their relationship with humans and human systems."
+  },
+  {
+    question: "What can I gain from the fellowship?",
+    answer: [
+      "1. Publish a research project that makes an impactful contribution to cooperative AI, reducing global catastrophic risk.",
+      "2. There is the possibility of an ongoing research position at the University of Cape Town AI Initiative.",
+      "3. Promotion of talent to global AI safety initiatives."
+    ]
+  }
+];
 ---
 
 <section id="faq" class="py-20 bg-yellow-50">
@@ -8,64 +52,10 @@
       Frequently Asked Questions
     </h2>
     
-    <div class="space-y-6">
-      <!-- FAQ Item 1 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">How does mentor matching work?</h3>
-        <p class="text-gray-700">Each fellow will be matched with an expert mentor, who will provide in-person feedback on their project. In addition, fellows will be guided by a research manager who will facilitate their research process and connect them to relevant resources during weekly meetings.</p>
-      </div>
-      
-      <!-- FAQ Item 2 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">Who is eligible?</h3>
-        <p class="text-gray-700">Students and early career researchers who can make an impactful contribution to the field of cooperative AI. Early career researchers interested in applying their skills to AI Safety with a background in machine learning, MARL, Game Theory, complex systems or Math are preferred.</p>
-      </div>
-      
-      <!-- FAQ Item 3 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">Where will fellows work?</h3>
-        <p class="text-gray-700">At the AI Safety Cape Town co-working space.</p>
-      </div>
-      
-      <!-- FAQ Item 4 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">What is offered?</h3>
-        <p class="text-gray-700">Fellows will receive mentorship, access to a global AI safety research community and a stipend covering housing and living expenses.</p>
-      </div>
-      
-      <!-- FAQ Item 5 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">Can I participate part time/remotely?</h3>
-        <p class="text-gray-700">We are unable to accommodate part time participation. This is a full time, in-person opportunity.</p>
-      </div>
-      
-      <!-- FAQ Item 6 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">Can I refer someone?</h3>
-        <p class="text-gray-700">Yes! Please make use of our referral form here.</p>
-      </div>
-      
-      <!-- FAQ Item 7 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">What if I am new to AI safety?</h3>
-        <p class="text-gray-700">We care about your intent to make an impact and as such will offer an introduction to the field during our onboarding process, including readings prior to the start of the in-person course.</p>
-      </div>
-      
-      <!-- FAQ Item 8 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">What will I work on if selected?</h3>
-        <p class="text-gray-700">Research will focus on the interactions that emerge in multi-agent AI systems and their relationship with humans and human systems.</p>
-      </div>
-      
-      <!-- FAQ Item 9 -->
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">What can I gain from the fellowship?</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>1. Publish a research project that makes an impactful contribution to cooperative AI, reducing global catastrophic risk.</li>
-          <li>2. There is the possibility of an ongoing research position at the University of Cape Town AI Initiative.</li>
-          <li>3. Promotion of talent to global AI safety initiatives.</li>
-        </ul>
-      </div>
+    <div class="space-y-4">
+      {faqData.map((faq) => (
+        <FAQItem question={faq.question} answer={faq.answer} />
+      ))}
     </div>
     
     <!-- Contact information -->

@@ -1,0 +1,68 @@
+---
+export interface Props {
+  question: string;
+  answer: string | string[];
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+  <button 
+    class="faq-toggle w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+    data-faq-toggle
+  >
+    <h3 class="text-lg font-semibold text-gray-900 pr-4">{question}</h3>
+    <svg 
+      class="faq-arrow w-5 h-5 text-gray-500 transform transition-transform duration-200 flex-shrink-0" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+  
+  <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+    {Array.isArray(answer) ? (
+      <ul class="text-gray-700 space-y-2">
+        {answer.map((item) => <li>{item}</li>)}
+      </ul>
+    ) : (
+      <p class="text-gray-700">{answer}</p>
+    )}
+  </div>
+</div>
+
+<script>
+  // FAQ dropdown functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqToggles = document.querySelectorAll('[data-faq-toggle]');
+    
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const faqItem = toggle.closest('.faq-item');
+        const content = faqItem?.querySelector('.faq-content');
+        const arrow = faqItem?.querySelector('.faq-arrow');
+        
+        if (content && arrow) {
+          const isOpen = !content.classList.contains('hidden');
+          
+          // Close all other FAQ items
+          document.querySelectorAll('.faq-content').forEach(item => {
+            item.classList.add('hidden');
+          });
+          document.querySelectorAll('.faq-arrow').forEach(item => {
+            item.classList.remove('rotate-180');
+          });
+          
+          // Toggle current item
+          if (!isOpen) {
+            content.classList.remove('hidden');
+            arrow.classList.add('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>
