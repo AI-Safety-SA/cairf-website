@@ -7,14 +7,14 @@ export interface Props {
 const { question, answer } = Astro.props;
 ---
 
-<div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="faq-item bg-surface rounded-lg shadow-sm overflow-hidden">
   <button 
-    class="faq-toggle w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+    class="faq-toggle w-full p-6 text-left flex items-center justify-between hover:bg-surface-alt transition-colors duration-200"
     data-faq-toggle
   >
-    <h3 class="text-lg font-semibold text-gray-900 pr-4">{question}</h3>
+            <h3 class="text-lg font-semibold text-text-base pr-4">{question}</h3>
     <svg 
-      class="faq-arrow w-5 h-5 text-gray-500 transform transition-transform duration-200 flex-shrink-0" 
+      class="faq-arrow w-5 h-5 text-text-muted transform transition-transform duration-200 flex-shrink-0" 
       fill="none" 
       stroke="currentColor" 
       viewBox="0 0 24 24"
@@ -23,13 +23,13 @@ const { question, answer } = Astro.props;
     </svg>
   </button>
   
-  <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+  <div class="faq-content hidden p-6 pt-0 border-t border-surface-alt">
     {Array.isArray(answer) ? (
-      <ul class="text-gray-700 space-y-2">
+      <ul class="text-text-muted space-y-2">
         {answer.map((item) => <li>{item}</li>)}
       </ul>
     ) : (
-      <p class="text-gray-700">{answer}</p>
+      <p class="text-text-muted">{answer}</p>
     )}
   </div>
 </div>

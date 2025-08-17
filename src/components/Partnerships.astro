@@ -7,9 +7,9 @@ import AIInitiativeLogo from '../assets/partner-logos/AI_Initiative_logo.png';
 import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
 ---
 
-<section id="partners" class="py-20 bg-white">
+<section id="partners" class="py-20 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-base text-center mb-12">
       Partners
     </h2>
     
@@ -17,7 +17,7 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
       <!-- Left column: Partners and description -->
       <div class="space-y-8">
         <div class="text-left">
-          <p class="text-lg text-gray-700 leading-relaxed">
+          <p class="text-lg text-text-muted leading-relaxed">
             The fellowship is a collaboration with the Cooperative AI Foundation, PIBBSS, The AI Initiative at UCT and AI Safety South Africa. We build on PIBBSS fellowship methodology with CAIF research oversight. This initiative serves as both a talent pipeline and research direction-setting mechanism for the University of Cape Town's emerging AI Safety Hub.
           </p>
         </div>
@@ -25,23 +25,23 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
         <!-- Partner descriptions -->
         <div class="space-y-6">
           <div class="border-l-4 border-blue-500 pl-4">
-            <h3 class="font-semibold text-gray-900 mb-2">Cooperative AI Foundation (CAIF)</h3>
-            <p class="text-sm text-gray-600">A new charitable entity, backed by a $15 million philanthropic commitment from Macroscopic Ventures. CAIF's mission is to support research that will improve the cooperative intelligence of advanced AI for the benefit of all.</p>
+            <h3 class="font-semibold text-text-base mb-2">Cooperative AI Foundation (CAIF)</h3>
+            <p class="text-sm text-text-muted">A new charitable entity, backed by a $15 million philanthropic commitment from Macroscopic Ventures. CAIF's mission is to support research that will improve the cooperative intelligence of advanced AI for the benefit of all.</p>
           </div>
           
           <div class="border-l-4 border-green-500 pl-4">
-            <h3 class="font-semibold text-gray-900 mb-2">UCT AI Initiative</h3>
-            <p class="text-sm text-gray-600">Provides a rich ecosystem that enables researchers and students to do excellent AI research which will create tools and opportunities that facilitate the transition to a just society.</p>
+            <h3 class="font-semibold text-text-base mb-2">UCT AI Initiative</h3>
+            <p class="text-sm text-text-muted">Provides a rich ecosystem that enables researchers and students to do excellent AI research which will create tools and opportunities that facilitate the transition to a just society.</p>
           </div>
           
           <div class="border-l-4 border-purple-500 pl-4">
-            <h3 class="font-semibold text-gray-900 mb-2">PIBBSS</h3>
-            <p class="text-sm text-gray-600">Facilitates knowledge transfer from fields studying intelligence in natural systems toward building human-aligned AI.</p>
+            <h3 class="font-semibold text-text-base mb-2">PIBBSS</h3>
+            <p class="text-sm text-text-muted">Facilitates knowledge transfer from fields studying intelligence in natural systems toward building human-aligned AI.</p>
           </div>
           
-          <div class="border-l-4 border-orange-500 pl-4">
-            <h3 class="font-semibold text-gray-900 mb-2">AI Safety South Africa (AISSA)</h3>
-            <p class="text-sm text-gray-600">A capacity building organisation focused on developing skills and community in South Africa through events, courses, and co-working at AI Safety Cape Town.</p>
+          <div class="border-l-4 border-primary pl-4">
+            <h3 class="font-semibold text-text-base mb-2">AI Safety South Africa (AISSA)</h3>
+            <p class="text-sm text-text-muted">A capacity building organisation focused on developing skills and community in South Africa through events, courses, and co-working at AI Safety Cape Town.</p>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
       <!-- Right column: Partner logos -->
       <div class="space-y-8">
         <!-- CoopAI logo -->
-        <div class="bg-gray-50 p-6 rounded-lg text-center">
+        <div class="bg-surface-alt p-6 rounded-lg text-center">
           <div class="mx-auto mb-4 flex items-center justify-center">
             <Image 
               src={CoopAILogo} 
@@ -58,13 +58,13 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
               height={128}
             />
           </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Cooperative AI Foundation (CAIF)</h3>
+          <h3 class="font-semibold text-text-base mb-2">Cooperative AI Foundation (CAIF)</h3>
         </div>
         
         <!-- AI Initiative and PIBBSS logos -->
         <div class="grid grid-cols-2 gap-4">
           <!-- UCT AI Initiative -->
-          <div class="bg-gray-50 p-4 rounded-lg text-center">
+          <div class="bg-surface-alt p-4 rounded-lg text-center">
             <div class="mx-auto mb-3 flex items-center justify-center">
               <Image 
                 src={AIInitiativeLogo} 
@@ -73,11 +73,11 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
                 height={96}
               />
             </div>
-            <h3 class="font-semibold text-gray-900 text-sm">UCT AI Initiative</h3>
+            <h3 class="font-semibold text-text-base text-sm">UCT AI Initiative</h3>
           </div>
           
           <!-- PIBBSS -->
-          <div class="bg-gray-50 p-4 rounded-lg text-center">
+          <div class="bg-surface-alt p-4 rounded-lg text-center">
             <div class="mx-auto mb-3 flex items-center justify-center">
               <Image 
                 src={PIBBSLogo} 
@@ -86,12 +86,12 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
                 height={96}
               />
             </div>
-            <h3 class="font-semibold text-gray-900 text-sm">PIBBSS</h3>
+            <h3 class="font-semibold text-text-base text-sm">PIBBSS</h3>
           </div>
         </div>
         
         <!-- AISSA logo -->
-        <div class="bg-gray-50 p-6 rounded-lg text-center">
+        <div class="bg-surface-alt p-6 rounded-lg text-center">
           <div class="mx-auto mb-4 flex items-center justify-center">
             <Image 
               src={AISSALogo} 
@@ -100,7 +100,7 @@ import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
               height={128}
             />
           </div>
-          <h3 class="font-semibold text-gray-900 mb-2">AI Safety South Africa (AISSA)</h3>
+          <h3 class="font-semibold text-text-base mb-2">AI Safety South Africa (AISSA)</h3>
         </div>
       </div>
     </div>

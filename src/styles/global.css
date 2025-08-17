@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+:root {
+  /* CAISAF Primary Colors */
+  --color-primary: 15 85% 46%; /* #D54314 - Orange 700 */
+
+  /* CAISAF Secondary Colors */
+  --color-white: 210 100% 99%; /* #FDFEFF - White 100 */
+  --color-blue-light: 220 20% 91%; /* #E5E8ED - Blue 200 */
+  --color-green-dark: 120 85% 8%; /* #032306 - Green 800 */
+
+  /* CAISAF Tertiary Colors */
+  --color-yellow: 55 100% 93%; /* #FFF9D6 - Yellow 500 */
+  --color-mud: 30 25% 87%; /* #E7DFD6 - Mud 300 */
+  --color-black: 120 85% 2%; /* #011403 - Black 900 */
+  --color-mud-light: 30 25% 93%; /* #F1ECE6 - Mud 200 */
+
+  /* CAISAF Serif Colors */
+  --color-button: 0 0% 0%; /* #000000 - Button */
+
+  /* Neutral Colors for UI */
+  --color-text-base: 220 13% 18%; /* Dark gray for text */
+  --color-text-muted: 220 9% 46%; /* Medium gray for muted text */
+  --color-surface: 0 0% 100%; /* White for surfaces */
+  --color-surface-alt: 220 14% 96%; /* Light gray for alternate surfaces */
+}
