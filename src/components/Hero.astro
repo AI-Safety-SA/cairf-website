@@ -1,16 +1,24 @@
 ---
 // Hero section component
+import { Image } from 'astro:assets';
+import dummyImage from '../assets/dummy_image.png';
 ---
 
 <section class="relative min-h-screen flex items-center">
   <!-- Left side with background image -->
   <div class="w-1/2 relative">
-    <div class="absolute inset-0 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-600 opacity-90"></div>
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grain%22 width=%22100%22 height=%22100%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2225%22 cy=%2225%22 r=%221%22 fill=%22rgba(255,255,255,0.1)%22/><circle cx=%2275%22 cy=%2275%22 r=%221%22 fill=%22rgba(255,255,255,0.1)%22/><circle cx=%2250%22 cy=%2250%22 r=%220.5%22 fill=%22rgba(255,255,255,0.05)%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grain)%22/></svg>')] opacity-30"></div>
-    <div class="relative z-10 flex items-center justify-center h-full">
-      <div class="text-center text-white px-8">
-        <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          A 3-month research fellowship focussed on cooperation in multi-agent systems with mentors from AI safety.
+    <Image 
+      src={dummyImage} 
+      alt="Abstract textured surface with diagonal line" 
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="relative z-10 flex items-center h-full">
+      <div class="text-white px-8">
+        <h2 class="text-4xl md:text-6xl font-serif leading-tight">
+          Researching<br>
+          cooperation for<br>
+          multi-agent<br>
+          systems
         </h2>
       </div>
     </div>
@@ -19,16 +27,17 @@
   <!-- Right side with content -->
   <div class="w-1/2 bg-white flex items-center justify-center px-12">
     <div class="max-w-lg">
-      <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-        The Cooperative AI South Africa Fellowship is a fully funded 3 month research program for exceptional talent to work with globally recognised thought leaders in AI Safety to advance the safe and beneficial development of multi-agent AI systems.
+      <p class="text-lg text-gray-900 mb-6 leading-relaxed">
+        The Cooperative AI South Africa Fellowship is a fully funded 3 month research program for exceptional talent to work with globally recognised thought leaders in Cooperative AI to advance the safe and beneficial development of multi-agent AI systems.
       </p>
       
       <div class="mb-8">
-        <p class="text-sm text-gray-600 mb-2">Application deadline</p>
-        <p class="text-2xl font-bold text-gray-900">28 September 2025</p>
+        <p class="text-lg text-gray-900">
+          The application deadline is <strong>28 September 2025.</strong>
+        </p>
       </div>
       
-      <a href="#apply" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors duration-200">
+      <a href="#apply" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
         APPLY NOW
       </a>
     </div>
