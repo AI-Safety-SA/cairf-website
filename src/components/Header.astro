@@ -1,31 +1,125 @@
 ---
-// Header component with navigation
+import NavItem from "./NavItem.astro";
 ---
 
-<header class="bg-surface shadow-sm">
+<header class="bg-surface shadow-sm z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <!-- Logo/Site Title -->
-      <div class="flex-shrink-0">
-        <h1 class="text-xl font-semibold text-text-base">
-          Cooperative AI South Africa Fellowship
+      <div class="flex-shrink-0 flex-1 min-w-0">
+        <h1 class="text-lg sm:text-xl font-semibold text-text-base leading-tight">
+          <span class="block sm:inline">Cooperative AI</span>
+          <span class="block sm:inline">South Africa Fellowship</span>
         </h1>
       </div>
       
-      <!-- Navigation -->
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <a href="#about" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium">About</a>
-        <a href="#tracks" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium">Tracks</a>
-        <a href="#partners" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium">Partners</a>
-        <a href="#faq" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium">FAQ</a>
+        <a href="#about" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+        <a href="#tracks" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium transition-colors duration-200">Tracks</a>
+        <a href="#partners" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium transition-colors duration-200">Partners</a>
+        <a href="#faq" class="text-text-muted hover:text-text-base px-3 py-2 text-sm font-medium transition-colors duration-200">FAQ</a>
       </nav>
       
-      <!-- Apply Button -->
-      <div class="flex-shrink-0">
+      <!-- Apply Button (Desktop) -->
+      <div class="hidden md:flex flex-shrink-0">
         <a href="#apply" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200">
           APPLY
         </a>
       </div>
+
+      <!-- Hamburger Menu Button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-text-base rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-colors duration-200"
+        aria-controls="navbar-mobile"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      class="hidden absolute left-0 top-full w-full shadow-lg rounded-b-xl bg-white z-40 border-t border-gray-200 md:hidden"
+      id="navbar-mobile"
+    >
+      <div class="px-4 py-4">
+        <nav class="space-y-2">
+          <a href="#about" class="block px-3 py-3 text-sm font-medium text-text-base hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200">About</a>
+          <a href="#tracks" class="block px-3 py-3 text-sm font-medium text-text-base hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200">Tracks</a>
+          <a href="#partners" class="block px-3 py-3 text-sm font-medium text-text-base hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200">Partners</a>
+          <a href="#faq" class="block px-3 py-3 text-sm font-medium text-text-base hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200">FAQ</a>
+        </nav>
+        <div class="pt-4 mt-4 border-t border-gray-200">
+          <a href="#apply" class="block w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md text-sm font-medium transition-colors duration-200 text-center">
+            APPLY
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('navbar-mobile');
+
+    if (hamburgerButton && mobileMenu) {
+      // Toggle mobile menu
+      hamburgerButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+        const newExpandedState = (!isExpanded).toString();
+        
+        hamburgerButton.setAttribute('aria-expanded', newExpandedState);
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          hamburgerButton.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function (event) {
+        const target = event.target as Node;
+        if (!hamburgerButton.contains(target) && !mobileMenu.contains(target)) {
+          mobileMenu.classList.add('hidden');
+          hamburgerButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu on window resize if switching to desktop
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) { // md breakpoint
+          hamburgerButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
