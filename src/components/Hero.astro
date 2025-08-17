@@ -1,45 +1,69 @@
 ---
 // Hero section component
 import { Image } from 'astro:assets';
-import dummyImage from '../assets/dummy_image.png';
+import heroImage from '../assets/hero-image.png';
 ---
 
-<section class="relative min-h-screen flex items-center">
-  <!-- Left side with background image -->
-  <div class="w-1/2 relative">
-    <Image 
-      src={dummyImage} 
-      alt="Abstract textured surface with diagonal line" 
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="relative z-10 flex items-center h-full">
-      <div class="text-white px-8">
-        <h2 class="text-4xl md:text-6xl font-serif leading-tight">
-          Researching<br>
-          cooperation for<br>
-          multi-agent<br>
-          systems
-        </h2>
+<section class="relative">
+  <!-- Hero Section -->
+  <div class="relative min-h-screen flex">
+    <!-- Left side - Text content with green background (Desktop) -->
+    <div class="hidden md:flex md:w-2/5 bg-green-dark items-center justify-center">
+      <div class="text-white px-8 md:px-12 lg:px-16 max-w-lg">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif leading-tight">
+          A 3-month research fellowship focussed on cooperation in multi-agent systems with mentors from AI safety.
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Right side - Hero image (Desktop) -->
+    <div class="hidden md:block md:w-3/5 relative">
+      <Image 
+        src={heroImage} 
+        alt="Two figures exploring a fantastical underwater forest with glowing fish-like creatures" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+    </div>
+    
+    <!-- Mobile layout - Full background image with text overlay -->
+    <div class="md:hidden relative w-full min-h-screen">
+      <Image 
+        src={heroImage} 
+        alt="Two figures exploring a fantastical underwater forest with glowing fish-like creatures" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      <!-- Text Overlay for Mobile -->
+      <div class="relative z-10 flex items-end h-full">
+        <div class="w-full">
+          <div class="bg-black/60 backdrop-blur-sm p-6">
+            <h1 class="text-2xl font-serif text-white leading-tight">
+              A 3-month research fellowship focussed on cooperation in multi-agent systems with mentors from AI safety.
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   
-  <!-- Right side with content -->
-  <div class="w-1/2 bg-surface flex items-center justify-center px-12">
-    <div class="max-w-lg">
-      <p class="text-lg text-text-base mb-6 leading-relaxed">
-        The Cooperative AI South Africa Fellowship is a fully funded 3 month research program for exceptional talent to work with globally recognised thought leaders in Cooperative AI to advance the safe and beneficial development of multi-agent AI systems.
-      </p>
-      
-      <div class="mb-8">
-        <p class="text-lg text-text-base">
-          The application deadline is <strong>28 September 2025.</strong>
+  <!-- Content Section Below Hero -->
+  <div class="bg-green-dark text-white py-12 md:py-16 lg:py-20">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-4xl">
+      <div class="text-center">
+        <p class="text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed">
+          The Cooperative AI guild is hosting a fully funded 3 month research fellowship for exceptional talent to work with globally recognised thought leaders in Cooperative AI to advance the safe and beneficial development of multi-agent AI systems.
         </p>
+        
+        <div class="mb-10">
+          <p class="text-lg md:text-xl">
+            The application deadline is <strong>28 September 2025</strong>.
+          </p>
+        </div>
+        
+        <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200 rounded">
+          APPLY NOW
+        </a>
       </div>
-      
-      <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
-        APPLY NOW
-      </a>
     </div>
   </div>
 </section>
