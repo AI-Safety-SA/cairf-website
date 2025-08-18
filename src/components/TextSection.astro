@@ -1,0 +1,30 @@
+---
+// Reusable text section component
+export interface Props {
+  title: string;
+  content: string | string[];
+  position: 'left' | 'right';
+}
+
+const { title, content, position } = Astro.props;
+---
+
+<div class={`w-1/2 ${position === 'left' ? 'ml-0' : 'ml-auto'} bg-white p-8 rounded-lg shadow-lg`}>
+  <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+    {title}
+  </h2>
+  
+  {Array.isArray(content) ? (
+    <div class="space-y-4">
+      {content.map((paragraph) => (
+        <p class="text-lg text-black leading-relaxed">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  ) : (
+    <p class="text-lg text-black leading-relaxed">
+      {content}
+    </p>
+  )}
+</div>
