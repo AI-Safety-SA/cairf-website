@@ -1,31 +1,121 @@
 ---
-// Header component with navigation
+// Header component with responsive navigation
 ---
 
-<header class="bg-white shadow-sm">
+<header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-      <!-- Logo/Site Title -->
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <h1 class="text-xl font-semibold text-gray-900">
+        <a href="#" class="text-black font-semibold text-lg md:text-xl">
           Cooperative AI South Africa Fellowship
-        </h1>
+        </a>
       </div>
-      
-      <!-- Navigation -->
+
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <a href="#about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
-        <a href="#tracks" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Tracks</a>
-        <a href="#partners" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Partners</a>
-        <a href="#faq" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">FAQ</a>
+        <a href="#about" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          About
+        </a>
+        <a href="#tracks" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Tracks
+        </a>
+        <a href="#partners" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Partners
+        </a>
+        <a href="#faq" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          FAQ
+        </a>
       </nav>
-      
+
       <!-- Apply Button -->
-      <div class="flex-shrink-0">
-        <a href="#apply" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+      <div class="hidden md:block">
+        <a href="#apply" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded border border-orange-500 font-medium transition-colors duration-200">
           APPLY
         </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+          aria-label="Toggle mobile menu"
+          type="button"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100 shadow-lg">
+        <a href="#about" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          About
+        </a>
+        <a href="#tracks" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Tracks
+        </a>
+        <a href="#partners" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Partners
+        </a>
+        <a href="#faq" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          FAQ
+        </a>
+        <div class="px-3 py-2">
+          <a href="#apply" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded border border-orange-500 font-medium transition-colors duration-200 inline-block">
+            APPLY
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </header>
+<script>
+  // Simple mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Header script loaded');
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    
+    console.log('Button:', button);
+    console.log('Menu:', menu);
+    
+    if (button && menu) {
+      button.onclick = function() {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          button.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+        } else {
+          menu.classList.add('hidden');
+          button.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          `;
+        }
+      };
+      
+      // Close menu when clicking on links
+      const links = menu.querySelectorAll('a');
+      links.forEach(link => {
+        link.onclick = function() {
+          menu.classList.add('hidden');
+          button.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          `;
+        };
+      });
+    }
+  });
+</script>

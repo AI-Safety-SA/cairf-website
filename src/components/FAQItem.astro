@@ -2,40 +2,63 @@
 export interface Props {
   question: string;
   answer: string | string[];
+  isLast?: boolean;
 }
 
-const { question, answer } = Astro.props;
+const { question, answer, isLast = false } = Astro.props;
 ---
 
-<div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
-  <button 
-    class="faq-toggle w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-    data-faq-toggle
-  >
-    <h3 class="text-lg font-semibold text-gray-900 pr-4">{question}</h3>
-    <svg 
-      class="faq-arrow w-5 h-5 text-gray-500 transform transition-transform duration-200 flex-shrink-0" 
-      fill="none" 
-      stroke="currentColor" 
-      viewBox="0 0 24 24"
+<div class="faq-item">
+  <!-- Desktop version: Always expanded -->
+  <div class="hidden md:block">
+    <h3 class="text-lg font-semibold text-white mb-3">{question}</h3>
+    <div class="text-white/80 mb-6">
+      {Array.isArray(answer) ? (
+        <ul class="space-y-2">
+          {answer.map((item) => <li>{item}</li>)}
+        </ul>
+      ) : (
+        <p>{answer}</p>
+      )}
+    </div>
+    {!isLast && <hr class="border-white/20 mb-6" />}
+  </div>
+
+  <!-- Mobile version: Accordion dropdown -->
+  <div class="md:hidden">
+    <button 
+      class="faq-toggle w-full py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+      data-faq-toggle
     >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-    </svg>
-  </button>
-  
-  <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
-    {Array.isArray(answer) ? (
-      <ul class="text-gray-700 space-y-2">
-        {answer.map((item) => <li>{item}</li>)}
-      </ul>
-    ) : (
-      <p class="text-gray-700">{answer}</p>
-    )}
+      <h3 class="text-lg font-semibold text-white pr-4">{question}</h3>
+      <svg 
+        class="faq-arrow w-5 h-5 text-white transform transition-transform duration-200 flex-shrink-0" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    
+    <div class="faq-content hidden pb-4">
+      <div class="text-white/80">
+        {Array.isArray(answer) ? (
+          <ul class="space-y-2">
+            {answer.map((item) => <li>{item}</li>)}
+          </ul>
+        ) : (
+          <p>{answer}</p>
+        )}
+      </div>
+    </div>
+    
+    {!isLast && <hr class="border-white/20" />}
   </div>
 </div>
 
 <script>
-  // FAQ dropdown functionality
+  // FAQ dropdown functionality for mobile only
   document.addEventListener('DOMContentLoaded', () => {
     const faqToggles = document.querySelectorAll('[data-faq-toggle]');
     

@@ -1,0 +1,77 @@
+---
+// Main content sections component
+import TextSection from './TextSection.astro';
+import contentImg1 from '../assets/content_img_1.svg';
+import contentImg2 from '../assets/content_img_2.svg';
+import contentImg3 from '../assets/content_img_3.svg';
+import dummyImage from '../assets/dummy_image.png';
+---
+
+<section class="relative min-h-screen bg-gray-50">
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="space-y-8">
+      <!-- Mentorship Section -->
+      <div class="flex items-center min-h-96">
+        <TextSection 
+          title="Mentorship"
+          content="Each fellow will be matched with an expert mentor, who will provide in-person feedback on their project. In addition, fellows will be guided by a research manager who will facilitate their research process and connect them to relevant resources during weekly meetings."
+          position="left"
+          image={contentImg1}
+          imageAlt="Mentorship illustration"
+        />
+      </div>
+      
+      <!-- Application Process Section -->
+      <div class="flex items-center min-h-96">
+        <TextSection 
+          title="Application Process"
+          content="There will be a three-phase application process. Phase 1: eligibility screening covering CV, background in ML, programming experience, research interests, AI safety knowledge and career plans. Phase 2: skills assessment on our evaluation platform. Phase 3: interview. We value inclusion and encourage applicants from diverse backgrounds. Please contact us if you require special accommodation in order to apply."
+          position="right"
+          image={contentImg2}
+          imageAlt="Application process illustration"
+        />
+      </div>
+      
+      <!-- Selection Criteria Section -->
+      <div class="flex items-center min-h-96">
+        <TextSection 
+          title="Selection Criteria"
+          content="Our key criterion is the potential to conduct impactful cooperative AI research. As evidence of this, we evaluate applications on the strength of your research proposal as well as your experience, skills and career aspirations. Research proposals should: • Be focused on multi-agent cooperation problems involving AI systems."
+          position="left"
+          image={contentImg3}
+          imageAlt="Selection criteria illustration"
+        />
+      </div>
+      
+      <!-- Why Cooperative AI Section -->
+      <div class="flex items-center min-h-96">
+        <TextSection 
+          title="Why Cooperative AI"
+          content={[
+            "As AI systems become more powerful and autonomous, it is crucial to ensure they are used for good and benefit all of humanity. Cooperation is key to achieving beneficial outcomes in complex, multi-agent environments.",
+            "Designing cooperative AI systems presents unique challenges, including aligning values across different agents, managing conflicts of interest, and ensuring fairness and transparency in decision-making processes.",
+            "Through this fellowship, we aim to contribute to solving these challenges and building a future where AI systems work together cooperatively for the benefit of humanity."
+          ]}
+          position="right"
+          image={dummyImage}
+          imageAlt="Cooperative AI illustration"
+        />
+      </div>
+      
+      <!-- Why South Africa Section -->
+      <div class="flex items-center min-h-96">
+        <TextSection 
+          title="Why South Africa"
+          content={[
+            "South Africa has a growing AI ecosystem with diverse talent and unique challenges and opportunities for AI development. The country offers a rich environment for exploring cooperative AI research.",
+            "Through this fellowship, we aim to leverage this potential and contribute to building a strong AI research community in South Africa that can address both local and global challenges in cooperative AI."
+          ]}
+          position="left"
+          image={contentImg1}
+          imageAlt="South Africa AI ecosystem illustration"
+        />
+      </div>
+    </div>
+  </div>
+</section>

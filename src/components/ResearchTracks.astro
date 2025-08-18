@@ -1,104 +1,105 @@
 ---
 // Research Tracks section component
+import ApplyButton from './ApplyButton.astro';
 ---
 
-<section id="tracks" class="py-20 bg-[#E8DFD6]">
+<section id="tracks" class="py-20 bg-mud">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-text-base text-center mb-12">
       Research Tracks
     </h2>
     
-    <p class="text-lg text-gray-700 text-center mb-12">
+    <p class="text-lg text-text-muted text-center mb-12">
       We have identified the following tentative tracks for the fellowship.
     </p>
     
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Multi-Agent Safety -->
-      <div class="bg-white p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+      <div class="bg-surface p-8 rounded-lg shadow-sm">
+        <h3 class="text-xl font-semibold text-text-base mb-4">
           1. Multi-Agent Safety
         </h3>
-        <ul class="text-gray-700 space-y-3">
+        <ul class="text-text-muted space-y-3">
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Monitoring and Controlling Dynamic Networks of Agents and Emergent Properties</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Monitoring Collusion in AI Agents</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Cooperation-Relevant Evaluations</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Incentivizing Cooperation</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>The Fundamentals of Information Asymmetries and Transparency</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Multi-Agent Security</span>
           </li>
         </ul>
       </div>
       
       <!-- AI for Facilitating Human Cooperation -->
-      <div class="bg-white p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+      <div class="bg-surface p-8 rounded-lg shadow-sm">
+        <h3 class="text-xl font-semibold text-text-base mb-4">
           2. AI for Facilitating Human Cooperation (including AI for Democracy)
         </h3>
-        <ul class="text-gray-700 space-y-3">
+        <ul class="text-text-muted space-y-3">
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Democratic decision-making systems</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Collective intelligence applications</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Participatory governance tools</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Civic technology development</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Human-AI collaboration frameworks</span>
           </li>
         </ul>
       </div>
       
       <!-- Multilateral AI Governance -->
-      <div class="bg-white p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+      <div class="bg-surface p-8 rounded-lg shadow-sm">
+        <h3 class="text-xl font-semibold text-text-base mb-4">
           3. Multilateral AI Governance
         </h3>
-        <ul class="text-gray-700 space-y-3">
+        <ul class="text-text-muted space-y-3">
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>International AI governance frameworks</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Multi-stakeholder cooperation mechanisms</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Policy coordination across jurisdictions</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>AI safety standards development</span>
           </li>
           <li class="flex items-start">
-            <span class="text-orange-500 mr-2">•</span>
+            <span class="text-primary mr-2">•</span>
             <span>Cross-border AI cooperation protocols</span>
           </li>
         </ul>
@@ -107,9 +108,7 @@
     
     <!-- Apply button at bottom right -->
     <div class="flex justify-end mt-12">
-      <a href="#apply" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-md text-lg font-semibold transition-colors duration-200">
-        APPLY NOW
-      </a>
+      <ApplyButton />
     </div>
   </div>
 </section>
