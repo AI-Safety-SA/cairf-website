@@ -1,0 +1,42 @@
+---
+// Apply button component with customizable props
+export interface Props {
+  text?: string;
+  size?: 'sm' | 'lg';
+  rounded?: boolean;
+  href?: string;
+  class?: string;
+}
+
+const { 
+  text = 'APPLY NOW', 
+  size = 'lg', 
+  rounded = false, 
+  href = '#apply',
+  class: additionalClasses = ''
+} = Astro.props;
+
+// Size variants
+const sizeClasses = {
+  sm: 'px-6 py-2 text-sm',
+  lg: 'px-8 py-4 text-lg'
+};
+
+// Build the class string
+const buttonClasses = [
+  'inline-block',
+  'bg-orange-500',
+  'hover:bg-orange-600', 
+  'text-white',
+  'font-semibold',
+  'transition-colors',
+  'duration-200',
+  sizeClasses[size],
+  rounded ? 'rounded-md' : '',
+  additionalClasses
+].filter(Boolean).join(' ');
+---
+
+<a href={href} class={buttonClasses}>
+  {text}
+</a>

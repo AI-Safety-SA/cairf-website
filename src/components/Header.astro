@@ -1,5 +1,6 @@
 ---
 // Header component with navigation
+import ApplyButton from './ApplyButton.astro';
 ---
 
 <header class="bg-white shadow-sm">
@@ -22,9 +23,7 @@
       
       <!-- Apply Button -->
       <div class="flex-shrink-0">
-        <a href="#apply" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-          APPLY
-        </a>
+        <ApplyButton text="APPLY" size="sm" rounded={true} class="font-medium" />
       </div>
     </div>
   </div>
