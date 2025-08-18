@@ -1,20 +1,30 @@
 ---
 // About section component
+import { Image } from 'astro:assets';
+import aboutImage from '../assets/about_image.png';
 ---
 
 <section id="about" class="py-20 bg-surface">
-  <div class="flex">
-    <!-- Left black bar -->
-    <div class="w-16 bg-black"></div>
-    
-    <!-- Center content area -->
-    <div class="flex-1 bg-yellow px-8 py-12">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-text-base mb-8">
-          About the Cooperative AI South Africa Fellowship
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left column - Image -->
+      <div class="flex justify-center items-center">
+        <Image 
+          src={aboutImage} 
+          alt="Cooperative AI South Africa Fellowship" 
+          width={512}
+          height={512}
+          class="max-w-full h-auto"
+        />
+      </div>
+
+      <!-- Right column - Content -->
+      <div class="space-y-8 m-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-base">
+          About The Fellowship
         </h2>
         
-        <div class="space-y-6 text-text-base mb-8">
+        <div class="space-y-6 text-text-base">
           <p class="text-lg leading-relaxed">
             Participants from around the world will pursue cooperative AI research for 3 months from January - April 2026. The fellowship kicks off with a week-long retreat and culminates with a conference.
           </p>
@@ -28,16 +38,15 @@
           </p>
         </div>
         
-        <!-- Apply button centered -->
-        <div class="text-center">
+        <!-- Apply button -->
+        <div class="pt-4">
           <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
             APPLY NOW
           </a>
         </div>
       </div>
+      
+
     </div>
-    
-    <!-- Right black bar -->
-    <div class="w-16 bg-black"></div>
   </div>
 </section>
