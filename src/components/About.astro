@@ -2,6 +2,7 @@
 // About section component
 import { Image } from 'astro:assets';
 import aboutImage from '../assets/about_image.png';
+import ApplyButton from './ApplyButton.astro';
 ---
 
 <section id="about" class="py-20 bg-surface">
@@ -40,9 +41,7 @@ import aboutImage from '../assets/about_image.png';
         
         <!-- Apply button -->
         <div class="pt-4">
-          <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
-            APPLY NOW
-          </a>
+          <ApplyButton />
         </div>
       </div>
       
