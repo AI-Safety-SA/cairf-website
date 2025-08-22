@@ -1,97 +1,83 @@
 ---
 // Key Details section component
 import ApplyButton from './ApplyButton.astro';
-import keyDetailsImage from '../assets/key_details.png';
-import { Image } from 'astro:assets';
 ---
 
 <section class="bg-green-dark">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-      <!-- Left Column - Key Details Text -->
-      <div class="bg-green-dark text-white p-12 lg:p-16">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-12 font-sans">
-          Key Details
-        </h2>
-        
-        <div class="space-y-8">
-          <!-- Location -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Location</h3>
-            <p class="text-lg">In-person in Cape Town, South Africa.</p>
-          </div>
-          
-          <!-- Application Deadline -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Application Deadline</h3>
-            <p class="text-lg">28 September 2025.</p>
-          </div>
-          
-          <!-- Start Date -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Start Date</h3>
-            <p class="text-lg">10 January 2026.</p>
-          </div>
-          
-          <!-- Duration -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Duration</h3>
-            <p class="text-lg">3 months, ending 13 April 2026.</p>
-          </div>
-          
-          <!-- Stipend -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Stipend</h3>
-            <p class="text-lg">$1170 (R21000)/month for living expenses and $669 (R12000)/month for accommodation for 3 months. Note that these are generous given the comparatively <span class="underline">low cost of living in South Africa</span>.</p>
-          </div>
-          
-          <!-- Travel Support -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Travel Support</h3>
-            <p class="text-lg">We cover flights to and from Cape Town.</p>
-          </div>
-          
-          <!-- Visas -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Visas</h3>
-            <p class="text-lg">We aren't able to cover visas, however visitors visas are easy to acquire for many countries and last up to 90 days, with relatively simple processes for extension. We can provide support in handling your visitor's visa extension process.</p>
-          </div>
-          
-          <!-- Compute Budget -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Compute Budget</h3>
-            <p class="text-lg">We offer compute support through our partner organizations.</p>
-          </div>
-          
-          <!-- Eligibility -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Eligibility</h3>
-            <p class="text-lg">Early career researchers interested in applying their skills to AI Safety with a background in machine learning, MARL, Game Theory, complex systems or Math are preferred. We are committed to the growth of a diverse and inclusive research community and welcome applications from underrepresented backgrounds.</p>
-          </div>
-          
-          <!-- Participants -->
-          <div>
-            <h3 class="text-xl font-bold mb-2">Participants</h3>
-            <p class="text-lg">There will be 6-12 fellows, with at least 30% from South African institutions, the rest of the 50-70% of the cohort will be drawn from a diverse pool of international applicants.</p>
-          </div>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <div class="text-white">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-12 font-sans text-left">
+        Key Details
+      </h2>
+      
+      <div class="space-y-6">
+        <!-- Location -->
+        <div>
+          <span class="text-xl font-bold">Location:</span>
+          <span class="text-lg ml-2">In-person in Cape Town, South Africa.</span>
         </div>
         
-        <!-- Apply Button -->
-        <div class="mt-12">
-          <ApplyButton 
-            href="#apply" 
-            variant="default" 
-            className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 text-lg rounded-md transition-colors duration-200"
-          />
+        <!-- Application Deadline -->
+        <div>
+          <span class="text-xl font-bold">Application Deadline:</span>
+          <span class="text-lg ml-2">28 September 2025.</span>
+        </div>
+        
+        <!-- Start Date -->
+        <div>
+          <span class="text-xl font-bold">Start Date:</span>
+          <span class="text-lg ml-2">10 January 2026.</span>
+        </div>
+        
+        <!-- Duration -->
+        <div>
+          <span class="text-xl font-bold">Duration:</span>
+          <span class="text-lg ml-2">3 months, ending 13 April 2026.</span>
+        </div>
+        
+        <!-- Stipend -->
+        <div>
+          <span class="text-xl font-bold">Stipend:</span>
+          <span class="text-lg ml-2">$1170 (R21000)/month for living expenses. Note that these are generous given the comparatively <span class="underline">low cost of living in South Africa</span>.</span>
+        </div>
+        
+        <!-- Travel Support -->
+        <div>
+          <span class="text-xl font-bold">Travel Support:</span>
+          <span class="text-lg ml-2">We cover flights to and from Cape Town.</span>
+        </div>
+        
+        <!-- Visas -->
+        <div>
+          <span class="text-xl font-bold">Visas:</span>
+          <span class="text-lg ml-2">We aren't able to cover visas, however visitors visas are easy to acquire for many countries and last up to 90 days, with relatively simple processes for extension. We can provide support in handling your visitor's visa extension process.</span>
+        </div>
+        
+        <!-- Compute Budget -->
+        <div>
+          <span class="text-xl font-bold">Compute Budget:</span>
+          <span class="text-lg ml-2">We offer compute support through our partner organizations.</span>
+        </div>
+        
+        <!-- Eligibility -->
+        <div>
+          <span class="text-xl font-bold">Eligibility:</span>
+          <span class="text-lg ml-2">We welcome participants from all kinds of backgrounds, but a fundamental understanding of machine learning is required. Additional expertise in MARL, game theory, complex systems, mathematics, economics, and international governance is appreciated. We are committed to the growth of a diverse and inclusive research community and welcome applicants from underrepresented backgrounds.</span>
+        </div>
+        
+        <!-- Participants -->
+        <div>
+          <span class="text-xl font-bold">Participants:</span>
+          <span class="text-lg ml-2">There will be 6-12 fellows, with at least 30% from South African institutions. The remaining 50-70% of the cohort will be drawn from a diverse pool of international applicants.</span>
         </div>
       </div>
       
-      <!-- Right Column - Image -->
-        <Image 
-          src={keyDetailsImage} 
-          alt="Key Details Illustration" 
-          class="w-full h-full object-cover"
-        />
+      <!-- Apply Button - Right aligned on desktop, centered on mobile -->
+      <div class="mt-12 flex justify-center lg:justify-end">
+        <ApplyButton 
+          variant="default"
+          />
+      </div>
     </div>
   </div>
 </section>
