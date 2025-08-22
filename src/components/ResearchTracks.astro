@@ -1,114 +1,122 @@
 ---
 // Research Tracks section component
 import ApplyButton from './ApplyButton.astro';
----
+import TextDropdown from './TextDropdown.astro';
+import { Image } from 'astro:assets';
+import groundBugs from '../assets/ground_bugs.svg';
+import roundTable from '../assets/round_table.svg';
+import mechSwarm from '../assets/mech_swarm.svg';
 
-<section id="tracks" class="py-20 bg-mud">
+// Research tracks data
+const researchTracks = [
+  {
+    title: "Multi-Agent Safety",
+    description: "Understand and control the collective dynamics arising from the interactions within multi-agent networks.",
+    image: groundBugs,
+    points: [
+      "Investigate strategies to stabilise their behaviour, prevent harmful emergent properties and stop collusion.",
+      "Evaluate cooperative abilities and propensities, design incentive structures for safe cooperation and study the effects of information asymmetry on interactions.",
+      "Identify and mitigate vulnerabilities that arise in multi-agent settings ensuring they are robust to attacks.",
+      "Explore collective epistemics in LLMs, and assess if this leads to prosocial outcomes."
+    ]
+  },
+  {
+    title: "AI for Facilitating Human Cooperation",
+    description: "Research AI tools for collective decision making allowing for societally beneficial democratic engagement.",
+    image: roundTable,
+    points: [
+      "Explore how delegation and customisation of autonomous agents could be combined to achieve cooperation and social welfare.",
+      "Consider how to enhance deliberative systems to improve democracy and support societal coherence at scale.",
+      "Investigate how to embed human preferences into agents for alignment.",
+      "Research the mechanisms behind the relationship between trust and customisation."
+    ]
+  },
+  {
+    title: "Mitigating Gradual Disempowerment",
+    description: "Develop frameworks for multi-agent systems which serve to preserve human agency, combining technical solutions with robust governance frameworks.",
+    image: mechSwarm,
+    points: [
+      "Hierarchical alignment through AI oversight as a safeguard against undesirable emergent properties.",
+      "Transparency and interpretability in order to understand AI decision-making processes.",
+      "How to design systems that have reversible decisions that can be modified by humans post-deployment."
+    ]
+  }
+];
+---
+<section id="tracks" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-text-base text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-base text-left mb-4">
       Research Tracks
     </h2>
     
-    <p class="text-lg text-text-muted text-center mb-12">
+    <p class="text-lg text-text-muted text-left mb-12">
       We have identified the following tentative tracks for the fellowship.
     </p>
     
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Multi-Agent Safety -->
-      <div class="bg-surface p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-text-base mb-4">
-          1. Multi-Agent Safety
-        </h3>
-        <ul class="text-text-muted space-y-3">
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Monitoring and Controlling Dynamic Networks of Agents and Emergent Properties</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Monitoring Collusion in AI Agents</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Cooperation-Relevant Evaluations</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Incentivizing Cooperation</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>The Fundamentals of Information Asymmetries and Transparency</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Multi-Agent Security</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- AI for Facilitating Human Cooperation -->
-      <div class="bg-surface p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-text-base mb-4">
-          2. AI for Facilitating Human Cooperation (including AI for Democracy)
-        </h3>
-        <ul class="text-text-muted space-y-3">
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Democratic decision-making systems</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Collective intelligence applications</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Participatory governance tools</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Civic technology development</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Human-AI collaboration frameworks</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- Multilateral AI Governance -->
-      <div class="bg-surface p-8 rounded-lg shadow-sm">
-        <h3 class="text-xl font-semibold text-text-base mb-4">
-          3. Gradual Disempowerment
-        </h3>
-        <ul class="text-text-muted space-y-3">
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>-----</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>-----</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>-----</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>-----</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary mr-2">•</span>
-            <span>Cross-border AI cooperation protocols</span>
-          </li>
-        </ul>
+    <!-- Desktop version: Three-column layout with images -->
+    <div class="hidden md:block">
+      <div class="grid grid-cols-3 gap-8">
+        {researchTracks.map((track, index) => (
+          <div class="relative">
+            <div class="mb-6">
+              <Image 
+                src={track.image} 
+                alt={track.title}
+                class="w-full h-auto"
+                width={400}
+                height={300}
+              />
+            </div>
+            
+            <h3 class="text-xl font-semibold text-text-base mb-4">
+              {track.title}
+            </h3>
+            
+            <p class="text-text-muted mb-4">
+              {track.description}
+            </p>
+            
+            <ul class="text-text-muted space-y-2">
+              {track.points.map((point) => (
+                <li class="flex items-start">
+                  <span class="text-text-base mr-2">•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            
+            {/* Vertical separator lines between columns */}
+            {index < researchTracks.length - 1 && (
+              <div class="absolute top-0 right-0 bottom-0 w-px bg-text-muted/20 transform translate-x-4"></div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
     
-    <!-- Apply button at bottom right -->
-    <div class="flex justify-end mt-12">
-      <ApplyButton />
+    <!-- Mobile version: Accordion dropdown -->
+    <div class="md:hidden">
+      {researchTracks.map((track, index) => (
+        <TextDropdown 
+          title={track.title}
+          content={[
+            track.description,
+            ...track.points
+          ]}
+          isLast={index === researchTracks.length - 1}
+          isOpen={index === 0}
+        />
+      ))}
+    </div>
+    
+    <!-- Apply button -->
+    <div class="mt-12">
+      <div class="flex justify-center lg:hidden">
+        <ApplyButton variant="mobile" />
+      </div>
+      <div class="hidden lg:flex lg:justify-end">
+        <ApplyButton variant="desktop" />
+      </div>
     </div>
   </div>
 </section>

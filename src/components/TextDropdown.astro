@@ -1,0 +1,123 @@
+---
+export interface Props {
+  title: string;
+  content: string | string[];
+  isLast?: boolean;
+  isOpen?: boolean;
+}
+
+const { title, content, isLast = false, isOpen = false } = Astro.props;
+
+// Handle content that might be a description followed by bullet points
+const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !content[0].startsWith('•');
+---
+
+<div class="text-dropdown-item">
+  <!-- Desktop version: Always expanded -->
+  <div class="hidden md:block">
+    <h3 class="text-lg font-semibold text-text-base mb-3">{title}</h3>
+    <div class="text-text-muted mb-6">
+      {Array.isArray(content) ? (
+        isResearchTrackContent ? (
+          <div>
+            <p class="mb-4">{content[0]}</p>
+            <ul class="space-y-2">
+              {content.slice(1).map((item) => (
+                <li class="flex items-start">
+                  <span class="text-text-base mr-2">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <ul class="space-y-2">
+            {content.map((item) => <li>{item}</li>)}
+          </ul>
+        )
+      ) : (
+        <p>{content}</p>
+      )}
+    </div>
+    {!isLast && <hr class="border-text-muted/20 mb-6" />}
+  </div>
+
+  <!-- Mobile version: Accordion dropdown -->
+  <div class="md:hidden">
+    <button 
+      class="text-dropdown-toggle w-full py-4 text-left flex items-center justify-between hover:bg-text-muted/5 transition-colors duration-200"
+      data-text-dropdown-toggle
+    >
+      <h3 class="text-lg font-semibold text-text-base pr-4">{title}</h3>
+      <svg 
+        class={`text-dropdown-arrow w-5 h-5 text-text-base transform transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    
+    <div class={`text-dropdown-content pb-4 ${isOpen ? '' : 'hidden'}`}>
+      <div class="text-text-muted">
+        {Array.isArray(content) ? (
+          isResearchTrackContent ? (
+            <div>
+              <p class="mb-4">{content[0]}</p>
+              <ul class="space-y-2">
+                {content.slice(1).map((item) => (
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-2">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <ul class="space-y-2">
+              {content.map((item) => <li>{item}</li>)}
+            </ul>
+          )
+        ) : (
+          <p>{content}</p>
+        )}
+      </div>
+    </div>
+    
+    {!isLast && <hr class="border-text-muted/20" />}
+  </div>
+</div>
+
+<script>
+  // Text dropdown functionality for mobile only
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownToggles = document.querySelectorAll('[data-text-dropdown-toggle]');
+    
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const dropdownItem = toggle.closest('.text-dropdown-item');
+        const content = dropdownItem?.querySelector('.text-dropdown-content');
+        const arrow = dropdownItem?.querySelector('.text-dropdown-arrow');
+        
+        if (content && arrow) {
+          const isOpen = !content.classList.contains('hidden');
+          
+          // Close all other dropdown items
+          document.querySelectorAll('.text-dropdown-content').forEach(item => {
+            item.classList.add('hidden');
+          });
+          document.querySelectorAll('.text-dropdown-arrow').forEach(item => {
+            item.classList.remove('rotate-180');
+          });
+          
+          // Toggle current item
+          if (!isOpen) {
+            content.classList.remove('hidden');
+            arrow.classList.add('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>
