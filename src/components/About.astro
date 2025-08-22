@@ -2,41 +2,25 @@
 // About section component
 import { Image } from 'astro:assets';
 import aboutImage from '../assets/about_image.png';
-import ApplyButton from './ApplyButton.astro';
+import ContentSection from './ContentSection.astro';
 ---
 
-<section id="about" class="py-20 bg-surface">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="flex flex-col items-center">
-      <div class="max-w-4xl space-y-8 px-8 lg:px-12 text-left">
-        <h2 class="text-3xl md:text-4xl font-bold text-text-base">
-          About The Fellowship
-        </h2>
-        
-        <div class="space-y-6 text-text-base">
-          <p class="text-lg leading-relaxed">
-            Participants from around the world will pursue cooperative AI research for 3 months from January - April 2026. The fellowship kicks off with a week-long retreat and culminates with a conference.
-          </p>
-          
-          <p class="text-lg leading-relaxed">
-            Fellows will work with collaborators from partner organisations such as the Cooperative AI Foundation (CAIF), Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS) and The University of Cape Town (UCT) AI Initiative.
-          </p>
-          
-          <p class="text-lg leading-relaxed">
-            Participants will receive 1:1 mentorship from top researchers in the field of cooperative AI, resources for building knowledge in AI safety and comprehensive financial support covering their living and travel expenses while in Cape Town. There will be opportunities for collaboration with other cohort members, a week-long retreat, workshops and access to the AI Safety Cape Town co-working space.
-          </p>
-        </div>
-        
-        <!-- Apply button -->
-        <div class="pt-4 flex justify-center md:justify-end">
-          <div class="hidden md:block">
-            <ApplyButton variant="desktop" />
-          </div>
-          <div class="block md:hidden">
-            <ApplyButton variant="mobile" />
-          </div>
-        </div>
-      </div>
-    </div>
+<ContentSection id="about" backgroundColor="bg-surface">
+  <h2 class="text-3xl md:text-4xl font-bold text-text-base">
+    About The Fellowship
+  </h2>
+  
+  <div class="space-y-6 text-text-base">
+    <p class="text-lg leading-relaxed">
+      Participants from around the world will pursue cooperative AI research for 3 months from January - April 2026. The fellowship kicks off with a week-long retreat and culminates with a conference.
+    </p>
+    
+    <p class="text-lg leading-relaxed">
+      Fellows will work with collaborators from partner organisations such as the Cooperative AI Foundation (CAIF), Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS) and The University of Cape Town (UCT) AI Initiative.
+    </p>
+    
+    <p class="text-lg leading-relaxed">
+      Participants will receive 1:1 mentorship from top researchers in the field of cooperative AI, resources for building knowledge in AI safety and comprehensive financial support covering their living and travel expenses while in Cape Town. There will be opportunities for collaboration with other cohort members, a week-long retreat, workshops and access to the AI Safety Cape Town co-working space.
+    </p>
   </div>
-</section>
+</ContentSection>
