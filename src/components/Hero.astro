@@ -1,20 +1,23 @@
 ---
 // Hero section component
 import ApplyButton from './ApplyButton.astro';
+import Image from 'astro/components/Image.astro';
+import walking from '../assets/walking.svg';
+
 ---
 
 <section class="relative min-h-[calc(100vh-80px)]">
   <!-- Background image -->
   <div class="absolute inset-0 z-0">
-    <img 
-      src="/src/assets/walking.svg" 
+    <Image 
+      src={walking} 
       alt="Walking illustration background" 
       class="w-full h-full object-cover"
     />
   </div>
   
-  <!-- Content overlay -->
-  <div class="relative z-10 flex h-[calc(100vh-60px)]">
+  <!-- Desktop Content overlay -->
+  <div class="relative z-10 hidden md:flex h-[calc(100vh-60px)]">
     <!-- Left half - Text content with transparent black background -->
     <div class="w-1/2 bg-black/40 flex items-center justify-center">
       <div class="p-8 md:p-12 lg:p-16 max-w-lg">
@@ -32,8 +35,33 @@ import ApplyButton from './ApplyButton.astro';
     <div class="w-1/2"></div>
   </div>
   
-  <!-- Apply button in bottom right corner -->
-  <div class="absolute bottom-8 right-8 z-20">
+  <!-- Mobile Content overlay -->
+  <div class="relative z-10 flex md:hidden flex-col h-[calc(100vh-60px)]">
+    <!-- Top section - Text content with transparent black background -->
+    <div class="w-full bg-black/40 flex items-start justify-center pt-8">
+      <div class="p-6 max-w-lg">
+        <h1 class="text-xl font-serif leading-tight text-white mb-4">
+          A 3-month research fellowship developing core topics in Cooperative AI, featuring world-class mentorship.
+        </h1>
+        
+        <p class="text-base text-white">
+          The application deadline is <strong>28 September 2025</strong>.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Bottom section - Empty space for image focus -->
+    <div class="flex-1"></div>
+  </div>
+  
+  <!-- Apply button - Desktop: bottom right, Mobile: bottom center -->
+  <!-- Desktop Apply Button -->
+  <div class="absolute bottom-8 right-8 z-20 hidden md:block">
     <ApplyButton variant="desktop" />
+  </div>
+  
+  <!-- Mobile Apply Button -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 block md:hidden">
+    <ApplyButton variant="mobile" />
   </div>
 </section>
