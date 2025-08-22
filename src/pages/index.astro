@@ -6,12 +6,13 @@ import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import KeyDetails from '../components/KeyDetails.astro';
 import ResearchTracks from '../components/ResearchTracks.astro';
-import ContentSections from '../components/ContentSections.astro';
 import ApplicationDetails from '../components/ApplicationDetails.astro';
+import Mentorship from '../components/Mentorship.astro';
 import Timeline from '../components/Timeline.astro';
 import Partnerships from '../components/Partnerships.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
+import WhySections from '../components/WhySections.astro';
 ---
 
 <html lang="en">
@@ -22,6 +23,11 @@ import Footer from '../components/Footer.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Cooperative AI South Africa Fellowship</title>
 		<meta name="description" content="Join the Cooperative AI South Africa Fellowship and contribute to cutting-edge research in multi-agent cooperation. Applications close 28 September 2025." />
+		
+		<!-- Font imports -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-white">
 		<!-- Header -->
@@ -42,8 +48,11 @@ import Footer from '../components/Footer.astro';
 		<!-- Application Details Section -->
 		<ApplicationDetails />
 		
-		<!-- Content Sections (Why Cooperative AI and Why South Africa) -->
-		<ContentSections />
+		<!-- Mentorship Section -->
+		<Mentorship />
+		
+		<!-- Why Cooperative AI and Why South Africa Section -->
+		<WhySections />
 		
 		<!-- Timeline Section -->
 		<Timeline />
