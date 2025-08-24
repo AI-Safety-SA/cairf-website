@@ -1,7 +1,5 @@
 ---
 // Footer component
-import logo from '../assets/logo.svg';
-import Image from 'astro/components/Image.astro';
 ---
 
 <footer class="bg-black text-white py-12">
@@ -9,9 +7,6 @@ import Image from 'astro/components/Image.astro';
     <div class="flex flex-col md:flex-row justify-between items-center">
       <!-- Left side - Logo -->
       <div class="flex items-center mb-6 md:mb-0">
-        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
-          <Image src={logo} alt="CAIRF Logo" class="h-8 w-auto md:h-10" />
-        </div>
         <div>
           <span class="text-xl font-semibold">Cooperative AI Research Fellowship</span>
           <p class="text-sm text-text-muted mt-1">An AI Safety South Africa program.</p>
