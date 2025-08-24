@@ -5,7 +5,7 @@ import TextDropdown from './TextDropdown.astro';
 import { Image } from 'astro:assets';
 import groundBugs from '../assets/ground_bugs.svg';
 import roundTable from '../assets/round_table.svg';
-import mechSwarm from '../assets/mech_swarm.svg';
+import peopleFollowing from '../assets/people_following_robot.svg';
 
 // Research tracks data
 const researchTracks = [
@@ -21,6 +21,16 @@ const researchTracks = [
     ]
   },
   {
+    title: "Mitigating Gradual Disempowerment",
+    description: "Develop frameworks for multi-agent systems which serve to preserve human agency, combining technical solutions with robust governance frameworks.",
+    image: peopleFollowing,
+    points: [
+      "Hierarchical alignment through AI oversight as a safeguard against undesirable emergent properties.",
+      "Transparency and interpretability in order to understand AI decision-making processes.",
+      "How to design systems that have reversible decisions that can be modified by humans post-deployment."
+    ]
+  },
+  {
     title: "AI for Facilitating Human Cooperation",
     description: "Research AI tools for collective decision making allowing for societally beneficial democratic engagement.",
     image: roundTable,
@@ -31,16 +41,6 @@ const researchTracks = [
       "Research the mechanisms behind the relationship between trust and customisation."
     ]
   },
-  {
-    title: "Mitigating Gradual Disempowerment",
-    description: "Develop frameworks for multi-agent systems which serve to preserve human agency, combining technical solutions with robust governance frameworks.",
-    image: mechSwarm,
-    points: [
-      "Hierarchical alignment through AI oversight as a safeguard against undesirable emergent properties.",
-      "Transparency and interpretability in order to understand AI decision-making processes.",
-      "How to design systems that have reversible decisions that can be modified by humans post-deployment."
-    ]
-  }
 ];
 ---
 <section id="tracks" class="py-20 bg-white">
