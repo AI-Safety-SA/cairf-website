@@ -1,4 +1,5 @@
 ---
+import Image from 'astro/components/Image.astro';
 // MentorItem component for displaying individual mentor profiles
 export interface Props {
   name: string;
@@ -6,7 +7,7 @@ export interface Props {
   linkedin?: string;
   twitter?: string;
   academic?: string;
-  image?: string;
+  image?: ImageMetadata;
 }
 
 const { 
@@ -23,7 +24,7 @@ const {
   <!-- Image placeholder -->
   <div class="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
     {image ? (
-      <img src={image} alt={name} class="w-full h-full object-cover rounded-lg" />
+      <Image src={image} alt={name} class="w-full h-full object-cover rounded-lg" />
     ) : (
       <div class="w-full h-full bg-gray-300 rounded-lg"></div>
     )}
