@@ -1,5 +1,7 @@
 ---
 // Footer component
+import logo from '../assets/logo.svg';
+import Image from 'astro/components/Image.astro';
 ---
 
 <footer class="bg-black text-white py-12">
@@ -8,9 +10,7 @@
       <!-- Left side - Logo -->
       <div class="flex items-center mb-6 md:mb-0">
         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
-          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
+          <Image src={logo} alt="CAIRF Logo" class="h-8 w-auto md:h-10" />
         </div>
         <div>
           <span class="text-xl font-semibold">Cooperative AI Research Fellowship</span>
@@ -20,7 +20,7 @@
       
       <!-- Center - Contact -->
       <div class="text-center mb-6 md:mb-0">
-        <p class="text-text-muted mb-2">Get in touch with us at contact@caisaf.org</p>
+        <p class="text-text-muted mb-2">Get in touch with us at <a href="mailto:admin@aisafetysa.com" class="text-text-muted hover:text-white transition-colors">admin@aisafetysa.com</a></p>
         <div class="flex justify-center space-x-4">
           <a href="#" class="text-text-muted hover:text-white transition-colors">
             <span class="text-sm">LinkedIn</span>
