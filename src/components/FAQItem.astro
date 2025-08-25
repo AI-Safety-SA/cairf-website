@@ -27,7 +27,7 @@ const { question, answer, isLast = false } = Astro.props;
     </button>
     
     <div class="faq-content-desktop hidden pb-4">
-      <div class="text-white/80 mb-6">
+      <div class="text-white/80 m-4">
         {Array.isArray(answer) ? (
           <ul class="space-y-2">
             {answer.map((item) => <li>{item}</li>)}
@@ -59,7 +59,7 @@ const { question, answer, isLast = false } = Astro.props;
     </button>
     
     <div class="faq-content hidden pb-4">
-      <div class="text-white/80">
+      <div class="text-white/80 m-4">
         {Array.isArray(answer) ? (
           <ul class="space-y-2">
             {answer.map((item) => <li>{item}</li>)}

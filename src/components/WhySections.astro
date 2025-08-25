@@ -1,41 +1,86 @@
 ---
 // Main content sections component - Only Why Cooperative AI and Why South Africa sections remain
-import TextSection from './TextSection.astro';
-import contentImg4 from '../assets/content_img_4.svg';
-import contentImg5 from '../assets/content_img_5.svg';
+import { Image } from 'astro:assets';
+import cooperativeAI from '../assets/cooperative_ai.svg';
+import southAfricaAI from '../assets/south_africa.svg';
+import ApplyButton from './ApplyButton.astro';
 ---
 
-<section class="relative min-h-screen bg-gray-50">
-  <!-- Content Container -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div>
-      <!-- Why Cooperative AI Section -->
-      <div class="flex items-center min-h-96">
-        <TextSection 
-          title="Why Cooperative AI"
-          content={[
-            "As AI systems become more powerful and autonomous, it is crucial to ensure they are used for good and benefit all of humanity. Cooperation is key to achieving beneficial outcomes in complex, multi-agent environments.",
-            "Designing cooperative AI systems presents unique challenges, including aligning values across different agents, managing conflicts of interest, and ensuring fairness and transparency in decision-making processes.",
-            "Through this fellowship, we aim to contribute to solving these challenges and building a future where AI systems work together cooperatively for the benefit of humanity."
-          ]}
-          position="right"
-          image={contentImg4}
-          imageAlt="Cooperative AI illustration"
-        />
+<section class="relative min-h-screen">
+  <!-- Why Cooperative AI Section -->
+  <div class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <!-- Text Content -->
+        <div class="w-full lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+            Why Cooperative AI
+          </h2>
+          <div class="space-y-4">
+            <p class="text-lg text-black leading-relaxed">
+              As AI systems become more powerful and autonomous, it is crucial to ensure they are used for good and benefit all of humanity. Cooperation is key to achieving beneficial outcomes in complex, multi-agent environments.
+            </p>
+            <p class="text-lg text-black leading-relaxed">
+              Designing <span class="underline">cooperative AI</span> systems presents unique challenges, including aligning values across different agents, managing conflicts of interest, and ensuring fairness and transparency in decision-making processes.
+            </p>
+            <p class="text-lg text-black leading-relaxed">
+              Through this fellowship, we aim to contribute to solving these challenges and building a future where AI systems work together cooperatively for the benefit of humanity.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Image -->
+        <div class="w-full lg:w-1/2 h-96 overflow-hidden">
+          <Image 
+            src={cooperativeAI} 
+            alt="Cooperative AI illustration" 
+            class="w-full h-full object-cover"
+          />
+        </div>
       </div>
-      
-      <!-- Why South Africa Section -->
-      <div class="flex items-center min-h-96">
-        <TextSection 
-          title="Why South Africa"
-          content={[
-            "South Africa has a growing AI ecosystem with diverse talent and unique challenges and opportunities for AI development. The country offers a rich environment for exploring cooperative AI research.",
-            "Through this fellowship, we aim to leverage this potential and contribute to building a strong AI research community in South Africa that can address both local and global challenges in cooperative AI."
-          ]}
-          position="left"
-          image={contentImg5}
-          imageAlt="South Africa AI ecosystem illustration"
-        />
+    </div>
+  </div>
+  
+  <!-- Why South Africa Section -->
+  <div class="bg-green-dark py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <!-- Image -->
+        <div class="w-full lg:w-1/2 h-96 overflow-hidden">
+          <Image 
+            src={southAfricaAI} 
+            alt="South Africa AI ecosystem illustration" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        
+        <!-- Text Content -->
+        <div class="w-full lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+            Why South Africa
+          </h2>
+          <div class="space-y-4 mb-8">
+            <p class="text-lg text-white leading-relaxed">
+              South Africa has a growing AI ecosystem with diverse talent and unique challenges and opportunities for AI development. The country offers a rich environment for exploring cooperative AI research.
+            </p>
+            <p class="text-lg text-white leading-relaxed">
+              Through this fellowship, we aim to leverage this potential and contribute to building a strong AI research community in South Africa that can address both local and global challenges in cooperative AI.
+            </p>
+          </div>
+            
+          <div class="pt-4 flex justify-center md:justify-end">
+            <div class="hidden md:block">
+              <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 text-lg rounded transition-colors duration-200">
+                APPLY NOW
+              </a>
+            </div>
+            <div class="block md:hidden">
+              <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 text-base rounded transition-colors duration-200">
+                APPLY NOW
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

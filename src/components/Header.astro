@@ -1,5 +1,7 @@
 ---
 // Header component with responsive navigation
+import logo from '../assets/logo.svg';
+import Image from 'astro/components/Image.astro';
 ---
 
 <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
@@ -7,13 +9,14 @@
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <a href="#" class="text-black font-semibold text-lg md:text-xl">
-          CAIRF
+        <a href="#" class="flex items-center space-x-2">
+          <Image src={logo} alt="CAIRF Logo" class="h-8 w-auto md:h-10" />
+          <span class="text-text-base font-sans font-semibold text-lg md:text-xl">CAIRF</span>
         </a>
       </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8">
+      <nav class="hidden md:flex space-x-8 font-sans">
         <a href="#about" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
@@ -52,7 +55,7 @@
 
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100 shadow-lg font-sans">
         <a href="#about" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>

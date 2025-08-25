@@ -1,12 +1,13 @@
 ---
 // MentorItem component for displaying individual mentor profiles
+
 export interface Props {
   name: string;
   title: string;
   linkedin?: string;
   twitter?: string;
   academic?: string;
-  image?: string;
+  image?: string; // Now expects a string path instead of imported image
 }
 
 const { 
@@ -21,11 +22,20 @@ const {
 
 <div class="flex flex-col items-center text-center">
   <!-- Image placeholder -->
-  <div class="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+  <div class="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
     {image ? (
-      <img src={image} alt={name} class="w-full h-full object-cover rounded-lg" />
+      <img 
+        src={image} 
+        alt={name} 
+        class="w-full h-full object-cover rounded-lg"
+        loading="lazy"
+      />
     ) : (
-      <div class="w-full h-full bg-gray-300 rounded-lg"></div>
+      <div class="w-full h-full bg-gray-300 rounded-lg flex items-center justify-center">
+        <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+        </svg>
+      </div>
     )}
   </div>
   
