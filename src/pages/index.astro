@@ -28,6 +28,18 @@ import WhySections from '../components/WhySections.astro';
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<!-- Hotjar Tracking Code for CAIRF Fellowship Live -->
+		<script is:inline>
+			(function(h,o,t,j,a,r){
+				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+				h._hjSettings={hjid:6502303,hjsv:6};
+				a=o.getElementsByTagName('head')[0];
+				r=o.createElement('script');r.async=1;
+				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
 	</head>
 	<body class="bg-white">
 		<!-- Header -->
@@ -69,13 +81,14 @@ import WhySections from '../components/WhySections.astro';
 		<!-- Smooth scrolling for anchor links -->
 		<script>
 			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', (e: Event) => {
+				anchor.addEventListener('click', (e) => {
 					e.preventDefault();
-					const href = (e.target as HTMLAnchorElement).getAttribute('href');
+					const target = e.target as HTMLAnchorElement;
+					const href = target.getAttribute('href');
 					if (href) {
-						const target = document.querySelector(href);
-						if (target) {
-							target.scrollIntoView({
+						const targetElement = document.querySelector(href);
+						if (targetElement) {
+							targetElement.scrollIntoView({
 								behavior: 'smooth',
 								block: 'start'
 							});
