@@ -12,8 +12,7 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const databaseId = process.env.NOTION_DATABASE_ID!;
 const OUT_DIR = "src/assets/mentors";
 const OUT_FILE = "mentors.json";
-const IMAGES_DIR = "src/assets/mentors/images";
-const PUBLIC_IMAGES_DIR = "public/mentors/images";
+const IMAGES_DIR = "public/mentors/images";
 
 type Mentor = {
   name: string;
@@ -59,21 +58,11 @@ async function downloadImage(
 ): Promise<string | undefined> {
   try {
     const imagePath = path.join(IMAGES_DIR, filename);
-    const publicImagePath = path.join(PUBLIC_IMAGES_DIR, filename);
 
     // Check if image already exists
     try {
       await fs.access(imagePath);
       console.log(`Image already exists: ${filename}`);
-
-      // Copy to public directory if it doesn't exist there
-      try {
-        await fs.access(publicImagePath);
-      } catch {
-        await fs.copyFile(imagePath, publicImagePath);
-        console.log(`Copied image to public: ${filename}`);
-      }
-
       return `./mentors/images/${filename}`;
     } catch {
       // Image doesn't exist, download it
@@ -90,22 +79,15 @@ async function downloadImage(
           }
 
           const fileStream = createWriteStream(imagePath);
-          const publicFileStream = createWriteStream(publicImagePath);
           response.pipe(fileStream);
-          response.pipe(publicFileStream);
 
           fileStream.on("finish", () => {
             fileStream.close();
-            publicFileStream.close();
             console.log(`Downloaded image: ${filename}`);
             resolve(`./mentors/images/${filename}`);
           });
 
           fileStream.on("error", (err: Error) => {
-            reject(err);
-          });
-
-          publicFileStream.on("error", (err: Error) => {
             reject(err);
           });
         })
@@ -183,7 +165,6 @@ async function main() {
   // Ensure directories exist
   await ensureDir(OUT_DIR);
   await ensureDir(IMAGES_DIR);
-  await ensureDir(PUBLIC_IMAGES_DIR);
 
   // Map pages to mentor objects
   const mentors: Mentor[] = [];
