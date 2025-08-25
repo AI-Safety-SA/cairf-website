@@ -6,56 +6,61 @@ import { Image } from 'astro:assets';
 import groundBugs from '../assets/ground_bugs.svg';
 import roundTable from '../assets/round_table.svg';
 import peopleFollowing from '../assets/people_following_robot.svg';
+import mechSwarm from '../assets/mech_swarm.svg';
 
 // Research tracks data
 const researchTracks = [
   {
     title: "Multi-Agent Safety",
-    description: "Understand and control the collective dynamics arising from the interactions within multi-agent networks.",
+    description: "This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:",
     image: groundBugs,
     points: [
-      "Investigate strategies to stabilise their behaviour, prevent harmful emergent properties and stop collusion.",
-      "Evaluate cooperative abilities and propensities, design incentive structures for safe cooperation and study the effects of information asymmetry on interactions.",
-      "Identify and mitigate vulnerabilities that arise in multi-agent settings ensuring they are robust to attacks.",
-      "Explore collective epistemics in LLMs, and assess if this leads to prosocial outcomes."
-    ]
+      "Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (more).",
+      "Investigating strategies to detect and prevent collusion (more).",
+      "Understanding and evaluating abilities and propensities of AI agents that determine how they behave in cooperation problems (more here and here).",
+      "Propose infrastructure and incentive structures that could promote safe interactions between agents (more).",
+      "Studying the effects of information asymmetries on the safety of multiagent interactions (more).",
+      "Identifying and mitigating AI security vulnerabilities that are specific to mixed-motive, multi-agent settings (more).",
+      "Exploring collective epistemics in LLMs and assess the impact on prosocial outcomes."
+    ],
+    link: "See the associated grant areas on the Cooperative AI Foundation website for more details."
   },
   {
     title: "Mitigating Gradual Disempowerment",
-    description: "Develop frameworks for multi-agent systems which serve to preserve human agency, combining technical solutions with robust governance frameworks.",
+    description: "Increased AI deployment and reliance on AI in critical social systems (economy, state, culture) could lead to humans losing control and agency. Systems could drift from human desires, and we need to develop mitigations to preserve human agency.",
     image: peopleFollowing,
-    points: [
-      "Hierarchical alignment through AI oversight as a safeguard against undesirable emergent properties.",
-      "Transparency and interpretability in order to understand AI decision-making processes.",
-      "How to design systems that have reversible decisions that can be modified by humans post-deployment."
-    ]
+    points: [],
+    link: "You can read more about this topic here."
   },
   {
     title: "AI for Facilitating Human Cooperation",
-    description: "Research AI tools for collective decision making allowing for societally beneficial democratic engagement.",
+    description: "Many human challenges are cooperation challenges. AI tools could help resolve these by identifying mutually beneficial agreements or creating novel institutional designs, thereby having a positive impact.",
     image: roundTable,
-    points: [
-      "Explore how delegation and customisation of autonomous agents could be combined to achieve cooperation and social welfare.",
-      "Consider how to enhance deliberative systems to improve democracy and support societal coherence at scale.",
-      "Investigate how to embed human preferences into agents for alignment.",
-      "Research the mechanisms behind the relationship between trust and customisation."
-    ]
+    points: [],
+    link: "See the associated grant area on the Cooperative AI Foundation website for more details."
+  },
+  {
+    title: "Wildcard",
+    description: "We welcome proposals for projects that reduce catastrophic outcomes from AI. There are no other constraints. Note that such projects might be less likely to be matched with a mentor (and thus accepted into a fellowship). However, we will make efforts to find mentors for exceptional candidates that don't fit the other specified tracks.",
+    image: mechSwarm, // Using the same image as placeholder - you may want to add a specific wildcard image
+    points: [],
+    link: ""
   },
 ];
 ---
 <section id="tracks" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl md:text-4xl font-bold text-text-base text-left mb-4">
-      Research Tracks
+      Research Areas
     </h2>
     
     <p class="text-lg text-text-muted text-left mb-12">
-      We have identified the following tentative tracks for the fellowship.
+      We have identified the following tracks for the fellowship.
     </p>
     
     <!-- Desktop version: Three-column layout with images -->
     <div class="hidden md:block">
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {researchTracks.map((track, index) => (
           <div class="relative">
             <div class="mb-6">
@@ -76,14 +81,24 @@ const researchTracks = [
               {track.description}
             </p>
             
-            <ul class="text-text-muted space-y-2">
-              {track.points.map((point) => (
-                <li class="flex items-start">
-                  <span class="text-text-base mr-2">•</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+            {track.points.length > 0 && (
+              <ul class="text-text-muted space-y-2 mb-4">
+                {track.points.map((point) => (
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-2">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            
+            {track.link && (
+              <p class="text-text-muted text-sm">
+                <a href="#" class="underline hover:text-text-base transition-colors">
+                  {track.link}
+                </a>
+              </p>
+            )}
             
             {/* Vertical separator lines between columns */}
             {index < researchTracks.length - 1 && (
@@ -94,18 +109,33 @@ const researchTracks = [
       </div>
     </div>
     
-    <!-- Mobile version: Accordion dropdown -->
-    <div class="md:hidden">
+    <!-- Mobile version: Full-width images with dropdowns -->
+    <div class="md:hidden bg-green-dark text-white">
       {researchTracks.map((track, index) => (
-        <TextDropdown 
-          title={track.title}
-          content={[
-            track.description,
-            ...track.points
-          ]}
-          isLast={index === researchTracks.length - 1}
-          isOpen={index === 0}
-        />
+        <div class="mb-8">
+          <!-- Full-width image -->
+          <div class="mb-4">
+            <Image 
+              src={track.image} 
+              alt={track.title}
+              class="w-full h-auto"
+              width={400}
+              height={300}
+            />
+          </div>
+          
+          <!-- Dropdown section -->
+          <TextDropdown 
+            title={track.title}
+            content={[
+              track.description,
+              ...track.points
+            ]}
+            link={track.link}
+            isLast={index === researchTracks.length - 1}
+            isOpen={index === 0}
+          />
+        </div>
       ))}
     </div>
     
