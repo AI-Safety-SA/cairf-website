@@ -2,11 +2,12 @@
 export interface Props {
   title: string;
   content: string | string[];
+  link?: string;
   isLast?: boolean;
   isOpen?: boolean;
 }
 
-const { title, content, isLast = false, isOpen = false } = Astro.props;
+const { title, content, link, isLast = false, isOpen = false } = Astro.props;
 
 // Handle content that might be a description followed by bullet points
 const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !content[0].startsWith('•');
@@ -38,6 +39,14 @@ const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !
       ) : (
         <p>{content}</p>
       )}
+      
+      {link && (
+        <p class="text-sm mt-4">
+          <a href="#" class="underline hover:text-text-base transition-colors">
+            {link}
+          </a>
+        </p>
+      )}
     </div>
     {!isLast && <hr class="border-text-muted/20 mb-6" />}
   </div>
@@ -45,12 +54,12 @@ const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !
   <!-- Mobile version: Accordion dropdown -->
   <div class="md:hidden">
     <button 
-      class="text-dropdown-toggle w-full py-4 text-left flex items-center justify-between hover:bg-text-muted/5 transition-colors duration-200"
+      class="text-dropdown-toggle w-full py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
       data-text-dropdown-toggle
     >
-      <h3 class="text-lg font-semibold text-text-base pr-4">{title}</h3>
+      <h3 class="text-lg font-semibold text-white pr-4">{title}</h3>
       <svg 
-        class={`text-dropdown-arrow w-5 h-5 text-text-base transform transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+        class={`text-dropdown-arrow w-5 h-5 text-white transform transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
         fill="none" 
         stroke="currentColor" 
         viewBox="0 0 24 24"
@@ -60,7 +69,7 @@ const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !
     </button>
     
     <div class={`text-dropdown-content pb-4 ${isOpen ? '' : 'hidden'}`}>
-      <div class="text-text-muted">
+      <div class="text-white/80">
         {Array.isArray(content) ? (
           isResearchTrackContent ? (
             <div>
@@ -68,7 +77,7 @@ const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !
               <ul class="space-y-2">
                 {content.slice(1).map((item) => (
                   <li class="flex items-start">
-                    <span class="text-text-base mr-2">•</span>
+                    <span class="text-white mr-2">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -82,10 +91,18 @@ const isResearchTrackContent = Array.isArray(content) && content.length > 0 && !
         ) : (
           <p>{content}</p>
         )}
+        
+        {link && (
+          <p class="text-sm mt-4">
+            <a href="#" class="underline hover:text-white transition-colors">
+              {link}
+            </a>
+          </p>
+        )}
       </div>
     </div>
     
-    {!isLast && <hr class="border-text-muted/20" />}
+    {!isLast && <hr class="border-white/20" />}
   </div>
 </div>
 

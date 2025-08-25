@@ -1,4 +1,6 @@
 ---
+import ApplyButton from './ApplyButton.astro';
+
 // ContentSection component - reusable layout for content sections
 export interface Props {
   id?: string;
@@ -20,19 +22,7 @@ const {
         <!-- Slot for the main content -->
         <slot />
         
-        <!-- Apply button - consistent across all sections -->
-        <div class="pt-4 flex justify-center md:justify-end">
-          <div class="hidden md:block">
-            <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 text-lg rounded transition-colors duration-200">
-              APPLY NOW
-            </a>
-          </div>
-          <div class="block md:hidden">
-            <a href="#apply" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 text-base rounded transition-colors duration-200">
-              APPLY NOW
-            </a>
-          </div>
-        </div>
+        <ApplyButton />
       </div>
     </div>
   </div>

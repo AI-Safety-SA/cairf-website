@@ -1,34 +1,55 @@
 ---
 // Footer component
+import { Image } from "astro:assets";
+
+import LinkedInIcon from "../assets/icons/linkedin-brands-solid-full.svg";
+import SubstackIcon from "../assets/icons/substack.png";
 ---
 
-<footer class="bg-black text-white py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-center">
+<footer class="bg-[#011402] text-white py-12">
+  <div class="max-w-7xl mx-auto px-12 sm:px-12 lg:px-16">
+    <!-- Mobile layout - centered vertical -->
+    <div class="flex flex-col items-center text-center md:hidden">
+      <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-2">Cooperative AI<br>Research Fellowship</h2>
+        <p class="text-sm text-white mb-6">An <a href="https://www.aisafetysa.com" class="underline hover:text-text-muted transition-colors">AI Safety South Africa</a> program.</p>
+      </div>
+      
+      <div class="mb-6">
+        <p class="text-sm text-white mb-2">Get in touch with us at</p>
+        <p class="text-white mb-2">Get in touch with us at <a href="mailto:info@cai-research-fellowship.com" class="text-white hover:text-text-muted transition-colors">info@cai-research-fellowship.com</a></p>      
+      </div>
+      <div class="flex justify-center space-x-4">
+        <a href="https://www.linkedin.com/company/ai-safety-south-africa/" class="text-[#0077B5] flex items-center">
+          <Image src={LinkedInIcon} alt="LinkedIn" class="w-8 h-8" />
+        </a>
+        <a href="https://aisafetycapetown.substack.com/" class="text-[#FF6314] flex items-center">
+          <Image src={SubstackIcon} alt="Substack" class="w-8 h-8" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Desktop layout - horizontal -->
+    <div class="hidden md:flex flex-row justify-between">
       <!-- Left side - Logo -->
-      <div class="flex items-center mb-6 md:mb-0">
+      <div class="flex items-center">
         <div>
           <span class="text-xl font-semibold">Cooperative AI Research Fellowship</span>
-          <p class="text-sm text-text-muted mt-1">An AI Safety South Africa program.</p>
+          <p class="text-sm text-white mt-1">An <a href="https://www.aisafetysa.com" class="underline hover:text-text-muted transition-colors">AI Safety South Africa</a> program.</p>
         </div>
       </div>
       
-      <!-- Center - Contact -->
-      <div class="text-center mb-6 md:mb-0">
-        <p class="text-text-muted mb-2">Get in touch with us at <a href="mailto:admin@aisafetysa.com" class="text-text-muted hover:text-white transition-colors">admin@aisafetysa.com</a></p>
-        <div class="flex justify-center space-x-4">
-          <a href="https://www.linkedin.com/company/ai-safety-south-africa/" class="text-text-muted hover:text-white transition-colors">
-            <span class="text-sm">LinkedIn</span>
+      <!-- Right - Contact -->
+      <div class="text-right">
+        <p class="text-white mb-2">Get in touch with us at <a href="mailto:info@cai-research-fellowship.com" class="text-white hover:text-text-muted transition-colors">info@cai-research-fellowship.com</a></p>
+        <div class="flex justify-end space-x-4">
+          <a href="https://www.linkedin.com/company/ai-safety-south-africa/" class="text-[#0077B5] flex items-center">
+            <Image src={LinkedInIcon} alt="LinkedIn" class="w-10 h-10" />
           </a>
-          <a href="https://aisafetycapetown.substack.com/" class="text-text-muted hover:text-white transition-colors">
-            <span class="text-sm">Substack</span>
+          <a href="https://aisafetycapetown.substack.com/" class="text-[#FF6314] flex items-center">
+            <Image src={SubstackIcon} alt="Substack" class="w-10 h-10" />
           </a>
         </div>
-      </div>
-      
-      <!-- Right side - Copyright -->
-      <div class="text-sm text-text-muted">
-        © 2025 Cooperative AI South Africa Fellowship
       </div>
     </div>
   </div>

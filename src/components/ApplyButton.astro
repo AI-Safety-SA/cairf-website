@@ -1,35 +1,12 @@
----
-// ApplyButton component with configurable props
-export interface Props {
-  href?: string;
-  variant?: 'desktop' | 'mobile' | 'default';
-  className?: string;
-}
-
-const { 
-  href = "#apply", 
-  variant = "default",
-  className = ""
-} = Astro.props;
-
-// Define button styles based on variant
-const getButtonStyles = (variant: string) => {
-  const baseStyles = "inline-block bg-primary hover:bg-primary/90 text-white font-semibold transition-colors duration-200";
-  
-  switch (variant) {
-    case 'desktop':
-      return `${baseStyles} px-8 py-4 text-lg rounded`;
-    case 'mobile':
-      return `${baseStyles} px-6 py-3 text-base rounded`;
-    case 'default':
-    default:
-      return `${baseStyles} px-8 py-4 text-lg rounded-md`;
-  }
-};
-
-const buttonStyles = getButtonStyles(variant);
----
-
-<a href={href} class={`${buttonStyles} ${className}`}>
-  APPLY NOW
-</a>
+<div class="pt-4 flex justify-center md:justify-end">
+  <div class="hidden md:block">
+    <a href="/applicationform" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 text-lg rounded transition-colors duration-200">
+      APPLY NOW
+    </a>
+  </div>
+  <div class="block md:hidden">
+    <a href="/applicationform" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 text-base rounded transition-colors duration-200">
+      APPLY NOW
+    </a>
+  </div>
+</div>
