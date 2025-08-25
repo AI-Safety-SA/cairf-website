@@ -1,8 +1,9 @@
 import { Client } from "@notionhq/client";
 import fs from "node:fs/promises";
-import { mkdir, stat } from "fs/promises";
+import { createWriteStream } from "node:fs";
 import path from "node:path";
 import dotenv from "dotenv";
+import https from "https";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -11,24 +12,119 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const databaseId = process.env.NOTION_DATABASE_ID!;
 const OUT_DIR = "src/assets/mentors";
 const OUT_FILE = "mentors.json";
+const IMAGES_DIR = "src/assets/mentors/images";
+const PUBLIC_IMAGES_DIR = "public/mentors/images";
 
-type NotionRow = {
+type Mentor = {
+  name: string;
   title: string;
-  link: string;
-  imageOverride?: string;
-  description?: string;
+  linkedin?: string;
+  twitter?: string;
+  academic?: string;
+  image?: string;
 };
 
 function getText(rich: any[]): string {
   return rich.map((r) => r.plain_text ?? "").join("");
 }
 
+function getUrl(rich: any): string | undefined {
+  // Handle URL type
+  if (rich?.url) {
+    return rich.url;
+  }
+
+  // Handle files type (Notion file uploads)
+  if (rich?.type === "files" && rich.files && rich.files.length > 0) {
+    const file = rich.files[0];
+    if (file.type === "file" && file.file?.url) {
+      return file.file.url;
+    }
+  }
+
+  return undefined;
+}
+
 async function ensureDir(dir: string) {
   try {
-    await stat(dir);
+    await fs.access(dir);
   } catch {
-    await mkdir(dir, { recursive: true });
+    await fs.mkdir(dir, { recursive: true });
   }
+}
+
+async function downloadImage(
+  url: string,
+  filename: string
+): Promise<string | undefined> {
+  try {
+    const imagePath = path.join(IMAGES_DIR, filename);
+    const publicImagePath = path.join(PUBLIC_IMAGES_DIR, filename);
+
+    // Check if image already exists
+    try {
+      await fs.access(imagePath);
+      console.log(`Image already exists: ${filename}`);
+
+      // Copy to public directory if it doesn't exist there
+      try {
+        await fs.access(publicImagePath);
+      } catch {
+        await fs.copyFile(imagePath, publicImagePath);
+        console.log(`Copied image to public: ${filename}`);
+      }
+
+      return `./mentors/images/${filename}`;
+    } catch {
+      // Image doesn't exist, download it
+    }
+
+    return new Promise((resolve, reject) => {
+      https
+        .get(url, (response) => {
+          if (response.statusCode !== 200) {
+            reject(
+              new Error(`Failed to download image: ${response.statusCode}`)
+            );
+            return;
+          }
+
+          const fileStream = createWriteStream(imagePath);
+          const publicFileStream = createWriteStream(publicImagePath);
+          response.pipe(fileStream);
+          response.pipe(publicFileStream);
+
+          fileStream.on("finish", () => {
+            fileStream.close();
+            publicFileStream.close();
+            console.log(`Downloaded image: ${filename}`);
+            resolve(`./mentors/images/${filename}`);
+          });
+
+          fileStream.on("error", (err: Error) => {
+            reject(err);
+          });
+
+          publicFileStream.on("error", (err: Error) => {
+            reject(err);
+          });
+        })
+        .on("error", (err: Error) => {
+          reject(err);
+        });
+    });
+  } catch (error) {
+    console.warn(`Failed to download image for ${filename}:`, error);
+    return undefined;
+  }
+}
+
+function sanitizeFilename(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_|_$/g, "");
 }
 
 async function fetchAllPages() {
@@ -49,60 +145,31 @@ async function fetchAllPages() {
   return results;
 }
 
-async function getPageContent(pageId: string): Promise<string> {
-  try {
-    const blocks = await notion.blocks.children.list({
-      block_id: pageId,
-    });
-
-    let content = "";
-    for (const block of blocks.results) {
-      if ("type" in block) {
-        if (
-          block.type === "paragraph" &&
-          "paragraph" in block &&
-          block.paragraph.rich_text
-        ) {
-          content += getText(block.paragraph.rich_text) + "\n";
-        } else if (
-          block.type === "bulleted_list_item" &&
-          "bulleted_list_item" in block &&
-          block.bulleted_list_item.rich_text
-        ) {
-          content += "• " + getText(block.bulleted_list_item.rich_text) + "\n";
-        } else if (
-          block.type === "numbered_list_item" &&
-          "numbered_list_item" in block &&
-          block.numbered_list_item.rich_text
-        ) {
-          content += getText(block.numbered_list_item.rich_text) + "\n";
-        }
-      }
-    }
-    return content.trim();
-  } catch (error) {
-    console.warn(`Failed to fetch content for page ${pageId}:`, error);
-    return "";
-  }
-}
-
-async function mapPage(p: any): Promise<NotionRow | null> {
+async function mapPage(p: any): Promise<Mentor | null> {
   const props = p.properties;
 
-  const title = getText(props["Title"]?.title ?? []);
-  const link = props["Link"]?.url as string | undefined;
-  const imageOverride = props["Image Override"]?.url as string | undefined;
+  const name = getText(props["Full name"]?.rich_text ?? []);
+  const title = getText(props["Affiliation"]?.rich_text ?? []);
+  const imageUrl = getUrl(props["Picture"]);
+  const academic = getUrl(props["Link to website"]);
 
-  if (!title || !link) return null;
+  if (!name || !title) return null;
 
-  // Fetch the custom description from the page content
-  const customDescription = await getPageContent(p.id);
+  // Download image if URL exists
+  let localImagePath: string | undefined;
+  if (imageUrl) {
+    const filename = `${sanitizeFilename(name)}.jpg`;
+    localImagePath = await downloadImage(imageUrl, filename);
+  }
 
   return {
+    name,
     title,
-    link,
-    imageOverride: imageOverride || undefined,
-    description: customDescription || undefined,
+    academic: academic || undefined,
+    image: localImagePath || undefined,
+    // LinkedIn and Twitter fields are not present in the current Notion structure
+    linkedin: undefined,
+    twitter: undefined,
   };
 }
 
@@ -110,24 +177,25 @@ async function main() {
   if (!databaseId) {
     throw new Error("NOTION_DATABASE_ID is not set");
   }
+
   const pages = await fetchAllPages();
 
-  // Map pages with async operations
-  const rows: NotionRow[] = [];
+  // Ensure directories exist
+  await ensureDir(OUT_DIR);
+  await ensureDir(IMAGES_DIR);
+  await ensureDir(PUBLIC_IMAGES_DIR);
+
+  // Map pages to mentor objects
+  const mentors: Mentor[] = [];
   for (const page of pages) {
     const mapped = await mapPage(page);
-    if (mapped) rows.push(mapped);
+    if (mapped) mentors.push(mapped);
   }
 
-  // Index by link for easy merging
-  const byLink: Record<string, NotionRow> = {};
-  for (const r of rows) byLink[r.link] = r;
-
-  await ensureDir(OUT_DIR);
   const outPath = path.join(OUT_DIR, OUT_FILE);
-  await fs.writeFile(outPath, JSON.stringify(byLink, null, 2), "utf-8");
+  await fs.writeFile(outPath, JSON.stringify(mentors, null, 2), "utf-8");
 
-  console.log(`Wrote ${Object.keys(byLink).length} entries to ${outPath}`);
+  console.log(`Wrote ${mentors.length} mentor entries to ${outPath}`);
 }
 
 main().catch((e) => {
