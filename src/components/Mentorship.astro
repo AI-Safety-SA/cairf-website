@@ -38,7 +38,7 @@ const processedMentors = mentors.map(mentor => ({
 
 <section id="mentorship" class="py-20 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <!-- Section Header -->
       <div class="text-left mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-text-base mb-6">
@@ -67,8 +67,8 @@ const processedMentors = mentors.map(mentor => ({
             <MentorItem 
               name={mentor.name}
               title={mentor.title}
+              website={mentor.website}
               linkedin={mentor.linkedin}
-              twitter={mentor.twitter}
               academic={mentor.academic}
               image={mentor.image}
             />
