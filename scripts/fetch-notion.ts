@@ -17,8 +17,8 @@ const IMAGES_DIR = "public/mentors/images";
 type Mentor = {
   name: string;
   title: string;
+  website?: string;
   linkedin?: string;
-  twitter?: string;
   academic?: string;
   image?: string;
 };
@@ -132,8 +132,10 @@ async function mapPage(p: any): Promise<Mentor | null> {
 
   const name = getText(props["Full name"]?.rich_text ?? []);
   const title = getText(props["Affiliation"]?.rich_text ?? []);
+  const website = getUrl(props["Link to website"]);
+  const linkedin = getUrl(props["LinkedIn"]);
+  const academic = getUrl(props["GoogleScholar"]);
   const imageUrl = getUrl(props["Picture"]);
-  const academic = getUrl(props["Link to website"]);
 
   if (!name || !title) return null;
 
@@ -147,11 +149,10 @@ async function mapPage(p: any): Promise<Mentor | null> {
   return {
     name,
     title,
+    website: website || undefined,
+    linkedin: linkedin || undefined,
     academic: academic || undefined,
     image: localImagePath || undefined,
-    // LinkedIn and Twitter fields are not present in the current Notion structure
-    linkedin: undefined,
-    twitter: undefined,
   };
 }
 

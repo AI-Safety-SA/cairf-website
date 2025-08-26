@@ -2,30 +2,40 @@
   {
     "name": "Joel Z. Leibo",
     "title": "Google DeepMind",
+    "website": "www.jzleibo.com",
+    "linkedin": "www.jzleibo.com",
     "academic": "www.jzleibo.com",
     "image": "./mentors/images/joel_z_leibo.jpg"
   },
   {
     "name": "Zhijing Jin",
     "title": "University of Toronto",
+    "website": "https://zhijing-jin.com/",
+    "linkedin": "https://zhijing-jin.com/",
     "academic": "https://zhijing-jin.com/",
     "image": "./mentors/images/zhijing_jin.jpg"
   },
   {
     "name": "Michiel Bakker",
     "title": "MIT",
+    "website": "https://miba.dev/",
+    "linkedin": "https://miba.dev/",
     "academic": "https://miba.dev/",
     "image": "./mentors/images/michiel_bakker.jpg"
   },
   {
     "name": "Vincent Conitzer",
     "title": "Carnegie Mellon University and University of Oxford",
+    "website": "https://www.cs.cmu.edu/~conitzer/",
+    "linkedin": "https://www.cs.cmu.edu/~conitzer/",
     "academic": "https://www.cs.cmu.edu/~conitzer/",
     "image": "./mentors/images/vincent_conitzer.jpg"
   },
   {
     "name": "Max Kleiman-Weiner",
     "title": "University of Washington",
+    "website": "https://faculty.washington.edu/maxkw/",
+    "linkedin": "https://faculty.washington.edu/maxkw/",
     "academic": "https://faculty.washington.edu/maxkw/",
     "image": "./mentors/images/max_kleiman_weiner.jpg"
   }
