@@ -7,8 +7,8 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
 ---
 
 <section class="relative min-h-[calc(100vh-80px)]">
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
+  <!-- Desktop Background image -->
+  <div class="absolute inset-0 z-0 hidden md:block">
     <Image 
       src={landingDesktop} 
       alt="Walking illustration background" 
@@ -16,8 +16,17 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
     />
   </div>
   
-  <!-- Content overlay -->
-  <div class="relative z-10 h-[calc(100vh-60px)] flex flex-col justify-between p-8 md:p-12 lg:px-32 lg:py-16">
+  <!-- Mobile Background image -->
+  <div class="absolute inset-0 z-0 block md:hidden">
+    <Image 
+      src={landingMobile} 
+      alt="Walking illustration background mobile" 
+      class="w-full h-full object-cover"
+    />
+  </div>
+  
+  <!-- Desktop Content overlay -->
+  <div class="relative z-10 h-[calc(100vh-60px)] hidden md:flex flex-col justify-between p-8 md:p-12 lg:px-32 lg:py-16">
     <!-- Top section - Main description in upper-left -->
     <div class="flex-1 flex items-start">
       <div class="max-w-5xl">
@@ -37,14 +46,30 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
       </div>
       
       <!-- Apply button in lower-right -->
-      <div class="hidden md:block">
-        <ApplyButton variant="primary" />
+      <div>
+        <ApplyButton variant="primary" size="lg"/>
       </div>
     </div>
   </div>
   
-  <!-- Mobile Apply Button - centered at bottom -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 block md:hidden">
-    <ApplyButton variant="primary" />
+  <!-- Mobile Content overlay -->
+  <div class="relative z-10 h-[calc(100vh-60px)] flex md:hidden flex-col ">
+    <!-- Dark teal overlay with text content -->
+    <div class="flex-1 flex flex-col justify-between px-6 py-8">
+      <div class="max-w-l">
+        <h1 class="text-3xl font-serif leading-tight text-white mb-4">
+          A 3-month research fellowship developing core topics in Cooperative AI, featuring world-class mentorship.
+        </h1>
+        
+        <p class="text-base text-white">
+          Apply by <strong>28 September 2025</strong>.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Bottom section for button -->
+    <div class="flex justify-center pb-8">
+      <ApplyButton variant="primary" size="md" />
+    </div>
   </div>
 </section>
