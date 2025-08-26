@@ -1,6 +1,15 @@
 ---
-// Header component with responsive navigation
-import logo from '../assets/logo.svg';
+// Import new logo variants
+import logo from '../assets/icons/cairf_logo.png'
+import logoNoText from '../assets/icons/cairf_logo_no_text.png'
+
+// Import icons for mobile navigation
+import hamburgerIcon from '../assets/icons/hamburger.svg?raw'
+import crossIcon from '../assets/icons/cross.svg?raw'
+
+// Import ApplyButton component
+import ApplyButton from './ApplyButton.astro'
+
 import Image from 'astro/components/Image.astro';
 ---
 
@@ -10,8 +19,15 @@ import Image from 'astro/components/Image.astro';
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
         <a href="#" class="flex items-center space-x-2">
-          <Image src={logo} alt="CAIRF Logo" class="h-8 w-auto md:h-10" />
-          <span class="text-text-base font-sans font-semibold text-lg md:text-xl">CAIRF</span>
+          <!-- Desktop: Full logo with text -->
+          <div class="hidden md:block">
+            <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
+          </div>
+          <!-- Mobile: No-text logo with acronym -->
+          <div class="md:hidden flex items-center space-x-2">
+            <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
+            <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
+          </div>
         </a>
       </div>
 
@@ -31,11 +47,9 @@ import Image from 'astro/components/Image.astro';
         </a>
       </nav>
 
-      <!-- Apply Button -->
+      <!-- Desktop Apply Button -->
       <div class="hidden md:block">
-        <a href="/applicationform" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded border border-orange-500 font-medium transition-colors duration-200">
-          APPLY
-        </a>
+        <ApplyButton variant="secondary" size="sm" />
       </div>
 
       <!-- Mobile menu button -->
@@ -46,21 +60,38 @@ import Image from 'astro/components/Image.astro';
           aria-label="Toggle mobile menu"
           type="button"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <div id="hamburger-icon" class="h-6 w-6" set:html={hamburgerIcon}></div>
+          <div id="cross-icon" class="h-6 w-6 hidden" set:html={crossIcon}></div>
         </button>
       </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100 shadow-lg font-sans">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white font-sans">
         <a href="#about" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
-        <a href="#tracks" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
-          Tracks
+        <a href="#key-details" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Key Details
+        </a>
+        <a href="#mentorship" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Mentorship
+        </a>
+        <a href="#application-process" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Application Process
+        </a>
+        <a href="#selection-criteria" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Selection Criteria
+        </a>
+        <a href="#why-cooperative-ai" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Why Cooperative AI
+        </a>
+        <a href="#why-south-africa" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Why South Africa
+        </a>
+        <a href="#timeline" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Timeline
         </a>
         <a href="#partners" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           Partners
@@ -68,42 +99,33 @@ import Image from 'astro/components/Image.astro';
         <a href="#faq" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           FAQ
         </a>
-        <div class="px-3 py-2">
-          <a href="/applicationform" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded border border-orange-500 font-medium transition-colors duration-200 inline-block">
-            APPLY
-          </a>
+        <div class="p-6 flex justify-center">
+          <ApplyButton variant="secondary" size="sm" />
         </div>
       </div>
     </div>
   </div>
 </header>
+
 <script>
-  // Simple mobile menu toggle
+  // Mobile menu toggle with proper icon switching
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('Header script loaded');
     const button = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const crossIcon = document.getElementById('cross-icon');
     
-    console.log('Button:', button);
-    console.log('Menu:', menu);
-    
-    if (button && menu) {
+    if (button && menu && hamburgerIcon && crossIcon) {
       button.onclick = function() {
         const isHidden = menu.classList.contains('hidden');
         if (isHidden) {
           menu.classList.remove('hidden');
-          button.innerHTML = `
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          `;
+          hamburgerIcon.classList.add('hidden');
+          crossIcon.classList.remove('hidden');
         } else {
           menu.classList.add('hidden');
-          button.innerHTML = `
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          `;
+          hamburgerIcon.classList.remove('hidden');
+          crossIcon.classList.add('hidden');
         }
       };
       
@@ -112,11 +134,8 @@ import Image from 'astro/components/Image.astro';
       links.forEach(link => {
         link.onclick = function() {
           menu.classList.add('hidden');
-          button.innerHTML = `
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          `;
+          hamburgerIcon.classList.remove('hidden');
+          crossIcon.classList.add('hidden');
         };
       });
     }
