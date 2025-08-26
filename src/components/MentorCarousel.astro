@@ -56,23 +56,22 @@ const maxIndex = Math.max(0, mentors.length - itemsPerView);
             <div class="flex items-center justify-center space-x-2 mb-2">
 
               {mentor.website && (
-                <a href={mentor.website} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 transition-colors">
-                  <Image src={globe} alt="Website" class="w-8 h-8" />
+                <a href={mentor.website} target="_blank" rel="noopener noreferrer">
+                  <Image src={globe} alt="Website" class="w-6 h-6" />
                 </a>
               )}
 
               {mentor.linkedin && (
-                <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 transition-colors">
-                  <Image src={linkedInIcon} alt="LinkedIn" class="w-8 h-8" />
+                <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Image src={linkedInIcon} alt="LinkedIn" class="w-6 h-6" />
                 </a>
               )}
               
               {mentor.academic && (
-                <a href={mentor.academic} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 transition-colors">
-                  <Image src={googleScholar} alt="Google Scholar" class="w-8 h-8" />
+                <a href={mentor.academic} target="_blank" rel="noopener noreferrer">
+                  <Image src={googleScholar} alt="Google Scholar" class="w-6 h-6" />
                 </a>
               )}
-              
 
             </div>
             
