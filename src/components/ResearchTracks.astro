@@ -3,17 +3,17 @@
 import ApplyButton from './ApplyButton.astro';
 import TextDropdown from './TextDropdown.astro';
 import { Image } from 'astro:assets';
-import groundBugs from '../assets/ground_bugs.svg';
-import roundTable from '../assets/round_table.svg';
-import peopleFollowing from '../assets/people_following_robot.svg';
-import wildCard from '../assets/wildcard.png';
+import robotBees from '../assets/images/robot-bees.jpg';
+import humanCooperation from '../assets/images/human-cooperation.jpg';
+import gradualDisempowerment from '../assets/images/gradual-disempowerment.jpg';
+import wildCard from '../assets/images/Bokkies.jpg';
 
 // Research tracks data
 const researchTracks = [
   {
     title: "Multi-Agent Safety",
     description: "This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:",
-    image: groundBugs,
+    image: robotBees,
     points: [
       "Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (more).",
       "Investigating strategies to detect and prevent collusion (more).",
@@ -28,14 +28,14 @@ const researchTracks = [
   {
     title: "AI for Facilitating Human Cooperation",
     description: "Many of the greatest challenges that humanity faces can be understood as cooperation challenges, where we would benefit from working together, yet have incentives that make cooperation difficult or unstable. In this area, we would like to see proposals to develop AI tools that help humans resolve major cooperation challenges. By virtue of their potentially greater ability to identify mutually beneficial agreements or to create novel institutional designs, for example, AI systems could have a huge positive impact via helping humans to cooperate.",
-    image: roundTable,
+    image: humanCooperation,
     points: [],
     link: "See the associated grant area on the Cooperative AI Foundation website for more details."
   },
   {
     title: "Mitigating Gradual Disempowerment",
     description: "As AI deployment increases and critical social systems — like economy, state, culture — become less reliant on human labor and cognition, the extent to which humans can explicitly or implicitly align such social systems could dramatically decrease. Competitive pressures and 'wicked' interactions across systems and scales could make it systematically difficult to avoid outsourcing critical societal functions to AI. As a result, these systems —and the outcomes they produce— might drift further from providing what humans want. In this area, we're looking to develop mitigations to preserve human agency and ensure that our institutions serve us.",
-    image: peopleFollowing,
+    image: gradualDisempowerment,
     points: [],
     link: "You can read more about this topic here."
   },
@@ -57,7 +57,13 @@ const researchTracks = [
     <p class="text-lg text-white text-left mb-12">
       We have identified the following tracks for the fellowship.
     </p>
-    
+    <!-- TODO add clickable links to the 'link' fields -->
+    <!-- TODO Mobile iamges not covering entire page width -->
+    <!-- TODO Desktop Multi agent safety needs to have the points be hidden by a text 'show more' button, 
+        and should expand the text section when clicked. 
+        There should then be a 'show less' button right at the end of the fully expanded text section -->
+    <!-- TODO might be simpler to move away from a component-ish layout for this page and instead have each section defined and the content added into it. -->
+
     <!-- Desktop version: Text and image layout -->
     <div class="hidden md:block">
       {researchTracks.map((track, index) => (

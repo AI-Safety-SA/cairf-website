@@ -5,151 +5,162 @@ import CoopAILogo from '../assets/partner-logos/CoopAI_logo.png';
 import PIBBSLogo from '../assets/partner-logos/PIBBS_logo.png';
 import AIInitiativeLogo from '../assets/partner-logos/AI_Initiative_logo.png';
 import AISSALogo from '../assets/partner-logos/AISSA_logo.svg';
-import PartnersImage from '../assets/partners_img.svg';
+import partnersApesDesktop from '../assets/images/partners-apes-desktop.jpg';
+import partnersApesMobile from '../assets/images/partners-apes-mobile.jpg';
+
+// Content data
+const partnershipContent = {
+  title: "Partners",
+  intro: "The fellowship is a collaboration between the Cooperative AI Foundation (CAIF), Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS), The AI Initiative at the University of Cape Town (UCT) and AI Safety South Africa (AISSA). AISSA is driving this project, and building on PIBBSS fellowship methodology with CAIF research oversight. This initiative serves as both a talent pipeline and research direction-setting mechanism for UCT's emerging African AI Safety Hub. This initiative is funded by the AI Safety Tactical Opportunities Fund and the Cooperative AI Foundation.",
+  partners: [
+    {
+      name: "AI Safety South Africa (AISSA)",
+      description: "A capacity building organisation focused on developing skills, networks, and community for preventing global catastrophic outcomes from advanced AI. AISSA drives impact through events, courses, partnerships and AI Safety Cape Town, a co-working and events space.",
+      link: "https://www.aisafetysa.com/"
+    },
+    {
+      name: "The Cooperative AI Foundation (CAIF)",
+      description: "A charitable entity, backed by a $15 million philanthropic commitment from Macroscopic Ventures. CAIF's mission is to support research that will improve the cooperative intelligence of advanced AI for the benefit of all.",
+      link: "https://www.cooperativeai.com/"
+    },
+    {
+      name: "The UCT AI Initiative",
+      description: "A research, teaching and knowledge translation ecosystem, dedicated to advancing world-class AI rooted in African realities. The initiative's mission is to design technologies that drive justice, dignity, and collective flourishing. The AI Initiative will have focus areas in AI applications including improving outcomes in health, climate, and poverty as well as AI safety and foundational AI theory.",
+      link: "https://ai.uct.ac.za/"
+    },
+    {
+      name: "Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS)",
+      description: "A research initiative aiming to leverage insights on the parallels between intelligent behaviour in natural and artificial systems towards progress on important questions in AI risk, governance and safety. PIBBSS has successfully run multiple research fellowships, developing a unique methodology for mentoring early-career researchers in AI safety.",
+      link: "https://pibbss.ai/"
+    }
+  ]
+};
 ---
 
-<section id="partners" class="py-20 bg-surface">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-sans font-semibold text-text-base text-left mb-12">
-      Partners
-    </h2>
-    
-    <!-- Desktop Layout: Text on left, illustration on right -->
-    <div class="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Left column: Partners content -->
-      <div class="space-y-8">
-        <div class="text-left">
-          <p class="text-lg text-text-muted leading-relaxed">
-            The fellowship is a collaboration with the Cooperative AI Foundation, PIBBSS, The AI Initiative at UCT and AI Safety South Africa. We build on PIBBSS fellowship methodology with CAIF research oversight. This initiative serves as both a talent pipeline and research direction-setting mechanism for the University of Cape Town's emerging AI Safety Hub.
-          </p>
+<!-- Desktop Partnerships Component -->
+<div class="hidden lg:block">
+  <section class="relative min-h-screen">
+      <div class="bg-surface">
+        <div class="flex flex-col lg:flex-row">
+          <!-- Text Content -->
+          <div class="w-full flex flex-col justify-around lg:w-3/5 px-4 sm:px-8 lg:pl-28 lg:pr-16 py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+              {partnershipContent.title}
+            </h2>
+            <div class="space-y-4">
+              <p class="text-lg text-black leading-relaxed">
+                {partnershipContent.intro}
+              </p>
+            </div>
+            
+            <!-- Partner descriptions -->
+            <div class="space-y-6 mt-8">
+              {partnershipContent.partners.map((partner) => (
+                <div>
+                  <a href={partner.link} target="_blank" rel="noopener noreferrer" class="text-black underline hover:text-gray-600 text-lg font-medium">
+                    <h3 class="font-semibold text-black mb-2">{partner.name}</h3>
+                  </a>
+                  <p class="text-lg text-black leading-relaxed">{partner.description}</p>
+
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Desktop Image Container -->
+          <div class="w-full lg:w-2/5 relative">
+            <Image 
+              src={partnersApesDesktop} 
+              alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Mobile Partnerships Component -->
+<div class="lg:hidden">
+  <section class="relative min-h-screen">
+      <div class="bg-surface">
+        <!-- Title and intro paragraph -->
+        <div class="px-4 sm:px-8 py-20">
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+            {partnershipContent.title}
+          </h2>
+          <div class="space-y-4">
+            <p class="text-lg text-black leading-relaxed">
+              {partnershipContent.intro}
+            </p>
+          </div>
+        </div>
+        
+        <!-- Mobile Image - Full width -->
+        <div class="w-full">
+          <Image 
+            src={partnersApesMobile} 
+            alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
+            class="w-full object-cover"
+          />
         </div>
         
         <!-- Partner descriptions -->
-        <div class="space-y-6">
-          <div class="pl-4">
-            <h3 class="font-semibold text-text-base mb-2">The Cooperative AI Foundation (CAIF)</h3>
-            <p class="text-sm text-text-muted">A new charitable entity, backed by a $15 million philanthropic commitment from Macroscopic Ventures. CAIF's mission is to support research that will improve the cooperative intelligence of advanced AI for the benefit of all.</p>
-            <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-          </div>
-          
-          <div class="pl-4">
-            <h3 class="font-semibold text-text-base mb-2">PIBBSS</h3>
-            <p class="text-sm text-text-muted">Facilitates knowledge transfer from fields studying intelligence in natural systems toward building human-aligned AI.</p>
-            <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-          </div>
-          
-          <div class="pl-4">
-            <h3 class="font-semibold text-text-base mb-2">The UCT AI Initiative</h3>
-            <p class="text-sm text-text-muted">Provides a rich ecosystem that enables researchers and students to do excellent AI research which will create tools and opportunities that facilitate the transition to a just society.</p>
-            <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-          </div>
-          
-          <div class="pl-4">
-            <h3 class="font-semibold text-text-base mb-2">AI Safety South Africa (AISSA)</h3>
-            <p class="text-sm text-text-muted">A capacity building organisation focused on developing skills and community in South Africa through events, courses, and co-working at AI Safety Cape Town.</p>
-            <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
+        <div class="px-4 sm:px-8">
+          <div class="space-y-6 mt-8">
+            {partnershipContent.partners.map((partner) => (
+              <div>
+                <h3 class="font-semibold text-black mb-2">{partner.name}</h3>
+                <p class="text-lg text-black leading-relaxed">{partner.description}</p>
+                <a href={partner.link} class="text-black underline hover:text-gray-600 text-lg font-medium">Learn more here</a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      
-      <!-- Right column: Illustration -->
-      <div class="flex justify-center ">
-        <Image 
-          src={PartnersImage} 
-          alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
-          class="max-w-full h-auto"
-          width={500}
-          height={400}
-        />
-      </div>
-    </div>
+    </section>
+  </div>
+</div>
 
-    <!-- Mobile Layout: Content stacked vertically -->
-    <div class="lg:hidden space-y-8">
-      <!-- Partners paragraph -->
-      <div class="text-left">
-        <p class="text-lg text-text-muted leading-relaxed">
-          The fellowship is a collaboration with the Cooperative AI Foundation, PIBBSS, The AI Initiative at UCT and AI Safety South Africa. We build on PIBBSS fellowship methodology with CAIF research oversight. This initiative serves as both a talent pipeline and research direction-setting mechanism for the University of Cape Town's emerging AI Safety Hub.
-        </p>
-      </div>
-      
-      <!-- Full width illustration on mobile -->
-      <div class="w-full">
+<!-- Logo banner at the bottom -->
+<section class="bg-surface py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+      <div class="flex items-center justify-center">
         <Image 
-          src={PartnersImage} 
-          alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
-          class="w-full h-auto"
-          width={800}
-          height={600}
+          src={CoopAILogo} 
+          alt="Cooperative AI Foundation Logo" 
+          class="max-h-16 max-w-full object-contain"
+          height={64}
         />
       </div>
       
-      <!-- Partner descriptions -->
-      <div class="space-y-6">
-        <div class="pl-4">
-          <h3 class="font-semibold text-text-base mb-2">The Cooperative AI Foundation (CAIF)</h3>
-          <p class="text-sm text-text-muted">A new charitable entity, backed by a $15 million philanthropic commitment from Macroscopic Ventures. CAIF's mission is to support research that will improve the cooperative intelligence of advanced AI for the benefit of all.</p>
-          <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-        </div>
-        
-        <div class="pl-4">
-          <h3 class="font-semibold text-text-base mb-2">PIBBSS</h3>
-          <p class="text-sm text-text-muted">Facilitates knowledge transfer from fields studying intelligence in natural systems toward building human-aligned AI.</p>
-          <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-        </div>
-        
-        <div class="pl-4">
-          <h3 class="font-semibold text-text-base mb-2">The UCT AI Initiative</h3>
-          <p class="text-sm text-text-muted">Provides a rich ecosystem that enables researchers and students to do excellent AI research which will create tools and opportunities that facilitate the transition to a just society.</p>
-          <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-        </div>
-        
-        <div class="pl-4">
-          <h3 class="font-semibold text-text-base mb-2">AI Safety South Africa (AISSA)</h3>
-          <p class="text-sm text-text-muted">A capacity building organisation focused on developing skills and community in South Africa through events, courses, and co-working at AI Safety Cape Town.</p>
-          <a href="#" class="text-primary hover:text-primary-dark text-sm font-medium">Learn more here</a>
-        </div>
+      <div class="flex items-center justify-center">
+        <Image 
+          src={PIBBSLogo} 
+          alt="PIBBSS Logo" 
+          class="max-h-16 max-w-full object-contain"
+          height={64}
+        />
       </div>
-    </div>
-    
-    <!-- Logo banner at the bottom -->
-    <div class="mt-16 pt-8">
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-        <div class="flex items-center justify-center">
-          <Image 
-            src={CoopAILogo} 
-            alt="Cooperative AI Foundation Logo" 
-            class="max-h-16 max-w-full object-contain"
-            height={64}
-          />
-        </div>
-        
-        <div class="flex items-center justify-center">
-          <Image 
-            src={PIBBSLogo} 
-            alt="PIBBSS Logo" 
-            class="max-h-16 max-w-full object-contain"
-            height={64}
-          />
-        </div>
-        
-        <div class="flex items-center justify-center">
-          <Image 
-            src={AIInitiativeLogo} 
-            alt="UCT AI Initiative Logo" 
-            class="max-h-16 max-w-full object-contain"
-            height={64}
-          />
-        </div>
-        
-        <div class="flex items-center justify-center">
-          <Image 
-            src={AISSALogo} 
-            alt="AI Safety South Africa Logo" 
-            class="max-h-16 max-w-full object-contain"
-            height={64}
-          />
-        </div>
+      
+      <div class="flex items-center justify-center">
+        <Image 
+          src={AIInitiativeLogo} 
+          alt="UCT AI Initiative Logo" 
+          class="max-h-16 max-w-full object-contain"
+          height={64}
+        />
+      </div>
+      
+      <div class="flex items-center justify-center">
+        <Image 
+          src={AISSALogo} 
+          alt="AI Safety South Africa Logo" 
+          class="max-h-16 max-w-full object-contain"
+          height={64}
+        />
       </div>
     </div>
   </div>
