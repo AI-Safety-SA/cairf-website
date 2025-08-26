@@ -52,21 +52,30 @@ async function ensureDir(dir: string) {
   }
 }
 
+async function clearMentorImages() {
+  try {
+    const files = await fs.readdir(IMAGES_DIR);
+    for (const file of files) {
+      const filePath = path.join(IMAGES_DIR, file);
+      const stat = await fs.stat(filePath);
+      if (stat.isFile()) {
+        await fs.unlink(filePath);
+        console.log(`Removed existing image: ${file}`);
+      }
+    }
+    console.log("Cleared existing mentor images");
+  } catch (error) {
+    // Directory might not exist yet, which is fine
+    console.log("No existing images to clear");
+  }
+}
+
 async function downloadImage(
   url: string,
   filename: string
 ): Promise<string | undefined> {
   try {
     const imagePath = path.join(IMAGES_DIR, filename);
-
-    // Check if image already exists
-    try {
-      await fs.access(imagePath);
-      console.log(`Image already exists: ${filename}`);
-      return `./mentors/images/${filename}`;
-    } catch {
-      // Image doesn't exist, download it
-    }
 
     return new Promise((resolve, reject) => {
       https
@@ -166,6 +175,9 @@ async function main() {
   // Ensure directories exist
   await ensureDir(OUT_DIR);
   await ensureDir(IMAGES_DIR);
+
+  // Clear existing mentor images to ensure fresh downloads
+  await clearMentorImages();
 
   // Map pages to mentor objects
   const mentors: Mentor[] = [];
