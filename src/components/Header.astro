@@ -20,13 +20,13 @@ import Image from 'astro/components/Image.astro';
       <div class="flex-shrink-0">
         <!-- Desktop: Full logo with text -->
         <div class="hidden md:block">
-            <a href="#hero" class="flex items-center space-x-2">
+            <a href="#hero">
               <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
             </a>
           </div>
           <!-- Mobile: No-text logo with acronym -->
           <div class="md:hidden flex items-center space-x-2">
-            <a href="#hero" class="flex items-center space-x-2">
+            <a href="#hero">
               <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
             </a>
             <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
@@ -146,7 +146,11 @@ import Image from 'astro/components/Image.astro';
           
           // Small delay to ensure menu is closed before scroll
           setTimeout(() => {
-            const href = link.getAttribute('href');
+            // Find the anchor element (either the target or its closest parent anchor)
+            const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+            if (!anchorElement) return;
+            
+            const href = anchorElement.getAttribute('href');
             if (href) {
               const targetElement = document.querySelector(href);
               if (targetElement) {

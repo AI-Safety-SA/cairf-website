@@ -79,8 +79,12 @@ import WhySections from '../components/WhySections.astro';
 			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 				anchor.addEventListener('click', (e) => {
 					e.preventDefault();
-					const target = e.target as HTMLAnchorElement;
-					const href = target.getAttribute('href');
+					
+					// Find the anchor element (either the target or its closest parent anchor)
+					const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+					if (!anchorElement) return;
+					
+					const href = anchorElement.getAttribute('href');
 					if (href) {
 						const targetElement = document.querySelector(href);
 						if (targetElement) {
