@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title: string;
+  isLast?: boolean;
+  isOpen?: boolean;
+}
+
+const { title, isLast = false, isOpen = false } = Astro.props;
+---
+
+<div class="research-track-dropdown-item">
+  <!-- Mobile version: Accordion dropdown -->
+  <div class="md:hidden">
+    <button 
+      class="research-track-dropdown-toggle w-full py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+      data-research-track-dropdown-toggle
+    >
+      <h3 class="text-lg font-semibold text-text-base pr-4">{title}</h3>
+      <svg 
+        class={`research-track-dropdown-arrow w-5 h-5 text-text-base transform transition-transform duration-200 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    
+    <div class={`research-track-dropdown-content pb-4 ${isOpen ? '' : 'hidden'}`}>
+      <div class="text-text-base/80">
+        <slot />
+      </div>
+    </div>
+    
+    <hr class="border-black" />
+  </div>
+</div>
+
+<script>
+  // Research track dropdown functionality for mobile only
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownToggles = document.querySelectorAll('[data-research-track-dropdown-toggle]');
+    
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const dropdownItem = toggle.closest('.research-track-dropdown-item');
+        const content = dropdownItem?.querySelector('.research-track-dropdown-content');
+        const arrow = dropdownItem?.querySelector('.research-track-dropdown-arrow');
+        
+        if (content && arrow) {
+          const isOpen = !content.classList.contains('hidden');
+          
+          // Close all other dropdown items
+          document.querySelectorAll('.research-track-dropdown-content').forEach(item => {
+            item.classList.add('hidden');
+          });
+          document.querySelectorAll('.research-track-dropdown-arrow').forEach(item => {
+            item.classList.remove('rotate-180');
+          });
+          
+          // Toggle current item
+          if (!isOpen) {
+            content.classList.remove('hidden');
+            arrow.classList.add('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>

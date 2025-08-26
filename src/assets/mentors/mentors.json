@@ -11,32 +11,31 @@
     "name": "Zhijing Jin",
     "title": "University of Toronto",
     "website": "https://zhijing-jin.com/",
-    "linkedin": "https://zhijing-jin.com/",
-    "academic": "https://zhijing-jin.com/",
+    "linkedin": "https://www.linkedin.com/in/zhijing-jin/",
+    "academic": "https://scholar.google.com/citations?user=Mdr6wjUAAAAJ",
     "image": "./mentors/images/zhijing_jin.jpg"
   },
   {
     "name": "Michiel Bakker",
     "title": "MIT",
     "website": "https://miba.dev/",
-    "linkedin": "https://miba.dev/",
-    "academic": "https://miba.dev/",
+    "linkedin": "https://www.linkedin.com/in/michielbakker1/",
+    "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
     "image": "./mentors/images/michiel_bakker.jpg"
   },
   {
     "name": "Vincent Conitzer",
     "title": "Carnegie Mellon University and University of Oxford",
     "website": "https://www.cs.cmu.edu/~conitzer/",
-    "linkedin": "https://www.cs.cmu.edu/~conitzer/",
-    "academic": "https://www.cs.cmu.edu/~conitzer/",
+    "linkedin": "https://www.linkedin.com/in/vincent-conitzer-2563082/",
     "image": "./mentors/images/vincent_conitzer.jpg"
   },
   {
     "name": "Max Kleiman-Weiner",
     "title": "University of Washington",
     "website": "https://faculty.washington.edu/maxkw/",
-    "linkedin": "https://faculty.washington.edu/maxkw/",
-    "academic": "https://faculty.washington.edu/maxkw/",
+    "linkedin": "https://www.linkedin.com/in/max-kleiman-weiner/",
+    "academic": "https://scholar.google.com/citations?hl=en&user=SACXQKYAAAAJ&view_op=list_works&sortby=pubdate",
     "image": "./mentors/images/max_kleiman_weiner.jpg"
   }
 ]
