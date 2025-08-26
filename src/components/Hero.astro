@@ -16,52 +16,35 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
     />
   </div>
   
-  <!-- Desktop Content overlay -->
-  <div class="relative z-10 hidden md:flex h-[calc(100vh-60px)]">
-    <!-- Left half - Text content with transparent black background -->
-    <div class="w-1/2 bg-black/40 flex items-center justify-center">
-      <div class="p-8 md:p-12 lg:p-16 max-w-lg">
-        <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif leading-tight text-white mb-6">
-          A 3-month research fellowship developing core topics in Cooperative AI, featuring world-class mentorship.
+  <!-- Content overlay -->
+  <div class="relative z-10 h-[calc(100vh-60px)] flex flex-col justify-between p-8 md:p-12 lg:px-32 lg:py-16">
+    <!-- Top section - Main description in upper-left -->
+    <div class="flex-1 flex items-start">
+      <div class="max-w-5xl">
+        <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif leading-tight text-white">
+          A 3-month research fellowship developing<br>
+          core topics in Cooperative AI, featuring<br>
+          world-class mentorship.
         </h1>
-        
-        <p class="text-lg md:text-xl text-white">
-          The application deadline is <strong>28 September 2025</strong>.
-        </p>
       </div>
     </div>
     
-    <!-- Right half - Empty space -->
-    <div class="w-1/2"></div>
-  </div>
-  
-  <!-- Mobile Content overlay -->
-  <div class="relative z-10 flex md:hidden flex-col h-[calc(100vh-60px)]">
-    <!-- Top section - Text content with transparent black background -->
-    <div class="w-full bg-black/40 flex items-start justify-center pt-8">
-      <div class="p-6 max-w-lg">
-        <h1 class="text-xl font-serif leading-tight text-white mb-4">
-          A 3-month research fellowship developing core topics in Cooperative AI, featuring world-class mentorship.
-        </h1>
-        
-        <p class="text-base text-white">
-          The application deadline is <strong>28 September 2025</strong>.
-        </p>
+    <!-- Bottom section - Application deadline and Apply button -->
+    <div class="flex justify-between items-end">
+      <!-- Application deadline in lower-left -->
+      <div class="text-lg md:text-xl text-white">
+        Apply by <strong>28 September 2025</strong>.
+      </div>
+      
+      <!-- Apply button in lower-right -->
+      <div class="hidden md:block">
+        <ApplyButton variant="primary" />
       </div>
     </div>
-    
-    <!-- Bottom section - Empty space for image focus -->
-    <div class="flex-1"></div>
   </div>
   
-  <!-- Apply button - Desktop: bottom right, Mobile: bottom center -->
-  <!-- Desktop Apply Button -->
-  <div class="absolute bottom-8 right-8 z-20 hidden md:block">
-    <ApplyButton variant="desktop" />
-  </div>
-  
-  <!-- Mobile Apply Button -->
+  <!-- Mobile Apply Button - centered at bottom -->
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 block md:hidden">
-    <ApplyButton variant="mobile" />
+    <ApplyButton variant="primary" />
   </div>
 </section>
