@@ -13,22 +13,24 @@ import ApplyButton from './ApplyButton.astro'
 import Image from 'astro/components/Image.astro';
 ---
 
-<header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+<header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 py-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <a href="#" class="flex items-center space-x-2">
-          <!-- Desktop: Full logo with text -->
-          <div class="hidden md:block">
-            <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
+        <!-- Desktop: Full logo with text -->
+        <div class="hidden md:block">
+            <a href="#hero">
+              <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
+            </a>
           </div>
           <!-- Mobile: No-text logo with acronym -->
           <div class="md:hidden flex items-center space-x-2">
-            <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
+            <a href="#hero">
+              <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
+            </a>
             <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
           </div>
-        </a>
       </div>
 
       <!-- Desktop Navigation -->
@@ -66,8 +68,6 @@ import Image from 'astro/components/Image.astro';
       </div>
     </div>
 
-    <!-- TODO mobile nav is kinda jank and doesn't take you exactly where you want to be
-        and most of the links don't work since the sections don't have id's -->
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 bg-white font-sans">
@@ -76,6 +76,9 @@ import Image from 'astro/components/Image.astro';
         </a>
         <a href="#key-details" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           Key Details
+        </a>
+        <a href="#tracks" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+          Research Tracks
         </a>
         <a href="#mentorship" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
           Mentorship
@@ -134,10 +137,37 @@ import Image from 'astro/components/Image.astro';
       // Close menu when clicking on links
       const links = menu.querySelectorAll('a');
       links.forEach(link => {
-        link.onclick = function() {
+        link.onclick = function(e) {
+          e.preventDefault();
+          // Close menu immediately
           menu.classList.add('hidden');
           hamburgerIcon.classList.remove('hidden');
           crossIcon.classList.add('hidden');
+          
+          // Small delay to ensure menu is closed before scroll
+          setTimeout(() => {
+            // Find the anchor element (either the target or its closest parent anchor)
+            const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+            if (!anchorElement) return;
+            
+            const href = anchorElement.getAttribute('href');
+            if (href) {
+              const targetElement = document.querySelector(href);
+              if (targetElement) {
+                // Get header height for offset
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 64;
+                
+                // Calculate target position with header offset
+                const targetPosition = (targetElement as HTMLElement).offsetTop - headerHeight;
+                
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }
+          }, 100);
         };
       });
     }
