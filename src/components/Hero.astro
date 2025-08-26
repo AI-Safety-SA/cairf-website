@@ -2,15 +2,15 @@
 // Hero section component
 import ApplyButton from './ApplyButton.astro';
 import Image from 'astro/components/Image.astro';
-import walking from '../assets/walking.svg';
-
+import landingDesktop from '../assets/images/landing-desktop.jpg';
+import landingMobile from '../assets/images/landing-mobile.jpg';
 ---
 
 <section class="relative min-h-[calc(100vh-80px)]">
   <!-- Background image -->
   <div class="absolute inset-0 z-0">
     <Image 
-      src={walking} 
+      src={landingDesktop} 
       alt="Walking illustration background" 
       class="w-full h-full object-cover"
     />
