@@ -1,27 +1,26 @@
 ---
-// Timeline section component
-
 // Timeline data
 const timelineData = {
   applications: [
-    { date: "26 August", description: "Applications open." },
-    { date: "18 September", description: "Information session webinar." },
-    { date: "28 September", description: "Applications close." },
-    { date: "6 October", description: "Phase 1 acceptance sent. Applicants proceed to the skills test phase." },
-    { date: "20 October", description: "Phase 2 acceptance sent. Applicants proceed to the interview phase." },
-    { date: "29 October", description: "Final decision on participants. Fellows to be matched with research managers and mentors." }
+    { date: "26 August", description: "Phase 1 applications open." },
+    { date: "18 September", description: "Info session webinar." },
+    { date: "28 September", description: "Phase 1 applications close." },
+    { date: "6 October", description: "Applicants proceed to the skills test phase." },
+    { date: "20 October", description: "Applicants proceed to the interview phase." },
+    { date: "29 October", description: "Fellows will be matched with mentors." },
+    { date: "29 October - 13th November", description: "Interviews with mentors and final offers." }
   ],
   fellowship: [
-    { date: "10 January", description: "Kickoff retreat in Cape Town. Fellowship research phase commences with research project finalisation, mentor-matching and introduction to research methodologies." },
+    { date: "10 January", description: "Kickoff retreat in Cape Town." },
     { date: "19 January", description: "Research phase begins." },
-    { date: "February, March", description: "Individual research projects begin, featuring regular mentor check-ins and weekly cohort discussion sessions." },
-    { date: "13 April", description: "Research is completed and published. Fellows give final presentations." }
+    { date: "February, March", description: "Regular mentor check-ins and cohort discussions." },
+    { date: "13 April", description: "Final presentations." }
   ]
 };
 ---
 
 <section id="timeline" class="py-20 bg-green-dark">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-sans font-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans font-light">
     <h2 class="text-3xl md:text-4xl font-semibold text-white text-left mb-12">
       Timeline
     </h2>
@@ -38,9 +37,9 @@ const timelineData = {
           <div class="flex justify-between items-start">
             {timelineData.applications.map((item) => (
               <div class="flex flex-col items-center">
-                <div class="text-white font-semibold mb-2">{item.date}</div>
-                <div class="w-0.5 h-4 bg-white mb-2"></div>
-                <div class="text-white text-sm max-w-40 text-left">{item.description}</div>
+                <div class="w-0.5 h-4 bg-white mb-2 mt-8"></div>
+                <div class="text-white font-semibold mb-2 text-center">{item.date}</div>
+                <div class="text-white text-sm max-w-36 text-center">{item.description}</div>
               </div>
             ))}
           </div>
@@ -57,9 +56,9 @@ const timelineData = {
           <div class="flex justify-between items-start">
             {timelineData.fellowship.map((item) => (
               <div class="flex flex-col items-center">
+                <div class="w-0.5 h-4 bg-white mb-2 mt-8"></div>
                 <div class="text-white font-bold mb-2">{item.date}</div>
-                <div class="w-0.5 h-4 bg-white mb-2"></div>
-                <div class="text-white text-sm max-w-40 text-left">{item.description}</div>
+                <div class="text-white text-sm max-w-40 text-center">{item.description}</div>
               </div>
             ))}
           </div>
