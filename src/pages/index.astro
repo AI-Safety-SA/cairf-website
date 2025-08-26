@@ -74,7 +74,7 @@ import WhySections from '../components/WhySections.astro';
 		<!-- Footer -->
 		<Footer />
 		
-		<!-- Smooth scrolling for anchor links -->
+		<!-- Smooth scrolling for anchor links with header offset -->
 		<script>
 			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 				anchor.addEventListener('click', (e) => {
@@ -84,9 +84,16 @@ import WhySections from '../components/WhySections.astro';
 					if (href) {
 						const targetElement = document.querySelector(href);
 						if (targetElement) {
-							targetElement.scrollIntoView({
-								behavior: 'smooth',
-								block: 'start'
+							// Get header height for offset
+							const header = document.querySelector('header');
+							const headerHeight = header ? header.offsetHeight : 64; // Default to 64px if header not found
+							
+							// Calculate target position with header offset
+							const targetPosition = (targetElement as HTMLElement).offsetTop - headerHeight;
+							
+							window.scrollTo({
+								top: targetPosition,
+								behavior: 'smooth'
 							});
 						}
 					}
