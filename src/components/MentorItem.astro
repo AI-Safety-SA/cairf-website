@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import linkedInIcon from '../assets/icons/linkedin-brands-solid-full.svg'
 import googleScholar from '../assets/icons/google-scholar-brands-solid-full.svg'
 import globe from '../assets/icons/globe-solid-full.svg'
+import twitterIcon from '../assets/icons/x-twitter-brands-solid-full.svg'
 
 export interface Props {
   name: string;
@@ -11,6 +12,7 @@ export interface Props {
   website?: string;
   linkedin?: string;
   academic?: string;
+  twitter?: string;
   image?: string;
 }
 
@@ -20,6 +22,7 @@ const {
   website,
   linkedin, 
   academic, 
+  twitter,
   image 
 } = Astro.props;
 ---
@@ -59,6 +62,12 @@ const {
     {linkedin && (
       <a href={linkedin} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 transition-colors">
         <Image src={linkedInIcon} alt="LinkedIn" class="w-8 h-8" />
+      </a>
+    )}
+    
+    {twitter && (
+      <a href={twitter} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 transition-colors">
+        <Image src={twitterIcon} alt="X-Twitter" class="w-8 h-8" />
       </a>
     )}
     

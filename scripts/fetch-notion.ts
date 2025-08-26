@@ -20,6 +20,7 @@ type Mentor = {
   website?: string;
   linkedin?: string;
   academic?: string;
+  twitter?: string;
   image?: string;
 };
 
@@ -144,6 +145,7 @@ async function mapPage(p: any): Promise<Mentor | null> {
   const website = getUrl(props["Link to website"]);
   const linkedin = getUrl(props["LinkedIn"]);
   const academic = getUrl(props["GoogleScholar"]);
+  const twitter = getUrl(props["X-Twitter"]);
   const imageUrl = getUrl(props["Picture"]);
 
   if (!name || !title) return null;
@@ -161,6 +163,7 @@ async function mapPage(p: any): Promise<Mentor | null> {
     website: website || undefined,
     linkedin: linkedin || undefined,
     academic: academic || undefined,
+    twitter: twitter || undefined,
     image: localImagePath || undefined,
   };
 }

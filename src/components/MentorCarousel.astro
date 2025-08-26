@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import linkedInIcon from '../assets/icons/linkedin-brands-solid-full.svg'
 import googleScholar from '../assets/icons/google-scholar-brands-solid-full.svg'
 import globe from '../assets/icons/globe-solid-full.svg'
+import twitterIcon from '../assets/icons/x-twitter-brands-solid-full.svg'
 
 import type { Props as MentorItemProps } from './MentorItem.astro';
 
@@ -64,6 +65,12 @@ const maxIndex = Math.max(0, mentors.length - itemsPerView);
               {mentor.linkedin && (
                 <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer">
                   <Image src={linkedInIcon} alt="LinkedIn" class="w-6 h-6" />
+                </a>
+              )}
+              
+              {mentor.twitter && (
+                <a href={mentor.twitter} target="_blank" rel="noopener noreferrer">
+                  <Image src={twitterIcon} alt="X-Twitter" class="w-6 h-6" />
                 </a>
               )}
               

@@ -1,10 +1,20 @@
 [
   {
+    "name": "Lewis Hammond",
+    "title": "Cooperative AI Foundation & University of Oxford",
+    "website": "https://lewishammond.com/",
+    "linkedin": "https://www.linkedin.com/in/lrhammond/",
+    "academic": "https://scholar.google.com/citations?user=8fYnp7UAAAAJ",
+    "twitter": "https://x.com/lrhammond",
+    "image": "./mentors/images/lewis_hammond.jpg"
+  },
+  {
     "name": "Joel Z. Leibo",
     "title": "Google DeepMind",
     "website": "https://www.jzleibo.com",
-    "linkedin": "www.jzleibo.com",
-    "academic": "www.jzleibo.com",
+    "linkedin": "https://www.linkedin.com/in/joel-leibo-4929aa7/",
+    "academic": "https://scholar.google.com/citations?hl=en&user=3y_M1cUAAAAJ",
+    "twitter": "https://x.com/jzl86",
     "image": "./mentors/images/joel_z_leibo.jpg"
   },
   {
@@ -13,6 +23,7 @@
     "website": "https://zhijing-jin.com/",
     "linkedin": "https://www.linkedin.com/in/zhijing-jin/",
     "academic": "https://scholar.google.com/citations?user=Mdr6wjUAAAAJ",
+    "twitter": "https://x.com/ZhijingJin",
     "image": "./mentors/images/zhijing_jin.jpg"
   },
   {
@@ -21,6 +32,7 @@
     "website": "https://miba.dev/",
     "linkedin": "https://www.linkedin.com/in/michielbakker1/",
     "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
+    "twitter": "https://x.com/bakkermichiel",
     "image": "./mentors/images/michiel_bakker.jpg"
   },
   {
@@ -28,6 +40,8 @@
     "title": "Carnegie Mellon University and University of Oxford",
     "website": "https://www.cs.cmu.edu/~conitzer/",
     "linkedin": "https://www.linkedin.com/in/vincent-conitzer-2563082/",
+    "academic": "https://scholar.google.com/citations?user=juRk4lQAAAAJ&hl=en",
+    "twitter": "https://x.com/conitzer",
     "image": "./mentors/images/vincent_conitzer.jpg"
   },
   {
@@ -36,6 +50,7 @@
     "website": "https://faculty.washington.edu/maxkw/",
     "linkedin": "https://www.linkedin.com/in/max-kleiman-weiner/",
     "academic": "https://scholar.google.com/citations?hl=en&user=SACXQKYAAAAJ&view_op=list_works&sortby=pubdate",
+    "twitter": "https://x.com/maxhkw",
     "image": "./mentors/images/max_kleiman_weiner.jpg"
   }
 ]
