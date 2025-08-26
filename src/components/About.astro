@@ -3,28 +3,30 @@
 import ContentSection from './ContentSection.astro';
 ---
 
-<ContentSection id="about" backgroundColor="bg-surface">
-  <h1 class="text-3xl md:text-4xl font-sans font-semibold text-text-base mb-12">
-    About The Fellowship
-  </h1>
-  
-  <div class="space-y-6 text-text-base font-sans font-light text-lg">
-    <p class="leading-relaxed">
-      The fellowship is a 3 month-long research program for participants from diverse backgrounds from around the world to pursue AI Safety research from a cooperative AI perspective. The fellowship will run from January to April 2026 and kicks off with a week-long retreat and may culminate with a conference. 
-    </p>
+<ContentSection backgroundColor='bg-surface'>
+  <section id="about">
+    <h1 class="text-3xl md:text-4xl font-sans font-semibold text-text-base mb-12">
+      About The Fellowship
+    </h1>
     
-    <p class="leading-relaxed">
-      Participants will receive mentorship from top researchers in the field of cooperative AI, including from organisations such as Google Deepmind, the University of Oxford, and the Collective Intelligence Project (among others). Alongside this, participants will be provisioned resources for building knowledge in AI Safety, and comprehensive financial support covering their living and travel expenses while in Cape Town. 
-    </p>
-    
-    <p class="leading-relaxed">
-      There will be opportunities for collaboration with other cohort members, a week-long retreat, workshops and access to a co-working space.
-    </p>
+    <div class="space-y-6 text-text-base font-sans font-light text-lg">
+      <p class="leading-relaxed">
+        The fellowship is a 3 month-long research program for participants from diverse backgrounds from around the world to pursue AI Safety research from a cooperative AI perspective. The fellowship will run from January to April 2026 and kicks off with a week-long retreat and may culminate with a conference. 
+      </p>
+      
+      <p class="leading-relaxed">
+        Participants will receive mentorship from top researchers in the field of cooperative AI, including from organisations such as Google Deepmind, the University of Oxford, and the Collective Intelligence Project (among others). Alongside this, participants will be provisioned resources for building knowledge in AI Safety, and comprehensive financial support covering their living and travel expenses while in Cape Town. 
+      </p>
+      
+      <p class="leading-relaxed">
+        There will be opportunities for collaboration with other cohort members, a week-long retreat, workshops and access to a co-working space.
+      </p>
 
-    <p class="leading-relaxed">
-      Alumni from previous iterations of similar fellowships have gone on to work in academia, join leading AI Safety labs, work for the UK AISI, or start independent research projects.
-    </p>
-
+      <p class="leading-relaxed">
+        Alumni from previous iterations of similar fellowships have gone on to work in academia, join leading AI Safety labs, work for the UK AISI, or start independent research projects.
+      </p>
+  </section>
+  <section id="key-details">
     <!-- Separator -->
     <hr class="border-black my-12">
 
@@ -88,5 +90,5 @@ import ContentSection from './ContentSection.astro';
         <p> <strong class="font-semibold">Participants:</strong> There will be 6-12 fellows, with at least 30% from South Africa or South African institutions. The remaining 50-70% of the cohort will be drawn from a diverse pool of international applicants. We aim to provide special consideration to applicants who would otherwise have trouble accessing in-person programs in the UK or US due to visa requirements.</p>
       </div>
     </div>
-  </div>
+  </section>
 </ContentSection>
