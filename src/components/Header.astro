@@ -18,17 +18,19 @@ import Image from 'astro/components/Image.astro';
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <a href="#" class="flex items-center space-x-2">
-          <!-- Desktop: Full logo with text -->
-          <div class="hidden md:block">
-            <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
+        <!-- Desktop: Full logo with text -->
+        <div class="hidden md:block">
+            <a href="#hero" class="flex items-center space-x-2">
+              <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
+            </a>
           </div>
           <!-- Mobile: No-text logo with acronym -->
           <div class="md:hidden flex items-center space-x-2">
-            <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
+            <a href="#hero" class="flex items-center space-x-2">
+              <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
+            </a>
             <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
           </div>
-        </a>
       </div>
 
       <!-- Desktop Navigation -->

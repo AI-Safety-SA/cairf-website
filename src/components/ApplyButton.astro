@@ -24,10 +24,17 @@ const variantClasses = {
   desktop: 'bg-primary text-white hover:bg-primary/90 border-primary px-8 py-4 text-lg'
 };
 
+const variantText = {
+  primary: 'APPLY NOW',
+  secondary: 'APPLY'
+};
+
 // Handle legacy variants
 const isLegacyVariant = variant === 'mobile' || variant === 'desktop';
 const finalSize = isLegacyVariant ? '' : sizeClasses[size];
 const finalVariant = isLegacyVariant ? variantClasses[variant] : variantClasses[variant];
+
+const finalVariantText = isLegacyVariant ? 'APPLY NOW' : variantText[variant];
 ---
 
 <a 
@@ -48,5 +55,5 @@ const finalVariant = isLegacyVariant ? variantClasses[variant] : variantClasses[
     ${finalVariant}
   `}
 >
-  APPLY NOW
+  {finalVariantText}
 </a>
