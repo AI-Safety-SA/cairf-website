@@ -1,7 +1,7 @@
 ---
 // Research Tracks section component
 import ApplyButton from './ApplyButton.astro';
-import TextDropdown from './TextDropdown.astro';
+import ResearchTrackDropdown from './ResearchTrackDropdown.astro';
 import { Image } from 'astro:assets';
 import robotBees from '../assets/images/robot-bees.jpg';
 import humanCooperation from '../assets/images/human-cooperation.jpg';
@@ -9,301 +9,301 @@ import gradualDisempowerment from '../assets/images/gradual-disempowerment.jpg';
 import wildCard from '../assets/images/Bokkies.jpg';
 ---
 
-<section id="tracks" class="py-20 bg-green-dark text-white">
-  <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-white text-left mb-4">
-      Research Areas
-    </h2>
-    
-    <p class="text-lg text-white text-left mb-12">
-      We have identified the following tracks for the fellowship.
-    </p>
+<section id="tracks" class="pt-16 bg-surface text-text-base">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Separator -->
+      <hr class="border-black my-8">
+      <h2 class="text-3xl md:text-4xl font-normal text-text-base text-center md:text-left my-12">
+        Research Areas
+      </h2>
+      
+      <p class="text-text-base text-left mb-12">
+        We have identified the following tracks for the fellowship.
+      </p>
 
-    <!-- Desktop version: Text and image layout -->
-    <div class="hidden md:block">
-      <!-- Multi-Agent Safety -->
-      <div class="mb-16">
-        <div class="flex items-center gap-12">
-          <!-- Text content -->
-          <div class="flex-1">
-            <h3 class="text-2xl font-semibold text-white mb-6">
-              Multi-Agent Safety
-            </h3>
-            
-            <p class="text-white/80 mb-6 leading-relaxed">
-              This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:
-            </p>
-            
-            <div id="multi-agent-points" class="hidden">
-              <ul class="text-white/80 space-y-3 mb-6">
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (<a href="https://www.cooperativeai.com/grant-research-areas/monitoring-and-controlling-dynamic-networks-of-agents-and-emergent-properties" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).
-                  </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Investigating strategies to detect and prevent collusion (<a href="https://www.cooperativeai.com/grant-research-areas/collusion" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).
-                  </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Understanding and evaluating abilities and propensities of AI agents that determine how they behave in cooperation problems (more <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-capabilities" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a> and <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-propensities" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a>).
-                  </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Propose infrastructure and incentive structures that could promote safe interactions between agents (<a href="https://www.cooperativeai.com/grant-research-areas/incentivizing-cooperation-among-ai-agents" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).
-                  </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Studying the effects of information asymmetries on the safety of multiagent interactions (<a href="https://www.cooperativeai.com/grant-research-areas/information-asymmetries-and-transparency" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).
-                  </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white mr-3 mt-1">•</span>
-                  <span class="leading-relaxed">
-                    Identifying and mitigating AI security vulnerabilities that are specific to mixed-motive, multi-agent settings (<a href="https://www.cooperativeai.com/grant-research-areas/multi-agent-security" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).
-                  </span>
-                </li>
-              </ul>
+      <!-- Desktop version: Text and image layout -->
+      <div class="hidden md:block">
+        <!-- Multi-Agent Safety -->
+        <div class="mb-16">
+          <div class="flex items-center gap-12">
+            <!-- Text content -->
+            <div class="flex-3">
+              <h3 class="text-2xl font-semibold text-text-base mb-6">
+                Multi-Agent Safety
+              </h3>
+              
+              <p class="text-text-base/80 mb-6 leading-relaxed">
+                This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:
+              </p>
+              
+              <div id="multi-agent-points" class="hidden">
+                <ul class="text-text-base/80 space-y-3 mb-6">
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (<a href="https://www.cooperativeai.com/grant-research-areas/monitoring-and-controlling-dynamic-networks-of-agents-and-emergent-properties" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Investigating strategies to detect and prevent collusion (<a href="https://www.cooperativeai.com/grant-research-areas/collusion" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Understanding and evaluating abilities and propensities of AI agents that determine how they behave in cooperation problems (more <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-capabilities" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a> and <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-propensities" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a>).
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Propose infrastructure and incentive structures that could promote safe interactions between agents (<a href="https://www.cooperativeai.com/grant-research-areas/incentivizing-cooperation-among-ai-agents" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Studying the effects of information asymmetries on the safety of multiagent interactions (<a href="https://www.cooperativeai.com/grant-research-areas/information-asymmetries-and-transparency" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-text-base mr-3 mt-1">•</span>
+                    <span class="leading-relaxed">
+                      Identifying and mitigating AI security vulnerabilities that are specific to mixed-motive, multi-agent settings (<a href="https://www.cooperativeai.com/grant-research-areas/multi-agent-security" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              
+              <button id="show-more-btn" class="text-text-base/80 underline hover:text-text-base transition-colors mb-6">
+                Show more
+              </button>
+              
+              <p class="text-text-base/80 text-sm">
+                See the associated grant areas on the <a href="https://www.cooperativeai.com/grants/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">Cooperative AI Foundation website</a> for more details.
+              </p>
             </div>
             
-            <button id="show-more-btn" class="text-white/80 underline hover:text-white transition-colors mb-6">
-              Show more
-            </button>
-            
-            <p class="text-white/80 text-sm">
-              See the associated grant areas on the <a href="https://www.cooperativeai.com/grants/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">Cooperative AI Foundation website</a> for more details.
-            </p>
+            <!-- Image -->
+            <div class="flex-2">
+              <Image 
+                src={robotBees} 
+                alt="Multi-Agent Safety"
+                class="w-full h-auto"
+              />
+            </div>
           </div>
-          
-          <!-- Image -->
-          <div class="flex-shrink-0 w-124">
+        </div>
+
+        <!-- AI for Facilitating Human Cooperation -->
+        <div class="mb-16">
+          <div class="flex items-center gap-12 flex-row-reverse">
+            <!-- Text content -->
+            <div class="flex-3">
+              <h3 class="text-2xl font-semibold text-text-base mb-6">
+                AI for Facilitating Human Cooperation
+              </h3>
+              
+              <p class="text-text-base/80 mb-6 leading-relaxed">
+                Many of the greatest challenges that humanity faces can be understood as cooperation challenges, where we would benefit from working together, yet have incentives that make cooperation difficult or unstable. In this area, we would like to see proposals to develop AI tools that help humans resolve major cooperation challenges. By virtue of their potentially greater ability to identify mutually beneficial agreements or to create novel institutional designs, for example, AI systems could have a huge positive impact via helping humans to cooperate.
+              </p>
+              
+              <p class="text-text-base/80 text-sm">
+                See the associated grant area on the <a href="https://www.cooperativeai.com/grant-research-areas/ai-for-facilitating-human-cooperation" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">Cooperative AI Foundation website</a> for more details.
+              </p>
+            </div>
+            
+            <!-- Image -->
+            <div class="flex-2">
+              <Image 
+                src={humanCooperation} 
+                alt="AI for Facilitating Human Cooperation"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Mitigating Gradual Disempowerment -->
+        <div class="mb-16">
+          <div class="flex items-center gap-12">
+            <!-- Text content -->
+            <div class="flex-3">
+              <h3 class="text-2xl font-semibold text-text-base mb-6">
+                Mitigating Gradual Disempowerment
+              </h3>
+              
+              <p class="text-text-base/80 mb-6 leading-relaxed">
+                As AI deployment increases and critical social systems — like economy, state, culture — become less reliant on human labor and cognition, the extent to which humans can explicitly or implicitly align such social systems could dramatically decrease. Competitive pressures and 'wicked' interactions across systems and scales could make it systematically difficult to avoid outsourcing critical societal functions to AI. As a result, these systems —and the outcomes they produce— might drift further from providing what humans want. In this area, we're looking to develop mitigations to preserve human agency and ensure that our institutions serve us.
+              </p>
+              
+              <p class="text-text-base/80 text-sm">
+                You can read more about this topic <a href="https://gradual-disempowerment.ai/" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a>.
+              </p>
+            </div>
+            
+            <!-- Image -->
+            <div class="flex-2">
+              <Image 
+                src={gradualDisempowerment} 
+                alt="Mitigating Gradual Disempowerment"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Wildcard -->
+        <div class="mb-16">
+          <div class="flex items-center gap-12 flex-row-reverse">
+            <!-- Text content -->
+            <div class="flex-3">
+              <h3 class="text-2xl font-semibold text-text-base mb-6">
+                Wildcard
+              </h3>
+              
+              <p class="text-text-base/80 mb-6 leading-relaxed">
+                Pitch us a project! The outcome of your project must necessarily aim to reduce catastrophic risks that arise as a result of AI, but other than that there are no constraints here. Note that you may be less likely to be matched with a mentor (and therefore accepted to the fellowship) if you choose this option, but we will make an effort to find mentors for exceptional candidates that don't exactly fit the tracks above.
+              </p>
+            </div>
+            
+            <!-- Image -->
+            <div class="flex-2">
+              <Image 
+                src={wildCard} 
+                alt="Wildcard"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile version: Images with dropdowns -->
+      <div class="md:hidden">
+        <!-- Multi-Agent Safety -->
+        <div class="mb-8">
+          <!-- Full-width image -->
+          <div class="mb-4">
             <Image 
               src={robotBees} 
               alt="Multi-Agent Safety"
               class="w-full h-auto"
             />
           </div>
-        </div>
-      </div>
-
-      <!-- AI for Facilitating Human Cooperation -->
-      <div class="mb-16">
-        <div class="flex items-center gap-12 flex-row-reverse">
-          <!-- Text content -->
-          <div class="flex-1">
-            <h3 class="text-2xl font-semibold text-white mb-6">
-              AI for Facilitating Human Cooperation
-            </h3>
-            
-            <p class="text-white/80 mb-6 leading-relaxed">
-              Many of the greatest challenges that humanity faces can be understood as cooperation challenges, where we would benefit from working together, yet have incentives that make cooperation difficult or unstable. In this area, we would like to see proposals to develop AI tools that help humans resolve major cooperation challenges. By virtue of their potentially greater ability to identify mutually beneficial agreements or to create novel institutional designs, for example, AI systems could have a huge positive impact via helping humans to cooperate.
-            </p>
-            
-            <p class="text-white/80 text-sm">
-              See the associated grant area on the <a href="https://www.cooperativeai.com/grant-research-areas/ai-for-facilitating-human-cooperation" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">Cooperative AI Foundation website</a> for more details.
-            </p>
-          </div>
           
-          <!-- Image -->
-          <div class="flex-shrink-0 w-124">
+          <!-- Dropdown section -->
+          <ResearchTrackDropdown 
+            title="Multi-Agent Safety"
+            isLast={false}
+            isOpen={false}
+          >
+            <p class="mb-4">This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (<a href="https://www.cooperativeai.com/grant-research-areas/monitoring-and-controlling-dynamic-networks-of-agents-and-emergent-properties" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Investigating strategies to detect and prevent collusion (<a href="https://www.cooperativeai.com/grant-research-areas/collusion" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Understanding and evaluating abilities and propensities of AI agents that determine how they behave in cooperation problems (more <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-capabilities" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a> and <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-propensities" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a>).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Propose infrastructure and incentive structures that could promote safe interactions between agents (<a href="https://www.cooperativeai.com/grant-research-areas/incentivizing-cooperation-among-ai-agents" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Studying the effects of information asymmetries on the safety of multiagent interactions (<a href="https://www.cooperativeai.com/grant-research-areas/information-asymmetries-and-transparency" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-text-base mr-2">•</span>
+                <span>Identifying and mitigating AI security vulnerabilities that are specific to mixed-motive, multi-agent settings (<a href="https://www.cooperativeai.com/grant-research-areas/multi-agent-security" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">more</a>).</span>
+              </li>
+            </ul>
+            <p class="text-sm mt-4">See the associated grant areas on the <a href="https://www.cooperativeai.com/grants/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">Cooperative AI Foundation website</a> for more details.</p>
+          </ResearchTrackDropdown>
+        </div>
+
+        <!-- AI for Facilitating Human Cooperation -->
+        <div class="mb-8">
+          <!-- Full-width image -->
+          <div class="mb-4">
             <Image 
               src={humanCooperation} 
               alt="AI for Facilitating Human Cooperation"
               class="w-full h-auto"
             />
           </div>
-        </div>
-      </div>
-
-      <!-- Mitigating Gradual Disempowerment -->
-      <div class="mb-16">
-        <div class="flex items-center gap-12">
-          <!-- Text content -->
-          <div class="flex-1">
-            <h3 class="text-2xl font-semibold text-white mb-6">
-              Mitigating Gradual Disempowerment
-            </h3>
-            
-            <p class="text-white/80 mb-6 leading-relaxed">
-              As AI deployment increases and critical social systems — like economy, state, culture — become less reliant on human labor and cognition, the extent to which humans can explicitly or implicitly align such social systems could dramatically decrease. Competitive pressures and 'wicked' interactions across systems and scales could make it systematically difficult to avoid outsourcing critical societal functions to AI. As a result, these systems —and the outcomes they produce— might drift further from providing what humans want. In this area, we're looking to develop mitigations to preserve human agency and ensure that our institutions serve us.
-            </p>
-            
-            <p class="text-white/80 text-sm">
-              You can read more about this topic <a href="https://gradual-disempowerment.ai/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a>.
-            </p>
-          </div>
           
-          <!-- Image -->
-          <div class="flex-shrink-0 w-124">
+          <!-- Dropdown section -->
+          <ResearchTrackDropdown 
+            title="AI for Facilitating Human Cooperation"
+            isLast={false}
+            isOpen={false}
+          >
+            <p class="mb-4">Many of the greatest challenges that humanity faces can be understood as cooperation challenges, where we would benefit from working together, yet have incentives that make cooperation difficult or unstable. In this area, we would like to see proposals to develop AI tools that help humans resolve major cooperation challenges. By virtue of their potentially greater ability to identify mutually beneficial agreements or to create novel institutional designs, for example, AI systems could have a huge positive impact via helping humans to cooperate.</p>
+            <p class="text-sm mt-4">See the associated grant area on the <a href="https://www.cooperativeai.com/grant-research-areas/ai-for-facilitating-human-cooperation" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">Cooperative AI Foundation website</a> for more details.</p>
+          </ResearchTrackDropdown>
+        </div>
+
+        <!-- Mitigating Gradual Disempowerment -->
+        <div class="mb-8">
+          <!-- Full-width image -->
+          <div class="mb-4">
             <Image 
               src={gradualDisempowerment} 
               alt="Mitigating Gradual Disempowerment"
               class="w-full h-auto"
             />
           </div>
-        </div>
-      </div>
-
-      <!-- Wildcard -->
-      <div class="mb-16">
-        <div class="flex items-center gap-12 flex-row-reverse">
-          <!-- Text content -->
-          <div class="flex-1">
-            <h3 class="text-2xl font-semibold text-white mb-6">
-              Wildcard
-            </h3>
-            
-            <p class="text-white/80 mb-6 leading-relaxed">
-              Pitch us a project! The outcome of your project must necessarily aim to reduce catastrophic risks that arise as a result of AI, but other than that there are no constraints here. Note that you may be less likely to be matched with a mentor (and therefore accepted to the fellowship) if you choose this option, but we will make an effort to find mentors for exceptional candidates that don't exactly fit the tracks above.
-            </p>
-          </div>
           
-          <!-- Image -->
-          <div class="flex-shrink-0 w-124">
+          <!-- Dropdown section -->
+          <ResearchTrackDropdown 
+            title="Mitigating Gradual Disempowerment"
+            isLast={false}
+            isOpen={false}
+          >
+            <p class="mb-4">As AI deployment increases and critical social systems — like economy, state, culture — become less reliant on human labor and cognition, the extent to which humans can explicitly or implicitly align such social systems could dramatically decrease. Competitive pressures and 'wicked' interactions across systems and scales could make it systematically difficult to avoid outsourcing critical societal functions to AI. As a result, these systems —and the outcomes they produce— might drift further from providing what humans want. In this area, we're looking to develop mitigations to preserve human agency and ensure that our institutions serve us.</p>
+            <p class="text-sm mt-4">You can read more about this topic <a href="https://gradual-disempowerment.ai/" target="_blank" rel="noopener noreferrer" class="underline hover:text-text-base transition-colors">here</a>.</p>
+          </ResearchTrackDropdown>
+        </div>
+
+        <!-- Wildcard -->
+        <div class="mb-8">
+          <!-- Full-width image -->
+          <div class="mb-4">
             <Image 
               src={wildCard} 
               alt="Wildcard"
               class="w-full h-auto"
             />
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile version: Images with dropdowns -->
-    <div class="md:hidden">
-      <!-- Multi-Agent Safety -->
-      <div class="mb-8">
-        <!-- Full-width image -->
-        <div class="mb-4">
-          <Image 
-            src={robotBees} 
-            alt="Multi-Agent Safety"
-            class="w-full h-auto"
-          />
-        </div>
-        
-        <!-- Dropdown section -->
-        <TextDropdown 
-          title="Multi-Agent Safety"
-          content={`
-            <p class="mb-4">This research area serves to develop the nascent field of understanding risks of and preventing harm from large systems of autonomous AI agents. The focus is on cooperation problems in mixed-motive settings: situations where individual agents or groups would benefit from working together, yet have incentives that make cooperation difficult or unstable. Work in this area includes:</p>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Investigating how to monitor and control the collective dynamics arising from interactions within multi-agent networks (<a href="https://www.cooperativeai.com/grant-research-areas/monitoring-and-controlling-dynamic-networks-of-agents-and-emergent-properties" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Investigating strategies to detect and prevent collusion (<a href="https://www.cooperativeai.com/grant-research-areas/collusion" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Understanding and evaluating abilities and propensities of AI agents that determine how they behave in cooperation problems (more <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-capabilities" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a> and <a href="https://www.cooperativeai.com/grant-research-areas/understanding-and-evaluating-cooperation-relevant-propensities" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a>).</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Propose infrastructure and incentive structures that could promote safe interactions between agents (<a href="https://www.cooperativeai.com/grant-research-areas/incentivizing-cooperation-among-ai-agents" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Studying the effects of information asymmetries on the safety of multiagent interactions (<a href="https://www.cooperativeai.com/grant-research-areas/information-asymmetries-and-transparency" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-white mr-2">•</span>
-                <span>Identifying and mitigating AI security vulnerabilities that are specific to mixed-motive, multi-agent settings (<a href="https://www.cooperativeai.com/grant-research-areas/multi-agent-security" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">more</a>).</span>
-              </li>
-            </ul>
-            <p class="text-sm mt-4">See the associated grant areas on the <a href="https://www.cooperativeai.com/grants/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">Cooperative AI Foundation website</a> for more details.</p>
-          `}
-          isLast={false}
-          isOpen={true}
-        />
-      </div>
-
-      <!-- AI for Facilitating Human Cooperation -->
-      <div class="mb-8">
-        <!-- Full-width image -->
-        <div class="mb-4">
-          <Image 
-            src={humanCooperation} 
-            alt="AI for Facilitating Human Cooperation"
-            class="w-full h-auto"
-          />
-        </div>
-        
-        <!-- Dropdown section -->
-        <TextDropdown 
-          title="AI for Facilitating Human Cooperation"
-          content={`
-            <p class="mb-4">Many of the greatest challenges that humanity faces can be understood as cooperation challenges, where we would benefit from working together, yet have incentives that make cooperation difficult or unstable. In this area, we would like to see proposals to develop AI tools that help humans resolve major cooperation challenges. By virtue of their potentially greater ability to identify mutually beneficial agreements or to create novel institutional designs, for example, AI systems could have a huge positive impact via helping humans to cooperate.</p>
-            <p class="text-sm mt-4">See the associated grant area on the <a href="https://www.cooperativeai.com/grant-research-areas/ai-for-facilitating-human-cooperation" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">Cooperative AI Foundation website</a> for more details.</p>
-          `}
-          isLast={false}
-          isOpen={false}
-        />
-      </div>
-
-      <!-- Mitigating Gradual Disempowerment -->
-      <div class="mb-8">
-        <!-- Full-width image -->
-        <div class="mb-4">
-          <Image 
-            src={gradualDisempowerment} 
-            alt="Mitigating Gradual Disempowerment"
-            class="w-full h-auto"
-          />
-        </div>
-        
-        <!-- Dropdown section -->
-        <TextDropdown 
-          title="Mitigating Gradual Disempowerment"
-          content={`
-            <p class="mb-4">As AI deployment increases and critical social systems — like economy, state, culture — become less reliant on human labor and cognition, the extent to which humans can explicitly or implicitly align such social systems could dramatically decrease. Competitive pressures and 'wicked' interactions across systems and scales could make it systematically difficult to avoid outsourcing critical societal functions to AI. As a result, these systems —and the outcomes they produce— might drift further from providing what humans want. In this area, we're looking to develop mitigations to preserve human agency and ensure that our institutions serve us.</p>
-            <p class="text-sm mt-4">You can read more about this topic <a href="https://gradual-disempowerment.ai/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition-colors">here</a>.</p>
-          `}
-          isLast={false}
-          isOpen={false}
-        />
-      </div>
-
-      <!-- Wildcard -->
-      <div class="mb-8">
-        <!-- Full-width image -->
-        <div class="mb-4">
-          <Image 
-            src={wildCard} 
-            alt="Wildcard"
-            class="w-full h-auto"
-          />
-        </div>
-        
-        <!-- Dropdown section -->
-        <TextDropdown 
-          title="Wildcard"
-          content={`
+          
+          <!-- Dropdown section -->
+          <ResearchTrackDropdown 
+            title="Wildcard"
+            isLast={true}
+            isOpen={false}
+          >
             <p class="mb-4">Pitch us a project! The outcome of your project must necessarily aim to reduce catastrophic risks that arise as a result of AI, but other than that there are no constraints here. Note that you may be less likely to be matched with a mentor (and therefore accepted to the fellowship) if you choose this option, but we will make an effort to find mentors for exceptional candidates that don't exactly fit the tracks above.</p>
-          `}
-          isLast={true}
-          isOpen={false}
-        />
+          </ResearchTrackDropdown>
+        </div>
       </div>
-    </div>
-    
-    <!-- Apply button -->
-    <div class="mt-12">
-      <div class="flex justify-center lg:justify-end">
-        <ApplyButton variant="primary" />
+      <!-- Apply button -->
+      <div class="my-12">
+        <div class="flex justify-end md:justify-end">
+          <ApplyButton variant="primary" />
+        </div>
       </div>
+      <hr class="border-black" />
     </div>
   </div>
 </section>
