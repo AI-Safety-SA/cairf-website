@@ -37,9 +37,10 @@ const partnershipContent = {
 };
 ---
 
-<!-- Desktop Partnerships Component -->
-<div class="hidden lg:block">
-  <section class="relative min-h-screen">
+<section id="partners">
+  <!-- Desktop Partnerships Component -->
+  <div class="hidden lg:block">
+    <section class="relative min-h-screen">
       <div class="bg-surface">
         <div class="flex flex-col lg:flex-row">
           <!-- Text Content -->
@@ -79,89 +80,90 @@ const partnershipContent = {
       </div>
     </section>
   </div>
-</div>
 
-<!-- Mobile Partnerships Component -->
-<div class="lg:hidden">
-  <section class="relative min-h-screen">
-      <div class="bg-surface">
-        <!-- Title and intro paragraph -->
-        <div class="px-4 sm:px-8 py-20">
-          <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
-            {partnershipContent.title}
-          </h2>
-          <div class="space-y-4">
-            <p class="text-lg text-black leading-relaxed">
-              {partnershipContent.intro}
-            </p>
+  <!-- Mobile Partnerships Component -->
+  <div class="lg:hidden">
+    <section class="relative min-h-screen">
+        <div class="bg-surface">
+          <!-- Title and intro paragraph -->
+          <div class="px-4 sm:px-8 py-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+              {partnershipContent.title}
+            </h2>
+            <div class="space-y-4">
+              <p class="text-lg text-black leading-relaxed">
+                {partnershipContent.intro}
+              </p>
+            </div>
+          </div>
+          
+          <!-- Mobile Image - Full width -->
+          <div class="w-full">
+            <Image 
+              src={partnersApesMobile} 
+              alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
+              class="w-full object-cover"
+            />
+          </div>
+          
+          <!-- Partner descriptions -->
+          <div class="px-4 sm:px-8">
+            <div class="space-y-6 mt-8">
+              {partnershipContent.partners.map((partner) => (
+                <div>
+                  <a href={partner.link} target="_blank" rel="noopener noreferrer" class="text-black underline hover:text-gray-600 text-lg font-medium">
+                    <h3 class="font-semibold text-black mb-2">{partner.name}</h3>
+                  </a>
+                  <p class="text-lg text-black leading-relaxed">{partner.description}</p>
+                  
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        
-        <!-- Mobile Image - Full width -->
-        <div class="w-full">
+    </section>
+  </div>
+
+  <!-- Logo banner at the bottom -->
+  <section class="bg-surface py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        <div class="flex items-center justify-center">
           <Image 
-            src={partnersApesMobile} 
-            alt="Partnership illustration featuring anthropomorphic monkeys in a natural landscape" 
-            class="w-full object-cover"
+            src={CoopAILogo} 
+            alt="Cooperative AI Foundation Logo" 
+            class="max-h-16 max-w-full object-contain"
+            height={64}
           />
         </div>
         
-        <!-- Partner descriptions -->
-        <div class="px-4 sm:px-8">
-          <div class="space-y-6 mt-8">
-            {partnershipContent.partners.map((partner) => (
-              <div>
-                <h3 class="font-semibold text-black mb-2">{partner.name}</h3>
-                <p class="text-lg text-black leading-relaxed">{partner.description}</p>
-                <a href={partner.link} class="text-black underline hover:text-gray-600 text-lg font-medium">Learn more here</a>
-              </div>
-            ))}
-          </div>
+        <div class="flex items-center justify-center">
+          <Image 
+            src={PIBBSLogo} 
+            alt="PIBBSS Logo" 
+            class="max-h-16 max-w-full object-contain"
+            height={64}
+          />
+        </div>
+        
+        <div class="flex items-center justify-center">
+          <Image 
+            src={AIInitiativeLogo} 
+            alt="UCT AI Initiative Logo" 
+            class="max-h-16 max-w-full object-contain"
+            height={64}
+          />
+        </div>
+        
+        <div class="flex items-center justify-center">
+          <Image 
+            src={AISSALogo} 
+            alt="AI Safety South Africa Logo" 
+            class="max-h-16 max-w-full object-contain"
+            height={64}
+          />
         </div>
       </div>
-    </section>
-  </div>
-</div>
-
-<!-- Logo banner at the bottom -->
-<section class="bg-surface py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-      <div class="flex items-center justify-center">
-        <Image 
-          src={CoopAILogo} 
-          alt="Cooperative AI Foundation Logo" 
-          class="max-h-16 max-w-full object-contain"
-          height={64}
-        />
-      </div>
-      
-      <div class="flex items-center justify-center">
-        <Image 
-          src={PIBBSLogo} 
-          alt="PIBBSS Logo" 
-          class="max-h-16 max-w-full object-contain"
-          height={64}
-        />
-      </div>
-      
-      <div class="flex items-center justify-center">
-        <Image 
-          src={AIInitiativeLogo} 
-          alt="UCT AI Initiative Logo" 
-          class="max-h-16 max-w-full object-contain"
-          height={64}
-        />
-      </div>
-      
-      <div class="flex items-center justify-center">
-        <Image 
-          src={AISSALogo} 
-          alt="AI Safety South Africa Logo" 
-          class="max-h-16 max-w-full object-contain"
-          height={64}
-        />
-      </div>
     </div>
-  </div>
+  </section>
 </section>
