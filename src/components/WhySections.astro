@@ -1,45 +1,59 @@
 ---
 // Main content sections component - Only Why Cooperative AI and Why South Africa sections remain
 import { Image } from 'astro:assets';
-import cooperativeAI from '../assets/cooperative_ai.svg';
+import caiBirdsDesktop from '../assets/images/cai-birds-desktop.jpg';
+import caiBirdsMobile from '../assets/images/cai-birds-mobile.jpg';
 import southAfricaAI from '../assets/south_africa.svg';
 import ApplyButton from './ApplyButton.astro';
 ---
 
 <section class="relative min-h-screen">
   <!-- Why Cooperative AI Section -->
-  <div class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-center gap-12">
-        <!-- Text Content -->
-        <div class="w-full lg:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
-            Why Cooperative AI
-          </h2>
-          <div class="space-y-4">
-            <p class="text-lg text-black leading-relaxed">
-              Powerful AI systems are increasingly being deployed with the ability to autonomously interact with the world. This is a profound change from the more passive, static AI services with which most of us are familiar, such as chatbots and image generation tools.
-            </p>
-            <p class="text-lg text-black leading-relaxed">
-              In the coming years, the competitive advantages offered by autonomous, adaptive agents will drive their adoption both in high-stakes domains, and as intelligent personal assistants, capable of being delegated increasingly complex and important tasks. In order to fulfil their roles, these advanced agents will need to communicate and interact with each other and with people, giving rise to new multi-agent systems of unprecedented complexity.
-            </p>
-            <p class="text-lg text-black leading-relaxed">
-              While the broader field of AI Safety aims to resolve alignment and safety issues in AI to mitigate existential risk, cooperative AI focuses specifically on multi-agent safety and how AI can overcome cooperation challenges. This includes reducing risks associated with interactions between advanced AI agents, as well as making use of AI to overcome human cooperation challenges.  You can learn more about cooperative AI through the <a href="https://bluedot.org/courses/cooperative-ai" target="_blank" class="underline hover:text-text-muted">Cooperative AI</a> self-paced online course.
-            </p>
-            <p class="text-lg text-black leading-relaxed">
-              Through the fellowship, we are supporting global talent in advancing research during this crucial phase of AI development. Our partners in South Africa and abroad aim to facilitate collaboration across continents to solve safety and alignment problems, enabling researchers to build ongoing relationships that lead to impactful careers. 
-            </p>
-            <p class="text-lg text-black italic leading-relaxed">
-              *Cooperative intelligence is an agent's ability to achieve their goals in ways that also promote social welfare, in a wide range of environments and with a wide range of other agents.<sup><a href="https://forum.effectivealtruism.org/posts/yYpwXPiGLL7Kbdhev/cooperative-ai-three-things-that-confused-me-as-a-beginner" target="_blank" class="underline hover:text-text-muted">[1]</a></sup>
-            </p>
-          </div>
+  <div class="bg-white">
+    <div class="flex flex-col lg:flex-row">
+      <!-- Text Content -->
+      <div class="w-full lg:w-3/5 px-4 sm:px-8 lg:pl-28 lg:pr-16 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
+          Why Cooperative AI
+        </h2>
+        <div class="space-y-4">
+          <p class="text-lg text-black leading-relaxed">
+            Powerful AI systems are increasingly being deployed with the ability to autonomously interact with the world. This is a profound change from the more passive, static AI services with which most of us are familiar, such as chatbots and image generation tools.
+          </p>
+          <p class="text-lg text-black leading-relaxed">
+            In the coming years, the competitive advantages offered by autonomous, adaptive agents will drive their adoption both in high-stakes domains, and as intelligent personal assistants, capable of being delegated increasingly complex and important tasks. In order to fulfil their roles, these advanced agents will need to communicate and interact with each other and with people, giving rise to new multi-agent systems of unprecedented complexity.
+          </p>
+          <p class="text-lg text-black leading-relaxed">
+            While the broader field of AI Safety aims to resolve alignment and safety issues in AI to mitigate existential risk, cooperative AI focuses specifically on multi-agent safety and how AI can overcome cooperation challenges. This includes reducing risks associated with interactions between advanced AI agents, as well as making use of AI to overcome human cooperation challenges.  You can learn more about cooperative AI through the <a href="https://bluedot.org/courses/cooperative-ai" target="_blank" class="underline hover:text-text-muted">Cooperative AI</a> self-paced online course.
+          </p>
+          <p class="text-lg text-black leading-relaxed">
+            Through the fellowship, we are supporting global talent in advancing research during this crucial phase of AI development. Our partners in South Africa and abroad aim to facilitate collaboration across continents to solve safety and alignment problems, enabling researchers to build ongoing relationships that lead to impactful careers. 
+          </p>
+          <p class="text-lg text-black italic leading-relaxed">
+            *Cooperative intelligence is an agent's ability to achieve their goals in ways that also promote social welfare, in a wide range of environments and with a wide range of other agents.<sup><a href="https://forum.effectivealtruism.org/posts/yYpwXPiGLL7Kbdhev/cooperative-ai-three-things-that-confused-me-as-a-beginner" target="_blank" class="underline hover:text-text-muted">[1]</a></sup>
+          </p>
         </div>
-        <!-- Image -->
-        <div class="w-full lg:w-1/2 h-96 overflow-hidden">
+        <div class="hidden mt-12 lg:flex lg:justify-center">
+          <ApplyButton variant='primary' size='lg' />
+        </div>
+      </div>
+      
+      <!-- Image Container -->
+      <div class="w-full lg:w-2/5 relative">
+        <!-- Desktop Image -->
+        <div class="hidden lg:block w-full h-full">
           <Image 
-            src={cooperativeAI} 
-            alt="Cooperative AI illustration" 
+            src={caiBirdsDesktop} 
+            alt="Cooperative AI illustration with birds flying over forest" 
             class="w-full h-full object-cover"
+          />
+        </div>
+        <!-- Mobile Image -->
+        <div class="lg:hidden w-full">
+          <Image 
+            src={caiBirdsMobile} 
+            alt="Cooperative AI illustration with birds flying over forest" 
+            class="w-full object-cover"
           />
         </div>
       </div>
