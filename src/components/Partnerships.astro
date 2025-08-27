@@ -1,7 +1,7 @@
 ---
-// Partnerships section component
+// Partnerships section component 
 import { Image } from 'astro:assets';
-import CoopAILogo from '../assets/logos/CoopAI_Primary_Black.png';
+import CoopAILogo from '../assets/logos/CoopAI_Secondary_Foundation_Black_Web_Large.png';
 import PIBBSLogo from '../assets/logos/pibbs_logo.jpg';
 import AIInitiativeLogo from '../assets/logos/uct_ai_initiative_logo.svg';
 import AISSALogo from '../assets/logos/aissa_logo_black_text.png';
@@ -130,42 +130,66 @@ const partnershipContent = {
   </div>
 
   <!-- Logo banner at the bottom -->
-  <section class="bg-surface py-16">
+  <div class="bg-surface py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-        <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-        <div class="flex items-center justify-center">
+      <!-- Desktop layout: 4 logos in a row, evenly spaced -->
+      <div class="hidden md:flex justify-between items-center gap-8">
+        <Image 
+          src={CoopAILogo} 
+          alt="Cooperative AI Foundation Logo" 
+          class="h-16 w-auto object-contain flex-1"
+        />
+        <Image 
+          src={PIBBSLogo} 
+          alt="PIBBSS Logo" 
+          class="h-18 w-auto object-contain flex-1"
+        />
+        <Image 
+          src={AIInitiativeLogo} 
+          alt="UCT AI Initiative Logo" 
+          class="h-16 w-auto object-contain flex-1"
+        />
+        <Image 
+          src={AISSALogo} 
+          alt="AI Safety South Africa Logo" 
+          class="h-16 w-auto object-contain flex-1"
+        />
+      </div>
+      
+      <!-- Mobile layout: 3 rows with middle row having 2 logos -->
+      <div class="md:hidden flex flex-col items-center gap-8">
+        <!-- Row 1: CoopAI -->
+        <div class="flex justify-center">
           <Image 
             src={CoopAILogo} 
             alt="Cooperative AI Foundation Logo" 
-            class="max-h-16 max-w-full object-contain"
+            class="h-16 w-auto object-contain"
           />
         </div>
         
-        <div class="flex items-center justify-center">
+        <!-- Row 2: PIBBSS and UCT AI Initiative -->
+        <div class="flex justify-center items-center gap-8">
           <Image 
             src={PIBBSLogo} 
             alt="PIBBSS Logo" 
-            class="max-h-16 max-w-full object-contain"
+            class="h-18 w-auto object-contain"
           />
-        </div>
-        
-        <div class="flex items-center justify-center">
           <Image 
             src={AIInitiativeLogo} 
             alt="UCT AI Initiative Logo" 
-            class="max-h-16 max-w-full object-contain"
+            class="h-16 w-auto object-contain"
           />
         </div>
         
-        <div class="flex items-center justify-center">
+        <!-- Row 3: AISSA -->
+        <div class="flex justify-center">
           <Image 
             src={AISSALogo} 
             alt="AI Safety South Africa Logo" 
-            class="max-h-16 max-w-full object-contain"
+            class="h-16 w-auto object-contain"
           />
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </section>
