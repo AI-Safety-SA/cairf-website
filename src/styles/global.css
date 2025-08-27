@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* Mobile viewport height fix for dynamic address bars */
+@supports (-webkit-touch-callout: none) {
+  .min-h-\[calc\(100vh-80px\)\] {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Ensure button visibility on mobile devices */
+.mobile-safe-area {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Fallback for devices without safe-area support */
+@supports not (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-safe-area {
+    padding-bottom: 1rem;
+  }
+}
+
 @theme {
   --color-primary: hsl(15 85% 46%);
   --color-white: hsl(210 100% 99%);

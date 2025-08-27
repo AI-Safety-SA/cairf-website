@@ -6,7 +6,7 @@ import landingDesktop from '../assets/images/landing-desktop.jpg';
 import landingMobile from '../assets/images/landing-mobile.jpg';
 ---
 
-<section id="hero" class="relative min-h-[calc(100vh-80px)]">
+<section id="hero" class="relative min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-80px)]">
   <!-- Desktop Background image -->
   <div class="absolute inset-0 z-0 hidden md:block">
     <Image 
@@ -54,23 +54,23 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
     </div>
   </div>
   
-      <!-- Mobile Content overlay -->
-  <div class="relative z-10 min-h-[calc(100vh-80px)] flex md:hidden flex-col">
+  <!-- Mobile Content overlay -->
+  <div class="relative z-10 min-h-[calc(100vh-80px)] flex md:hidden flex-col max-h-screen">
     <!-- Dark teal overlay with text content -->
-    <div class="flex flex-col justify-start px-4 sm:px-6 pt-8 pb-4" style="flex: 1 1 auto;">
+    <div class="flex flex-col justify-start px-4 sm:px-6 pt-8 pb-8 flex-1 overflow-hidden">
       <div class="max-w-l">
-        <h1 class="text-3xl font-serif leading-tight text-white mb-4">
+        <h1 class="text-2xl sm:text-3xl font-serif leading-tight text-white mb-4">
           A 3-month research fellowship developing core topics in cooperative AI, with world-class mentorship.
         </h1>
         
-        <p class="text-base text-white">
+        <p class="text-sm sm:text-base text-white">
           Apply by <strong>28 September 2025</strong>.
         </p>
       </div>
     </div>
     
     <!-- Bottom section for button - ensure it's always visible -->
-    <div class="flex justify-center pb-6 mb-4" style="flex: 0 0 auto;">
+    <div class="flex justify-center mb-12 lg:mb-0 px-4 sm:px-6 pb-6 pt-4 flex-shrink-0 mobile-safe-area">
       <ApplyButton variant="primary" size="lg" />
     </div>
   </div>
