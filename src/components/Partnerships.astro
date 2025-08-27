@@ -44,7 +44,7 @@ const partnershipContent = {
       <div class="bg-surface">
         <div class="flex flex-col lg:flex-row">
           <!-- Text Content -->
-          <div class="w-full flex flex-col justify-around lg:w-3/5 px-4 sm:px-8 lg:pl-28 lg:pr-16 py-20">
+          <div class="w-full flex flex-col justify-around lg:w-3/5 px-4 sm:px-6 lg:pl-28 lg:pr-16 py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
               {partnershipContent.title}
             </h2>
@@ -86,7 +86,8 @@ const partnershipContent = {
     <section class="relative min-h-screen">
         <div class="bg-surface">
           <!-- Title and intro paragraph -->
-          <div class="px-4 sm:px-8 py-20">
+          <div class="px-4 sm:px-6 py-20">
+            <div class="px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-black mb-8">
               {partnershipContent.title}
             </h2>
@@ -94,6 +95,7 @@ const partnershipContent = {
               <p class="text-lg text-black leading-relaxed">
                 {partnershipContent.intro}
               </p>
+            </div>
             </div>
           </div>
           
@@ -107,7 +109,8 @@ const partnershipContent = {
           </div>
           
           <!-- Partner descriptions -->
-          <div class="px-4 sm:px-8">
+          <div class="px-4 sm:px-6">
+            <div class="px-4 sm:px-6 lg:px-8">
             <div class="space-y-6 mt-8">
               {partnershipContent.partners.map((partner) => (
                 <div>
@@ -118,6 +121,7 @@ const partnershipContent = {
                   
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>
