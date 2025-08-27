@@ -100,7 +100,7 @@ import Image from 'astro/components/Image.astro';
           FAQ
         </a>
         <div class="p-6 flex justify-center">
-          <ApplyButton variant="secondary" size="sm" />
+          <ApplyButton variant="secondary" />
         </div>
       </div>
     </div>
@@ -133,6 +133,21 @@ import Image from 'astro/components/Image.astro';
       const links = menu.querySelectorAll('a');
       links.forEach(link => {
         link.onclick = function(e) {
+          const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+          if (!anchorElement) return;
+          
+          const href = anchorElement.getAttribute('href');
+          
+          // Check if this is an external link (ApplyButton) or internal anchor link
+          if (href && (href.startsWith('http') || href.startsWith('https') || href.startsWith('mailto:'))) {
+            // External link - allow normal navigation, just close the menu
+            menu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            crossIcon.classList.add('hidden');
+            return; // Don't prevent default, let the link work normally
+          }
+          
+          // Internal anchor link - handle smooth scrolling
           e.preventDefault();
           // Close menu immediately
           menu.classList.add('hidden');
@@ -141,11 +156,6 @@ import Image from 'astro/components/Image.astro';
           
           // Small delay to ensure menu is closed before scroll
           setTimeout(() => {
-            // Find the anchor element (either the target or its closest parent anchor)
-            const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
-            if (!anchorElement) return;
-            
-            const href = anchorElement.getAttribute('href');
             if (href) {
               const targetElement = document.querySelector(href);
               if (targetElement) {
