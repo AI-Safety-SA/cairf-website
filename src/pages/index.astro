@@ -12,6 +12,7 @@ import Partnerships from '../components/Partnerships.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 import WhySections from '../components/WhySections.astro';
+import KeyDetails from '../components/KeyDetails.astro';
 ---
 
 <html lang="en">
@@ -50,9 +51,13 @@ import WhySections from '../components/WhySections.astro';
 		<!-- About Section -->
 		<About />
 
+		<KeyDetails />
+
 		<!-- Research Tracks Section -->
 		<ResearchTracks />
-				
+		<div class="hidden md:block max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+			<hr class="text-black">
+		</div>
 		<!-- Mentorship Section -->
 		<Mentorship />
 
