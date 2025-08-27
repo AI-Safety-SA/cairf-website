@@ -1,7 +1,6 @@
 ---
 // Import new logo variants
 import logo from '../assets/logos/cairf_logo.png'
-import logoNoText from '../assets/logos/cairf_logo_no_text.png'
 
 // Import icons for mobile navigation
 import hamburgerIcon from '../assets/icons/hamburger.svg?raw'
@@ -18,19 +17,12 @@ import Image from 'astro/components/Image.astro';
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <!-- Desktop: Full logo with text -->
-        <div class="hidden md:block">
-            <a href="#hero">
-              <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
-            </a>
-          </div>
-          <!-- Mobile: No-text logo with acronym -->
-          <div class="md:hidden flex items-center space-x-2">
-            <a href="#hero">
-              <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
-            </a>
-            <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
-          </div>
+        <!-- Full logo with text -->
+        <div>
+          <a href="#hero">
+            <Image src={logo} alt="Cooperative AI Research Fellowship Logo" class="h-10 md:h-12 w-auto" />
+          </a>
+        </div>
       </div>
 
       <!-- Desktop Navigation -->
@@ -54,7 +46,7 @@ import Image from 'astro/components/Image.astro';
 
       <!-- Desktop Apply Button -->
       <div class="hidden md:block">
-        <ApplyButton variant="secondary" size="sm" />
+        <ApplyButton variant="secondary" />
       </div>
 
       <!-- Mobile menu button -->
