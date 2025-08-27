@@ -1,7 +1,6 @@
 ---
 // Import new logo variants
 import logo from '../assets/logos/cairf_logo.png'
-import logoNoText from '../assets/logos/cairf_logo_no_text.png'
 
 // Import icons for mobile navigation
 import hamburgerIcon from '../assets/icons/hamburger.svg?raw'
@@ -18,50 +17,43 @@ import Image from 'astro/components/Image.astro';
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Title -->
       <div class="flex-shrink-0">
-        <!-- Desktop: Full logo with text -->
-        <div class="hidden md:block">
-            <a href="#hero">
-              <Image src={logo} alt="CAIRF Logo" class="h-10 w-auto md:h-12" />
-            </a>
-          </div>
-          <!-- Mobile: No-text logo with acronym -->
-          <div class="md:hidden flex items-center space-x-2">
-            <a href="#hero">
-              <Image src={logoNoText} alt="CAIRF Logo" class="h-8 w-auto" />
-            </a>
-            <span class="text-text-base font-sans font-semibold text-2xl">CAIRF</span>
-          </div>
+        <!-- Full logo with text -->
+        <div>
+          <a href="#hero">
+            <Image src={logo} alt="Cooperative AI Research Fellowship Logo" class="h-10 md:h-12 w-auto" />
+          </a>
+        </div>
       </div>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8 font-sans">
-        <a href="#about" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#about" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
-        <a href="#tracks" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#tracks" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Tracks
         </a>
-        <a href="#mentorship" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#mentorship" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Mentors
         </a>
-        <a href="#partners" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#partners" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Partners
         </a>
-        <a href="#faq" class="text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#faq" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           FAQ
         </a>
       </nav>
 
       <!-- Desktop Apply Button -->
       <div class="hidden md:block">
-        <ApplyButton variant="secondary" size="sm" />
+        <ApplyButton variant="secondary" />
       </div>
 
       <!-- Mobile menu button -->
       <div class="md:hidden">
         <button
           id="mobile-menu-button"
-          class="text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+          class="text-text-base hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
           aria-label="Toggle mobile menu"
           type="button"
         >
@@ -74,37 +66,37 @@ import Image from 'astro/components/Image.astro';
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 bg-white font-sans">
-        <a href="#about" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#about" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
-        <a href="#key-details" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#key-details" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Key Details
         </a>
-        <a href="#tracks" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#tracks" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Research Tracks
         </a>
-        <a href="#mentorship" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#mentorship" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Mentorship
         </a>
-        <a href="#application-process" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#application-process" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Application Process
         </a>
-        <a href="#selection-criteria" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#selection-criteria" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Selection Criteria
         </a>
-        <a href="#why-cooperative-ai" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#why-cooperative-ai" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Why Cooperative AI
         </a>
-        <a href="#why-south-africa" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#why-south-africa" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Why South Africa
         </a>
-        <a href="#timeline" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#timeline" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Timeline
         </a>
-        <a href="#partners" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#partners" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Partners
         </a>
-        <a href="#faq" class="block px-3 py-2 text-black hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="#faq" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           FAQ
         </a>
         <div class="p-6 flex justify-center">
