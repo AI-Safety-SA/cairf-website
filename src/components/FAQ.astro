@@ -6,43 +6,56 @@ import ApplyButton from './ApplyButton.astro';
 const faqData = [
   {
     question: "How does mentor matching work?",
-    answer: "Each fellow will be matched with an expert mentor, who will provide in-person feedback on their project. In addition, fellows will be guided by a research manager who will facilitate their research process and connect them to relevant resources during weekly meetings."
+    answer: "If you reach the mentor matching stage, you will be matched with mentors based on research interests and compatibility. If you receive an offer from one mentor, you will be able to work with that mentor. If you receive multiple offers from different mentors, you will have the opportunity to choose which mentor you prefer to work with. Note that each mentor-mentee pairing will still need to be approved by our team at this stage, but we expect the vast majority of pairings to be approved."
   },
   {
     question: "Who is eligible?",
-    answer: "Students and early career researchers who can make an impactful contribution to the field of cooperative AI. Early career researchers interested in applying their skills to AI Safety with a background in machine learning, MARL, Game Theory, complex systems or Math are preferred."
+    answer: "Junior researchers from anywhere in the world who want to make an impactful contribution to the field of cooperative AI."
+  },
+  {
+    question: "What do you mean by 30% of participants should come from South Africa?",
+    answer: "This means that 30% of our fellows should be either South African citizens, South African permanent residents, or they should reside in South Africa with their primary occupation at a South African institution."
   },
   {
     question: "Where will fellows work?",
-    answer: "At the AI Safety Cape Town co-working space."
+    answer: "All fellows will work from AI Safety Cape Town, a co-working space on Kloof Street in Cape Town."
   },
   {
     question: "What is offered?",
-    answer: "Fellows will receive mentorship, access to a global AI safety research community and a stipend covering housing and living expenses."
+    answer: "Fellows will receive mentorship, access to a global AI Safety research community and a stipend covering housing and living expenses."
   },
   {
-    question: "Can I participate part time/remotely?",
-    answer: "We are unable to accommodate part time participation. This is a full time, in-person opportunity."
+    question: "Can I participate part-time?",
+    answer: "While we are strongly prioritising full-time participants for this program, you may attend part-time, though this will void your stipend."
+  },
+  {
+    question: "Can I participate remotely or what if I can only attend part of the program in-person?",
+    answer: "To be eligible for this program, you must be able to attend at least 9 of the 12 weeks of the program in-person (including the retreat)."
   },
   {
     question: "Can I refer someone?",
-    answer: "Yes! Please make use of our referral form here."
+    answer: 'Yes! Please make use of our referral form <a href="https://tally.so/r/wLrljJ" target="_blank" rel="noopener noreferrer" class="underline text-white hover:text-text-muted transition-colors">here</a> and ask the candidate to mention that you referred them when they apply. We also offer a referral award of $200 if you refer someone we end up accepting. Please read the description on the form for more details.'
   },
   {
-    question: "What if I am new to AI safety?",
-    answer: "We care about your intent to make an impact and as such will offer an introduction to the field during our onboarding process, including readings prior to the start of the in-person course."
-  },
-  {
-    question: "What will I work on if selected?",
-    answer: "Research will focus on the interactions that emerge in multi-agent AI systems and their relationship with humans and human systems."
+    question: "What if I am new to cooperative AI?",
+    answer: "We care about your intent to make an impact and as such will offer an introduction to the field during our onboarding process, including readings prior to the start of the in-person course. This being said, we expect some previous engagement in the literature around catastrophic risks from AI development."
   },
   {
     question: "What can I gain from the fellowship?",
     answer: [
-      "1. Publish a research project that makes an impactful contribution to cooperative AI, reducing global catastrophic risk.",
-      "2. There is the possibility of an ongoing research position at the University of Cape Town AI Initiative.",
-      "3. Promotion of talent to global AI safety initiatives."
+      "1. Develop core research skills needed to contribute to cooperative AI and AI safety.",
+      "2. Develop a network of talented peers and top researchers in cooperative AI and AI safety to support a career in these fields.",
+      "3. A chance to be selected for an ongoing research position at the University of Cape Town's African AI Safety Hub.",
+      "4. The potential to establish yourself as a key figure in an emerging and impactful field."
     ]
+  },
+  {
+    question: "Is 'multi-agent safety' the same thing as multi-agent reinforcement learning (MARL)?",
+    answer: "No, MARL is not strictly related to multi-agent safety. Multi-agent safety can be explored by MARL research, but not necessarily. Only consider a MARL solution if it is relevant to the question you are trying to answer. We encourage you to refine your research question and choose an appropriate research method thereafter."
+  },
+  {
+    question: "What does 'mixed-motive setting' mean?",
+    answer: "Mixed-motive settings refer to situations in which agents have individual objectives that are neither completely aligned nor completely opposed relative to each other's objectives. This creates a fundamental tension where the optimal outcome for the group is achieved through some level of mutual cooperation, but an individual can often achieve a higher personal reward by acting competitively or selfishly, especially if others are cooperating. Examples include free-riders who don't contribute but benefit from public goods and tragedy of the commons where a common resource pool is degraded by unrestrained consumption."
   }
 ];
 ---
