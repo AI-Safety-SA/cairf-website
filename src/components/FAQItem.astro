@@ -15,7 +15,7 @@ const { question, answer, isLast = false } = Astro.props;
       class="faq-toggle-desktop w-full px-2 py-4 text-left flex items-center justify-between"
       data-faq-toggle-desktop
     >
-      <h3 class="text-lg font-semibold text-white pr-4">{question}</h3>
+      <h3 class="text-xl text-white pr-4">{question}</h3>
       <svg 
         class="faq-arrow-desktop w-5 h-5 text-white transform transition-transform duration-200 flex-shrink-0" 
         fill="none" 
@@ -27,13 +27,13 @@ const { question, answer, isLast = false } = Astro.props;
     </button>
     
     <div class="faq-content-desktop hidden pb-4">
-      <div class="text-white m-4">
+      <div class="text-white m-4 font-light">
         {Array.isArray(answer) ? (
           <ul class="space-y-2">
-            {answer.map((item) => <li>{item}</li>)}
+            {answer.map((item) => <li set:html={item} />)}
           </ul>
         ) : (
-          <p>{answer}</p>
+          <p set:html={answer} />
         )}
       </div>
     </div>
@@ -62,10 +62,10 @@ const { question, answer, isLast = false } = Astro.props;
       <div class="text-white m-4">
         {Array.isArray(answer) ? (
           <ul class="space-y-2">
-            {answer.map((item) => <li>{item}</li>)}
+            {answer.map((item) => <li set:html={item} />)}
           </ul>
         ) : (
-          <p>{answer}</p>
+          <p set:html={answer} />
         )}
       </div>
     </div>
