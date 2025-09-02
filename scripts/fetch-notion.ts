@@ -22,6 +22,7 @@ type Mentor = {
   academic?: string;
   twitter?: string;
   image?: string;
+  order: number;
 };
 
 function getText(rich: any[]): string {
@@ -147,6 +148,7 @@ async function mapPage(p: any): Promise<Mentor | null> {
   const academic = getUrl(props["GoogleScholar"]);
   const twitter = getUrl(props["X-Twitter"]);
   const imageUrl = getUrl(props["Picture"]);
+  const order = props["Order"]?.number ?? 0; // Default to 0 if not set
 
   if (!name || !title) return null;
 
@@ -165,6 +167,7 @@ async function mapPage(p: any): Promise<Mentor | null> {
     academic: academic || undefined,
     twitter: twitter || undefined,
     image: localImagePath || undefined,
+    order: order,
   };
 }
 
@@ -189,10 +192,17 @@ async function main() {
     if (mapped) mentors.push(mapped);
   }
 
+  // Sort mentors by the 'Order' property
+  mentors.sort((a, b) => a.order - b.order);
+
   const outPath = path.join(OUT_DIR, OUT_FILE);
   await fs.writeFile(outPath, JSON.stringify(mentors, null, 2), "utf-8");
 
   console.log(`Wrote ${mentors.length} mentor entries to ${outPath}`);
+  console.log(
+    "Mentors ordered by:",
+    mentors.map((m) => `${m.order}: ${m.name}`).join(", ")
+  );
 }
 
 main().catch((e) => {
