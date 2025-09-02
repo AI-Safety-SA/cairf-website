@@ -1,5 +1,31 @@
 [
   {
+    "name": "Divya Siddarth",
+    "title": "Microsoft Research",
+    "website": "https://divyasiddarth.com/",
+    "linkedin": "https://www.linkedin.com/in/divya-siddarth/",
+    "academic": "https://scholar.google.com/citations?user=JzKCTBgAAAAJ&hl=en&oi=ao",
+    "twitter": "https://x.com/divyasiddarth",
+    "image": "./mentors/images/divya_siddarth.jpg"
+  },
+  {
+    "name": "Tan Zhi Xuan",
+    "title": "National University of Singapore",
+    "website": "https://ztangent.github.io/",
+    "linkedin": "https://www.linkedin.com/in/tan-zhi-xuan/",
+    "academic": "https://scholar.google.com/citations?user=Yscjyf8AAAAJ",
+    "image": "./mentors/images/tan_zhi_xuan.jpg"
+  },
+  {
+    "name": "Sahar Abdelnabi",
+    "title": "Microsoft, ELLIS Institute Tübingen, Max-Planck Institute for Intelligent Systems, Tübingen AI Center ",
+    "website": "https://s-abdelnabi.github.io/",
+    "linkedin": "https://www.linkedin.com/in/sahar-abdelnabi/",
+    "academic": "https://scholar.google.de/citations?user=QEiYbDYAAAAJ&hl=en",
+    "twitter": "https://x.com/sahar_abdelnabi",
+    "image": "./mentors/images/sahar_abdelnabi.jpg"
+  },
+  {
     "name": "Lewis Hammond",
     "title": "Cooperative AI Foundation & University of Oxford",
     "website": "https://lewishammond.com/",
@@ -28,7 +54,7 @@
   },
   {
     "name": "Michiel Bakker",
-    "title": "MIT",
+    "title": "MIT & Google DeepMind",
     "website": "https://miba.dev/",
     "linkedin": "https://www.linkedin.com/in/michielbakker1/",
     "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
