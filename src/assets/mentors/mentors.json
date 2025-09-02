@@ -1,33 +1,13 @@
 [
   {
-    "name": "Zhijing Jin",
-    "title": "University of Toronto",
-    "website": "https://zhijing-jin.com/",
-    "linkedin": "https://www.linkedin.com/in/zhijing-jin/",
-    "academic": "https://scholar.google.com/citations?user=Mdr6wjUAAAAJ",
-    "twitter": "https://x.com/ZhijingJin",
-    "image": "./mentors/images/zhijing_jin.jpg",
+    "name": "Divya Siddarth",
+    "title": "Collective Intelligence Project",
+    "website": "https://divyasiddarth.com/",
+    "linkedin": "https://www.linkedin.com/in/divya-siddarth/",
+    "academic": "https://scholar.google.com/citations?user=JzKCTBgAAAAJ&hl=en&oi=ao",
+    "twitter": "https://x.com/divyasiddarth",
+    "image": "./mentors/images/divya_siddarth.jpg",
     "order": 1
-  },
-  {
-    "name": "Michiel Bakker",
-    "title": "MIT & Google DeepMind",
-    "website": "https://miba.dev/",
-    "linkedin": "https://www.linkedin.com/in/michielbakker1/",
-    "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
-    "twitter": "https://x.com/bakkermichiel",
-    "image": "./mentors/images/michiel_bakker.jpg",
-    "order": 2
-  },
-  {
-    "name": "Sahar Abdelnabi",
-    "title": "Microsoft, ELLIS Institute Tübingen, Max-Planck Institute for Intelligent Systems, Tübingen AI Center ",
-    "website": "https://s-abdelnabi.github.io/",
-    "linkedin": "https://www.linkedin.com/in/sahar-abdelnabi/",
-    "academic": "https://scholar.google.de/citations?user=QEiYbDYAAAAJ&hl=en",
-    "twitter": "https://x.com/sahar_abdelnabi",
-    "image": "./mentors/images/sahar_abdelnabi.jpg",
-    "order": 3
   },
   {
     "name": "Vincent Conitzer",
@@ -37,16 +17,27 @@
     "academic": "https://scholar.google.com/citations?user=juRk4lQAAAAJ&hl=en",
     "twitter": "https://x.com/conitzer",
     "image": "./mentors/images/vincent_conitzer.jpg",
-    "order": 4
+    "order": 2
   },
   {
-    "name": "Tan Zhi Xuan",
-    "title": "National University of Singapore",
-    "website": "https://ztangent.github.io/",
-    "linkedin": "https://www.linkedin.com/in/tan-zhi-xuan/",
-    "academic": "https://scholar.google.com/citations?user=Yscjyf8AAAAJ",
-    "image": "./mentors/images/tan_zhi_xuan.jpg",
-    "order": 5
+    "name": "Michiel Bakker",
+    "title": "MIT & Google DeepMind",
+    "website": "https://miba.dev/",
+    "linkedin": "https://www.linkedin.com/in/michielbakker1/",
+    "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
+    "twitter": "https://x.com/bakkermichiel",
+    "image": "./mentors/images/michiel_bakker.jpg",
+    "order": 3
+  },
+  {
+    "name": "Sahar Abdelnabi",
+    "title": "Microsoft, Max-Planck Institute for Intelligent Systems, Tübingen AI Center ",
+    "website": "https://s-abdelnabi.github.io/",
+    "linkedin": "https://www.linkedin.com/in/sahar-abdelnabi/",
+    "academic": "https://scholar.google.de/citations?user=QEiYbDYAAAAJ&hl=en",
+    "twitter": "https://x.com/sahar_abdelnabi",
+    "image": "./mentors/images/sahar_abdelnabi.jpg",
+    "order": 4
   },
   {
     "name": "Joel Z. Leibo",
@@ -56,17 +47,17 @@
     "academic": "https://scholar.google.com/citations?hl=en&user=3y_M1cUAAAAJ",
     "twitter": "https://x.com/jzl86",
     "image": "./mentors/images/joel_z_leibo.jpg",
-    "order": 6
+    "order": 5
   },
   {
-    "name": "Divya Siddarth",
-    "title": "Microsoft Research",
-    "website": "https://divyasiddarth.com/",
-    "linkedin": "https://www.linkedin.com/in/divya-siddarth/",
-    "academic": "https://scholar.google.com/citations?user=JzKCTBgAAAAJ&hl=en&oi=ao",
-    "twitter": "https://x.com/divyasiddarth",
-    "image": "./mentors/images/divya_siddarth.jpg",
-    "order": 7
+    "name": "Zhijing Jin",
+    "title": "University of Toronto",
+    "website": "https://zhijing-jin.com/",
+    "linkedin": "https://www.linkedin.com/in/zhijing-jin/",
+    "academic": "https://scholar.google.com/citations?user=Mdr6wjUAAAAJ",
+    "twitter": "https://x.com/ZhijingJin",
+    "image": "./mentors/images/zhijing_jin.jpg",
+    "order": 6
   },
   {
     "name": "Lewis Hammond",
@@ -76,6 +67,15 @@
     "academic": "https://scholar.google.com/citations?user=8fYnp7UAAAAJ",
     "twitter": "https://x.com/lrhammond",
     "image": "./mentors/images/lewis_hammond.jpg",
+    "order": 7
+  },
+  {
+    "name": "Tan Zhi Xuan",
+    "title": "National University of Singapore",
+    "website": "https://ztangent.github.io/",
+    "linkedin": "https://www.linkedin.com/in/tan-zhi-xuan/",
+    "academic": "https://scholar.google.com/citations?user=Yscjyf8AAAAJ",
+    "image": "./mentors/images/tan_zhi_xuan.jpg",
     "order": 8
   },
   {
