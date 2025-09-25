@@ -14,7 +14,16 @@ This is a static website built with Astro and Tailwind CSS that showcases the 3-
 - Research tracks and partnership information
 - FAQ section
 
-## Development
+## Environment Variables
+
+Create a `.env` file with:
+
+- `NOTION_TOKEN` - Notion API token
+- `NOTION_DATABASE_ID` - Notion database ID for mentor data
+
+## Development and Deployment Workflow
+
+### Commands for Running Locally
 
 ```bash
 # Install dependencies
@@ -30,12 +39,29 @@ npm run build
 npm run preview
 ```
 
-## Environment Variables
+### Contributing
 
-Create a `.env` file with:
+This project uses a simplified trunk-based development model (GitHub Flow).
 
-- `NOTION_TOKEN` - Notion API token
-- `NOTION_DATABASE_ID` - Notion database ID for mentor data
+1.  **Create a Feature Branch:** All new work (features, fixes, content updates) must be done in a branch created from `main`. Use a descriptive name.
+
+    ```bash
+    # Example for a new feature
+    git checkout -b feature/add-photo-gallery
+
+    # Example for a bug fix
+    git checkout -b fix/correct-phone-number
+    ```
+
+2.  **Commit Changes:** Make your changes and commit them with clear, concise messages.
+
+3.  **Open a Pull Request:** When your work is complete, push the branch to GitHub and open a Pull Request (PR) against the `main` branch.
+
+4.  **Review and Stage:** A Netlify Deploy Preview link will be automatically generated and posted as a comment in your PR. Use this link to review your changes in a live, staging-like environment.
+
+5.  **Merge to Production:** Once the PR is approved, merge it into `main` using the **"Squash and Merge"** option on GitHub. This keeps the `main` branch history clean and atomic.
+
+6.  **Automatic Deployment:** Merging to `main` automatically triggers a production deployment via Netlify.
 
 ## Tech Stack
 
