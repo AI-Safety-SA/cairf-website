@@ -18,13 +18,13 @@ const sizeClasses = {
 };
 
 const variantClasses = {
-  primary: 'bg-primary text-white hover:bg-primary/90 border-primary px-8 py-2.5 text-xl',
-  secondary: 'bg-white text-primary border-primary hover:bg-primary/10 px-8 py-1.5 text-lg',
+  primary: 'bg-primary/70 text-white cursor-not-allowed border-primary/70 px-8 py-2.5 text-xl',
+  secondary: 'bg-white/70 text-primary/70 cursor-not-allowed border-primary/70 px-8 py-1.5 text-lg',
 };
 
 const variantText = {
-  primary: 'APPLY NOW',
-  secondary: 'APPLY'
+  primary: 'APPLICATIONS CLOSED',
+  secondary: 'APPLICATIONS CLOSED'
 };
 
 const finalVariant = variantClasses[variant]
@@ -32,10 +32,7 @@ const finalText = variantText[variant]
 
 ---
 
-<a 
-  href={href} 
-  target="_blank"
-  rel="noopener noreferrer"
+<span 
   class={`
     inline-block
     font-sans
@@ -44,9 +41,8 @@ const finalText = variantText[variant]
     border-1
     transition-all 
     duration-200
-    hover:shadow-lg
     ${finalVariant}
   `}
 >
   {finalText}
-</a>
+</span>
