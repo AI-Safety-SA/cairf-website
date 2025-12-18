@@ -2,9 +2,8 @@
 // Partnerships section component 
 import { Image } from 'astro:assets';
 import CoopAILogo from '../assets/logos/CoopAI_Secondary_Foundation_Black_Web_Large.png';
-import PIBBSLogo from '../assets/logos/pibbs_logo.jpg';
+import PoILogo from '../assets/logos/poi-logo-dark.png';
 import LambdaStackedLogo from '../assets/logos/lambda_logo_stacked_black.svg';
-
 import AIInitiativeLogo from '../assets/logos/uct_ai_initiative_logo.svg';
 import AISSALogo from '../assets/logos/aissa_logo_black_text.png';
 import partnersApesDesktop from '../assets/images/partners-apes-desktop.jpg';
@@ -31,9 +30,10 @@ const partnershipContent = {
       link: "https://ai.uct.ac.za/"
     },
     {
-      name: "Principles of Intelligent Behavior in Biological and Social Systems (PIBBSS)",
-      description: "A research initiative aiming to leverage insights on the parallels between intelligent behaviour in natural and artificial systems towards progress on important questions in AI risk, governance and safety. PIBBSS has successfully run multiple research fellowships, developing a unique methodology for mentoring early-career researchers in AI safety.",
-      link: "https://pibbss.ai/"
+      name: "Principles of Intelligence (PrincInt)",
+      description: `A non-profit research organization facilitating research that draws on parallels between intelligent behavior in natural and artificial systems. We believe insights from ecology, neuroscience, economics, physics, and other sciences studying complex systems can inform the development of safe and beneficial AI. 
+      Their programs include the PIBBSS Fellowship, where they've developed a unique methodology for mentoring mid- and late-career researchers in AI safety.`,
+      link: "https://princint.ai/"
     },
     {
       name: "Lambda, The Superintelligence Cloud",
@@ -70,7 +70,7 @@ const partnershipContent = {
                       {partner.name}
                     </h3>
                   </a>
-                  <p class="text-lg leading-relaxed">{partner.description}</p>
+                  <p class="text-lg leading-relaxed whitespace-pre-line">{partner.description}</p>
                 </div>
               ))}
             </div>
@@ -125,7 +125,7 @@ const partnershipContent = {
                   <a href={partner.link} target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-600 text-lg font-medium">
                     <h3 class="font-semibold mb-2">{partner.name}</h3>
                   </a>
-                  <p class="text-lg leading-relaxed">{partner.description}</p>
+                  <p class="text-lg leading-relaxed whitespace-pre-line">{partner.description}</p>
                   
                 </div>
               ))}
@@ -144,7 +144,7 @@ const partnershipContent = {
         <Image 
           src={CoopAILogo} 
           alt="Cooperative AI Foundation Logo" 
-          class="h-16 w-auto object-contain"
+          class="h-15 w-auto object-contain"
         />
         <Image 
         src={AIInitiativeLogo} 
@@ -152,9 +152,9 @@ const partnershipContent = {
         class="h-16 w-auto object-contain"
         />
         <Image 
-          src={PIBBSLogo} 
-          alt="PIBBSS Logo" 
-          class="h-18 w-auto object-contain"
+          src={PoILogo} 
+          alt="Principles of Intelligence Logo" 
+          class="h-16 w-auto object-contain"
         />
         <Image 
           src={LambdaStackedLogo} 
@@ -175,11 +175,11 @@ const partnershipContent = {
           <Image 
             src={CoopAILogo} 
             alt="Cooperative AI Foundation Logo" 
-            class="h-16 w-auto object-contain"
+            class="h-15 w-auto object-contain"
           />
         </div>
         
-        <!-- Row 2: PIBBSS and UCT AI Initiative -->
+        <!-- Row 2: Principles of Intelligence and UCT AI Initiative -->
         <div class="flex justify-center items-center gap-8">
           <Image 
             src={AIInitiativeLogo} 
@@ -187,19 +187,19 @@ const partnershipContent = {
             class="h-16 w-auto object-contain"
           />
           <Image 
-            src={PIBBSLogo} 
-            alt="PIBBSS Logo" 
-            class="h-18 w-auto object-contain"
-          />
-          <Image 
-            src={LambdaStackedLogo} 
-            alt="Lambda Stacked Logo" 
+            src={PoILogo} 
+            alt="Principles of Intelligence Logo" 
             class="h-16 w-auto object-contain"
           />
         </div>
 
-        <!-- Row 3: AISSA -->
-        <div class="flex justify-center">
+        <!-- Row 3: Lambda and AISSA -->
+        <div class="flex justify-center items-center gap-8">
+          <Image 
+            src={LambdaStackedLogo} 
+            alt="Lambda Stacked Logo" 
+            class="h-18 w-auto object-contain"
+          />
           <Image 
             src={AISSALogo} 
             alt="AI Safety South Africa Logo" 
