@@ -141,70 +141,90 @@ const partnershipContent = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Desktop layout: 4 logos in a row, evenly spaced -->
       <div class="hidden md:flex justify-between items-center">
-        <Image 
-          src={CoopAILogo} 
-          alt="Cooperative AI Foundation Logo" 
-          class="h-14 w-auto object-contain"
-        />
-        <Image 
-        src={AIInitiativeLogo} 
-        alt="UCT AI Initiative Logo" 
-        class="h-16 w-auto object-contain"
-        />
-        <Image 
-          src={PoILogo} 
-          alt="Principles of Intelligence Logo" 
-          class="h-16 w-auto object-contain"
-        />
-        <Image 
-          src={LambdaStackedLogo} 
-          alt="Lambda Stacked Logo" 
-          class="h-18 w-auto object-contain"
-        />
-        <Image 
-          src={AISSALogo} 
-          alt="AI Safety South Africa Logo" 
-          class="h-16 w-auto object-contain"
-        />
+        <a href="https://www.cooperativeai.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+          <Image 
+            src={CoopAILogo} 
+            alt="Cooperative AI Foundation Logo" 
+            class="h-14 w-auto object-contain"
+          />
+        </a>
+        <a href="https://ai.uct.ac.za/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+          <Image 
+            src={AIInitiativeLogo} 
+            alt="UCT AI Initiative Logo" 
+            class="h-16 w-auto object-contain"
+          />
+        </a>
+        <a href="https://princint.ai/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+          <Image 
+            src={PoILogo} 
+            alt="Principles of Intelligence Logo" 
+            class="h-16 w-auto object-contain"
+          />
+        </a>
+        <a href="https://lambda.ai/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+          <Image 
+            src={LambdaStackedLogo} 
+            alt="Lambda Stacked Logo" 
+            class="h-18 w-auto object-contain"
+          />
+        </a>
+        <a href="https://www.aisafetysa.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+          <Image 
+            src={AISSALogo} 
+            alt="AI Safety South Africa Logo" 
+            class="h-16 w-auto object-contain"
+          />
+        </a>
       </div>
       
       <!-- Mobile layout: 3 rows with middle row having 2 logos -->
       <div class="md:hidden flex flex-col items-center gap-8">
         <!-- Row 1: CoopAI -->
         <div class="flex justify-center">
-          <Image 
-            src={CoopAILogo} 
-            alt="Cooperative AI Foundation Logo" 
-            class="h-14 w-auto object-contain"
-          />
+          <a href="https://www.cooperativeai.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <Image 
+              src={CoopAILogo} 
+              alt="Cooperative AI Foundation Logo" 
+              class="h-14 w-auto object-contain"
+            />
+          </a>
         </div>
         
         <!-- Row 2: Principles of Intelligence and UCT AI Initiative -->
         <div class="flex justify-center items-center gap-8">
-          <Image 
-            src={AIInitiativeLogo} 
-            alt="UCT AI Initiative Logo" 
-            class="h-16 w-auto object-contain"
-          />
-          <Image 
-            src={PoILogo} 
-            alt="Principles of Intelligence Logo" 
-            class="h-16 w-auto object-contain"
-          />
+          <a href="https://ai.uct.ac.za/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <Image 
+              src={AIInitiativeLogo} 
+              alt="UCT AI Initiative Logo" 
+              class="h-16 w-auto object-contain"
+            />
+          </a>
+          <a href="https://princint.ai/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <Image 
+              src={PoILogo} 
+              alt="Principles of Intelligence Logo" 
+              class="h-16 w-auto object-contain"
+            />
+          </a>
         </div>
 
         <!-- Row 3: Lambda and AISSA -->
         <div class="flex justify-center items-center gap-8">
-          <Image 
-            src={LambdaStackedLogo} 
-            alt="Lambda Stacked Logo" 
-            class="h-18 w-auto object-contain"
-          />
-          <Image 
-            src={AISSALogo} 
-            alt="AI Safety South Africa Logo" 
-            class="h-16 w-auto object-contain"
-          />
+          <a href="https://lambda.ai/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <Image 
+              src={LambdaStackedLogo} 
+              alt="Lambda Stacked Logo" 
+              class="h-18 w-auto object-contain"
+            />
+          </a>
+          <a href="https://www.aisafetysa.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <Image 
+              src={AISSALogo} 
+              alt="AI Safety South Africa Logo" 
+              class="h-16 w-auto object-contain"
+            />
+          </a>
         </div>
       </div>
     </div>
