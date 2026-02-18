@@ -6,16 +6,6 @@
     "researchInterests": "Recently, I’ve been moving toward questions about how model behaviour shifts in multi-agent settings. I’m especially interested in cooperation, signalling, sanctioning, conflict, and emergent group-level failures as models become more agentic and interactive. I plan to pursue a PhD in AI Safety, and this fellowship is a way for me to deepen my understanding of cooperative dynamics, multi-agent safety, and mechanisms that can support aligned behaviour in groups of AI systems.",
     "projectProposal": "Similarity-Based Cooperation and Communication - This project investigates how perceived similarity between LLM agents affects their communication strategies and emergence of cooperation. It combines similarity-based cooperative equilibrium concepts with cheap-talk communication in a feasible three-month scope.",
     "primaryImage": "/fellows/images/akash.jpg",
-    "source": {
-      "slideNumbers": [
-        2,
-        3
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide2.xml",
-        "ppt/slides/slide3.xml"
-      ]
-    },
     "mentors": "Vincent Conitzer & Emanuel Tewolde"
   },
   {
@@ -25,14 +15,6 @@
     "researchInterests": "I am broadly interested in AI alignment, with a special focus on automated negotiation, and Bayesian norm learning.",
     "projectProposal": "LLM Negotiation Benchmarking - Develops automated negotiation frameworks combining LLMs with theory-of-mind, game theory, and computational argumentation to enable rational deliberation and value-aligned bargaining. Aims to reduce transaction costs in human negotiation while addressing LLMs' current failures in selective cooperation and principled reasoning.",
     "primaryImage": "/fellows/images/bhavyesh.jpg",
-    "source": {
-      "slideNumbers": [
-        4
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide4.xml"
-      ]
-    },
     "mentors": "Max Kleiman-Weiner"
   },
   {
@@ -42,16 +24,6 @@
     "researchInterests": "Building technology that empowers community; Who gets to build it? Who decides what empowerment means? Who is “community”?",
     "projectProposal": "Latent Opportunities: Leveraging User-Owned Data to Facilitate Human Cooperation Your conversational data contains signals about potential collaborations with others that you didn't know exist. What if we could leverage that to match you with a co-founder, or to find research collaborators for your ideas? This project demonstrates a decentralized mechanism for surfacing cooperation opportunities from chat histories while preserving privacy and user control. By analyzing conversational patterns locally and sharing only anonymized representations, users can discover potential collaborators whose intents and needs complement their own. The system functions as a decentralized marketplace for collaboration, where matching happens based on what people are actually trying to do rather than abstract interest categories. The goal is to explore whether user-owned data can facilitate meaningful cooperation without requiring users to surrender control to centralized platforms.",
     "primaryImage": "/fellows/images/joseph.jpg",
-    "source": {
-      "slideNumbers": [
-        5,
-        6
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide5.xml",
-        "ppt/slides/slide6.xml"
-      ]
-    },
     "mentors": "Michiel Bakker"
   },
   {
@@ -61,16 +33,6 @@
     "researchInterests": "Theoretical neuroscience and evol. biology, symmetry and geometric deep learning, morality, phenomenology, category theory, emergence. Michael Levin and Fernando Rosas have won my favorite researchers 2025 award.",
     "projectProposal": "A: Mechanism-Level Cooperation Control via CAA - Uses Contrastive Activation Addition to inject mechanism-specific cooperation vectors (reciprocity, reputation, clustering) into LLM residual streams, avoiding single-metric Goodhart effects. Evaluates multi-objective trade-offs in GOVSIM and public-goods games to test whether CAA outperforms RLHF for cooperation without degrading general capabilities. B: WebCommons Platform - Builds WebCommons, a deterministic web-based platform where heterogeneous AI agents with distinct goals interact over shared digital resources. Tests various sanctioning mechanisms (reputation, audits, throttling, bans) to identify which deter exploitation without suppressing beneficial behavior across different adversary prevalences and network structures.",
     "primaryImage": "/fellows/images/mariana.jpg",
-    "source": {
-      "slideNumbers": [
-        7,
-        8
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide7.xml",
-        "ppt/slides/slide8.xml"
-      ]
-    },
     "mentors": "Zhijing Jin & David Guzman Piedrahita"
   },
   {
@@ -80,14 +42,6 @@
     "researchInterests": "My research interest lies in multi-agent systems. I am currently completing an internship at InstaDeep, focusing on multi-agent reinforcement learning. Aware of the challenges multi-agent systems will pose in the future, I am now directing my efforts toward multi-agent safety research.",
     "projectProposal": "AI Agent Modeling of Human vs. AI Co-Players - Investigates whether AI agents' Theory of Mind (ToM) modeling is more accurate and cooperation is more successful when interacting with AI co-players versus human co-players in shared resource dilemmas. Uses Concordia or GovSim platforms to compare miscoordination, conflict (exploitation), and collusion frequencies across AI-AI and AI-Human teams, measuring joint payoffs, fairness metrics, ToM inference accuracy, and qualitative dialogue analysis to identify which partner type enables better cooperation and where distinctive failure modes emerge.",
     "primaryImage": "/fellows/images/omer.jpg",
-    "source": {
-      "slideNumbers": [
-        9
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide9.xml"
-      ]
-    },
     "mentors": "Joel Leibo"
   },
   {
@@ -97,14 +51,6 @@
     "researchInterests": "He is particularly interested in a future where AGI emerges from orchestrated multi-agent systems rather than a single monolithic model. Recently, he has been exploring self-play with small language models and using language models as components within evolutionary systems.",
     "projectProposal": "Mediation Through Self-Play - This project trains LLM mediators through three-agent environments where two disputants with conflicting goals interact with a mediator that learns intervention strategies. Success is measured through resolution rates and bridging scores, with potential reinforcement learning adaptation of mediator behavior.",
     "primaryImage": "/fellows/images/oscar.jpg",
-    "source": {
-      "slideNumbers": [
-        10
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide10.xml"
-      ]
-    },
     "mentors": "Lewis Hammond & Michiel Bakker"
   },
   {
@@ -114,14 +60,6 @@
     "researchInterests": "His research focuses on decision-making agents and social behavior in AI systems. He previously worked at TRDDC Pune, Inria Bordeaux, and Columbia University, and his recent work on LLM sampling theory received a Best Paper Award at ACL 2025. He has also worked on human decision-making and neurocomputational models of the brain.",
     "projectProposal": "Rational Negotiation Agents - This work aims to build LLM agents capable of principled negotiation and deliberation by combining language models with theory-of-mind, game theory, and computational argumentation. The goal is creating agents that can replicate human rational dialogue while reducing transaction costs in bargaining scenarios.",
     "primaryImage": "/fellows/images/pramod.jpg",
-    "source": {
-      "slideNumbers": [
-        11
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide11.xml"
-      ]
-    },
     "mentors": "Sahar Abdelnabi"
   },
   {
@@ -131,14 +69,6 @@
     "researchInterests": "I love building evaluation tools, exploring agentic behavior, and working across disciplines. My core motivation is reducing AI risks through careful, empirical testing and building systems that improve our understanding of model behavior and make it more trustworthy.",
     "projectProposal": "Collusion Evaluation: This work extends an inter-agent influence evaluation to study how advanced AI models engage in collusive behavior across multi-agent settings. It combines research on scenario design with infrastructure work extending the Inspect AI framework to create a reproducible benchmark for assessing multi-agent coordination risks.",
     "primaryImage": "/fellows/images/qi.png",
-    "source": {
-      "slideNumbers": [
-        12
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide12.xml"
-      ]
-    },
     "mentors": "Lewis Hammond"
   },
   {
@@ -148,16 +78,6 @@
     "researchInterests": "Multi-agent safety, how autonomous multi-agent systems could destabilize critical digital infrastructure, technology & society, global power dynamics re: tech capacity & multinational partnerships, entrepreneurship ecosystems",
     "projectProposal": "Sanctioning in Multi-Agent Societies - Extend the SanctSim framework to test whether mediators, tool-calling for transparency, and cross-model benchmarking can prevent reasoning LLMs from collapsing into free-riding. The project studies whether AI agents can keep each other accountable in different social contexts. The goal is to find common threads between SanctSim and GovSim, seeking empirical insights for fine-tuning that correct free-riding without undermining existing cooperative behaviors.",
     "primaryImage": "/fellows/images/van.jpg",
-    "source": {
-      "slideNumbers": [
-        13,
-        14
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide13.xml",
-        "ppt/slides/slide14.xml"
-      ]
-    },
     "mentors": "Zhijing Jin & David Guzman Piedrahita"
   },
   {
@@ -167,16 +87,6 @@
     "researchInterests": "My current research focuses on multi-agent systems, with an emphasis on RL-based fine-tuning, incentive design, and robustness under non-stationarity and distribution shift. I study how cooperative dynamics can be aligned through structured fine-tuning in multi-agent LLM systems, particularly in safety-critical settings. More broadly, I am interested in principled methodology development and the theoretical foundations of learning algorithms. This perspective extends to AI for scientific discovery at the intersection of generative modeling, optimization, and reinforcement learning, particularly in structured exploration of out-of-distribution spaces for scientific discovery (e.g., molecular design), and in how multi-agent frameworks can accelerate this process. .",
     "projectProposal": "Multi-Agent Cooperative Post-Training: This project investigates cooperative fine-tuning in multi-agent systems. We develop multi-agent post-training algorithms and compare them against independently trained baselines in simulation environments such as GovSim and SanctSim. The goal is to evaluate (1) how joint training strategies improve cooperation and stability, and (2) which alignment mechanisms best sustain coordination under strategic interaction. The broader objective is to design principled training frameworks that promote pro-social behavior in multi-agent systems and to benchmark alignment mechanisms against state-of-the-art multi-agent approaches.",
     "primaryImage": "/fellows/images/yves.jpg",
-    "source": {
-      "slideNumbers": [
-        15,
-        16
-      ],
-      "rawSlidePaths": [
-        "ppt/slides/slide15.xml",
-        "ppt/slides/slide16.xml"
-      ]
-    },
     "mentors": "Zhijing Jin & David Guzman Piedrahita"
   }
 ]
