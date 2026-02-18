@@ -1,0 +1,31 @@
+---
+import FellowCard from './FellowCard.astro';
+import { loadFellows } from '../lib/fellows';
+
+const fellows = loadFellows();
+---
+
+<section id="fellows" class="bg-surface text-text-base">
+  <div class="max-w-7xl mx-auto py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10 md:mb-12">
+        <h1 class="text-3xl md:text-4xl font-semibold mb-4">Fellows</h1>
+        <p class="text-base md:text-lg text-text-muted max-w-3xl">
+          Meet the fellows from the Names & Faces deck. Each card merges the Bio, Research Interest, and Project Proposal responses into one profile.
+        </p>
+      </div>
+
+      {fellows.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {fellows.map((fellow) => (
+            <FellowCard fellow={fellow} />
+          ))}
+        </div>
+      ) : (
+        <div class="rounded-xl border border-surface-alt bg-surface-alt p-6">
+          <p class="text-text-muted">No fellows data was found. Ensure the extracted slides JSON is available.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
