@@ -8,10 +8,6 @@ export interface FellowRecord {
   projectProposal?: string;
   mentors?: string;
   primaryImage?: string;
-  source: {
-    slideNumbers: number[];
-    rawSlidePaths: string[];
-  };
 }
 
 export function loadFellows(): FellowRecord[] {
