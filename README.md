@@ -9,17 +9,9 @@ This is a static website built with Astro and Tailwind CSS that showcases the 3-
 ## Features
 
 - Responsive design with mobile and desktop layouts
-- Integration with Notion for mentor data
 - Application deadline tracking
 - Research tracks and partnership information
 - FAQ section
-
-## Environment Variables
-
-Create a `.env` file with:
-
-- `NOTION_TOKEN` - Notion API token
-- `NOTION_DATABASE_ID` - Notion database ID for mentor data
 
 ## Development and Deployment Workflow
 
@@ -68,4 +60,3 @@ This project uses a simplified trunk-based development model (GitHub Flow).
 - Astro
 - Tailwind CSS
 - TypeScript
-- Notion API

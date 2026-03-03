@@ -4,19 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/fetch-notion.ts",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@notionhq/client": "^4.0.2",
     "@tailwindcss/vite": "^4.1.12",
     "astro": "^5.13.0",
-    "dotenv": "^17.2.1",
     "tailwindcss": "^4.1.12"
-  },
-  "devDependencies": {
-    "tsx": "^4.19.2"
   }
 }
