@@ -68,7 +68,7 @@
     "bio": "My name is Qi, I’m born and raised in China :D My background is computer science and I work as a software engineer for 2+ years. Since closely working with AI in my daily workflow, I’m drawn to understanding how advanced models behave and coordinate in messy, real-world settings.",
     "researchInterests": "I love building evaluation tools, exploring agentic behavior, and working across disciplines. My core motivation is reducing AI risks through careful, empirical testing and building systems that improve our understanding of model behavior and make it more trustworthy.",
     "projectProposal": "Collusion Evaluation: This work extends an inter-agent influence evaluation to study how advanced AI models engage in collusive behavior across multi-agent settings. It combines research on scenario design with infrastructure work extending the Inspect AI framework to create a reproducible benchmark for assessing multi-agent coordination risks.",
-    "primaryImage": "/fellows/images/qi.png",
+    "primaryImage": "/fellows/images/qi.jpg",
     "mentors": "Lewis Hammond"
   },
   {
