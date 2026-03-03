@@ -77,3 +77,14 @@
 
   --radius-sm: 0.125rem;
 }
+
+.fellow-preview-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}

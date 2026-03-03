@@ -1,0 +1,126 @@
+---
+import { loadFellows } from '../lib/fellows';
+
+const fellows = loadFellows();
+---
+
+<section id="fellows" class="bg-surface text-text-base">
+  <div class="max-w-5xl mx-auto pt-16 md:pt-20 pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
+    <p class="text-xs uppercase tracking-wider text-primary font-semibold mb-3">Cohort 2025</p>
+    <h1 class="text-2xl md:text-3xl font-semibold mb-4">Fellows</h1>
+    <p class="text-base md:text-lg text-text-muted max-w-2xl leading-relaxed">
+      Meet the fellows from the Names &amp; Faces deck — each profile includes their bio, research interests, and project proposal.
+    </p>
+  </div>
+</section>
+
+<section class="bg-surface text-text-base">
+  <div class="max-w-5xl mx-auto pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+    {fellows.length > 0 ? (
+      <div>
+        {fellows.map((fellow, index) => {
+          const isImageRight = index % 2 === 0;
+          const initials = fellow.name.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase();
+          return (
+            <article class:list={["fellow-entry py-12 md:py-16", { "border-t border-text-muted/25": index !== 0 }]}>
+
+              <div class:list={["fellow-aside", isImageRight ? "photo-right" : "photo-left"]}>
+                <div class="fellow-photo">
+                  {fellow.primaryImage ? (
+                    <img
+                      src={fellow.primaryImage}
+                      alt={`Portrait of ${fellow.name}`}
+                      class="w-full h-full object-cover rounded-xl shadow-sm"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-full h-full rounded-xl bg-surface-alt flex items-center justify-center">
+                      <span class="text-3xl font-bold text-primary">{initials}</span>
+                    </div>
+                  )}
+                </div>
+                {fellow.mentors && (
+                  <div class="mt-3">
+                    <h3 class="text-xs uppercase tracking-wider text-primary font-semibold mb-1">Mentors</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">{fellow.mentors}</p>
+                  </div>
+                )}
+              </div>
+
+              <h2 class="text-2xl md:text-3xl font-semibold mb-6 leading-tight">{fellow.name}</h2>
+
+              <div class="space-y-5">
+                {fellow.bio && (
+                  <div>
+                    <h3 class="text-xs uppercase tracking-wider text-primary font-semibold mb-2">Bio</h3>
+                    <p class="text-text-muted leading-relaxed text-base">{fellow.bio}</p>
+                  </div>
+                )}
+                {fellow.researchInterests && (
+                  <div>
+                    <h3 class="text-xs uppercase tracking-wider text-primary font-semibold mb-2">Research Interests</h3>
+                    <p class="text-text-muted leading-relaxed text-base">{fellow.researchInterests}</p>
+                  </div>
+                )}
+                {fellow.projectProposal && (
+                  <div>
+                    <h3 class="text-xs uppercase tracking-wider text-primary font-semibold mb-2">Project Proposal</h3>
+                    <p class="text-text-muted leading-relaxed text-base">{fellow.projectProposal}</p>
+                  </div>
+                )}
+              </div>
+
+              <div class="clearfix"></div>
+            </article>
+          );
+        })}
+      </div>
+    ) : (
+      <div class="rounded-xl border border-surface-alt bg-surface-alt p-6">
+        <p class="text-text-muted">No fellows data was found. Ensure the extracted slides JSON is available.</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .fellow-aside {
+    width: 260px;
+    flex-shrink: 0;
+  }
+
+  .fellow-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .photo-right {
+    float: right;
+    margin-left: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .photo-left {
+    float: left;
+    margin-right: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media (max-width: 640px) {
+    .fellow-aside {
+      float: none !important;
+      width: 100%;
+      margin: 0 0 1.5rem 0 !important;
+    }
+
+    .fellow-photo {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

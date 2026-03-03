@@ -1,23 +1,13 @@
 [
   {
-    "name": "Divya Siddarth",
-    "title": "Collective Intelligence Project",
-    "website": "https://divyasiddarth.com/",
-    "linkedin": "https://www.linkedin.com/in/divya-siddarth/",
-    "academic": "https://scholar.google.com/citations?user=JzKCTBgAAAAJ&hl=en&oi=ao",
-    "twitter": "https://x.com/divyasiddarth",
-    "image": "./mentors/images/divya_siddarth.jpg",
+    "name": "Lewis Hammond",
+    "title": "Cooperative AI Foundation & University of Oxford",
+    "website": "https://lewishammond.com/",
+    "linkedin": "https://www.linkedin.com/in/lrhammond/",
+    "academic": "https://scholar.google.com/citations?user=8fYnp7UAAAAJ",
+    "twitter": "https://x.com/lrhammond",
+    "image": "/mentors/images/lewis_hammond.jpg",
     "order": 1
-  },
-  {
-    "name": "Vincent Conitzer",
-    "title": "Carnegie Mellon University and University of Oxford",
-    "website": "https://www.cs.cmu.edu/~conitzer/",
-    "linkedin": "https://www.linkedin.com/in/vincent-conitzer-2563082/",
-    "academic": "https://scholar.google.com/citations?user=juRk4lQAAAAJ&hl=en",
-    "twitter": "https://x.com/conitzer",
-    "image": "./mentors/images/vincent_conitzer.jpg",
-    "order": 2
   },
   {
     "name": "Michiel Bakker",
@@ -26,7 +16,17 @@
     "linkedin": "https://www.linkedin.com/in/michielbakker1/",
     "academic": "https://scholar.google.com/citations?user=9H74p5MAAAAJ",
     "twitter": "https://x.com/bakkermichiel",
-    "image": "./mentors/images/michiel_bakker.jpg",
+    "image": "/mentors/images/michiel_bakker.jpg",
+    "order": 2
+  },
+  {
+    "name": "Joel Z. Leibo",
+    "title": "Google DeepMind",
+    "website": "https://www.jzleibo.com",
+    "linkedin": "https://www.linkedin.com/in/joel-leibo-4929aa7/",
+    "academic": "https://scholar.google.com/citations?hl=en&user=3y_M1cUAAAAJ",
+    "twitter": "https://x.com/jzl86",
+    "image": "/mentors/images/joel_z_leibo.jpg",
     "order": 3
   },
   {
@@ -36,18 +36,8 @@
     "linkedin": "https://www.linkedin.com/in/sahar-abdelnabi/",
     "academic": "https://scholar.google.de/citations?user=QEiYbDYAAAAJ&hl=en",
     "twitter": "https://x.com/sahar_abdelnabi",
-    "image": "./mentors/images/sahar_abdelnabi.jpg",
+    "image": "/mentors/images/sahar_abdelnabi.jpg",
     "order": 4
-  },
-  {
-    "name": "Joel Z. Leibo",
-    "title": "Google DeepMind",
-    "website": "https://www.jzleibo.com",
-    "linkedin": "https://www.linkedin.com/in/joel-leibo-4929aa7/",
-    "academic": "https://scholar.google.com/citations?hl=en&user=3y_M1cUAAAAJ",
-    "twitter": "https://x.com/jzl86",
-    "image": "./mentors/images/joel_z_leibo.jpg",
-    "order": 5
   },
   {
     "name": "Zhijing Jin",
@@ -56,18 +46,18 @@
     "linkedin": "https://www.linkedin.com/in/zhijing-jin/",
     "academic": "https://scholar.google.com/citations?user=Mdr6wjUAAAAJ",
     "twitter": "https://x.com/ZhijingJin",
-    "image": "./mentors/images/zhijing_jin.jpg",
-    "order": 6
+    "image": "/mentors/images/zhijing_jin.jpg",
+    "order": 4
   },
   {
-    "name": "Lewis Hammond",
-    "title": "Cooperative AI Foundation & University of Oxford",
-    "website": "https://lewishammond.com/",
-    "linkedin": "https://www.linkedin.com/in/lrhammond/",
-    "academic": "https://scholar.google.com/citations?user=8fYnp7UAAAAJ",
-    "twitter": "https://x.com/lrhammond",
-    "image": "./mentors/images/lewis_hammond.jpg",
-    "order": 7
+    "name": "Vincent Conitzer",
+    "title": "Carnegie Mellon University and University of Oxford",
+    "website": "https://www.cs.cmu.edu/~conitzer/",
+    "linkedin": "https://www.linkedin.com/in/vincent-conitzer-2563082/",
+    "academic": "https://scholar.google.com/citations?user=juRk4lQAAAAJ&hl=en",
+    "twitter": "https://x.com/conitzer",
+    "image": "/mentors/images/vincent_conitzer.jpg",
+    "order": 5
   },
   {
     "name": "Tan Zhi Xuan",
@@ -75,8 +65,8 @@
     "website": "https://ztangent.github.io/",
     "linkedin": "https://www.linkedin.com/in/tan-zhi-xuan/",
     "academic": "https://scholar.google.com/citations?user=Yscjyf8AAAAJ",
-    "image": "./mentors/images/tan_zhi_xuan.jpg",
-    "order": 8
+    "image": "/mentors/images/tan_zhi_xuan.jpg",
+    "order": 7
   },
   {
     "name": "Max Kleiman-Weiner",
@@ -85,7 +75,7 @@
     "linkedin": "https://www.linkedin.com/in/max-kleiman-weiner/",
     "academic": "https://scholar.google.com/citations?hl=en&user=SACXQKYAAAAJ&view_op=list_works&sortby=pubdate",
     "twitter": "https://x.com/maxhkw",
-    "image": "./mentors/images/max_kleiman_weiner.jpg",
-    "order": 9
+    "image": "/mentors/images/max_kleiman_weiner.jpg",
+    "order": 6
   }
 ]

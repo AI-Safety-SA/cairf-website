@@ -1,0 +1,81 @@
+---
+import type { FellowRecord } from '../lib/fellows';
+
+export interface Props {
+  fellow: FellowRecord;
+}
+
+const { fellow } = Astro.props;
+const previewText = fellow.bio || fellow.researchInterests || fellow.projectProposal || '';
+const initials = fellow.name.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase();
+---
+
+<article class="rounded-2xl border border-surface-alt bg-white shadow-sm overflow-hidden h-full flex flex-col group transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+  <div class="aspect-[4/3] bg-surface-alt overflow-hidden">
+    {fellow.primaryImage ? (
+      <img
+        src={fellow.primaryImage}
+        alt={`Portrait of ${fellow.name}`}
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center bg-surface-alt">
+        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+          <span class="text-xl font-bold text-primary">{initials}</span>
+        </div>
+      </div>
+    )}
+  </div>
+
+  <div class="p-5 flex flex-col gap-3 flex-1">
+    <h3 class="text-lg font-semibold text-text-base leading-tight">{fellow.name}</h3>
+
+    {previewText && (
+      <p class="text-sm leading-relaxed text-text-muted fellow-preview-clamp">{previewText}</p>
+    )}
+
+    <details class="group mt-auto pt-3 border-t border-surface-alt">
+      <summary class="cursor-pointer flex items-center justify-between text-sm font-semibold text-primary list-none select-none">
+        <span class="group-open:hidden">Read more</span>
+        <span class="hidden group-open:inline">Show less</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </summary>
+      <div class="mt-4 space-y-4 text-sm leading-relaxed whitespace-pre-line">
+        {fellow.bio && (
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-primary/70 font-semibold mb-1.5">Bio</h4>
+            <p class="text-text-muted">{fellow.bio}</p>
+          </div>
+        )}
+        {fellow.researchInterests && (
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-primary/70 font-semibold mb-1.5">Research Interest</h4>
+            <p class="text-text-muted">{fellow.researchInterests}</p>
+          </div>
+        )}
+        {fellow.projectProposal && (
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-primary/70 font-semibold mb-1.5">Project Proposal</h4>
+            <p class="text-text-muted">{fellow.projectProposal}</p>
+          </div>
+        )}
+        {fellow.mentors && (
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-primary/70 font-semibold mb-1.5">Mentors</h4>
+            <p class="text-text-muted">{fellow.mentors}</p>
+          </div>
+        )}
+        {!fellow.bio && !fellow.researchInterests && !fellow.projectProposal && <p class="text-text-muted">{previewText}</p>}
+      </div>
+    </details>
+  </div>
+</article>

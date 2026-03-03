@@ -10,6 +10,10 @@ import crossIcon from '../assets/icons/cross.svg?raw'
 import ApplyButton from './ApplyButton.astro'
 
 import Image from 'astro/components/Image.astro';
+
+const isHomePage = Astro.url.pathname === '/';
+const homePrefix = isHomePage ? '' : '/';
+const heroHref = isHomePage ? '#hero' : '/#hero';
 ---
 
 <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 py-1 md:py-2">
@@ -19,7 +23,7 @@ import Image from 'astro/components/Image.astro';
       <div class="flex-shrink-0">
         <!-- Full logo with text -->
         <div>
-          <a href="#hero">
+          <a href={heroHref}>
             <Image src={logo} alt="Cooperative AI Research Fellowship Logo" layout='constrained' class="h-10 md:h-12 w-auto" />
           </a>
         </div>
@@ -27,19 +31,22 @@ import Image from 'astro/components/Image.astro';
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8 font-sans">
-        <a href="#about" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#about`} class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
-        <a href="#tracks" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#tracks`} class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Tracks
         </a>
-        <a href="#mentorship" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#mentorship`} class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Mentors
         </a>
-        <a href="#partners" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="/fellows" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+          Fellows
+        </a>
+        <a href={`${homePrefix}#partners`} class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Partners
         </a>
-        <a href="#faq" class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#faq`} class="text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           FAQ
         </a>
       </nav>
@@ -66,40 +73,43 @@ import Image from 'astro/components/Image.astro';
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 bg-white font-sans">
-        <a href="#about" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#about`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           About
         </a>
-        <a href="#key-details" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#key-details`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Key Details
         </a>
-        <a href="#tracks" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#tracks`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Research Tracks
         </a>
-        <a href="#mentorship" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#mentorship`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Mentorship
         </a>
-        <a href="#application-process" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href="/fellows" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+          Fellows
+        </a>
+        <a href={`${homePrefix}#application-process`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Application Process
         </a>
-        <a href="#selection-criteria" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#selection-criteria`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Selection Criteria
         </a>
-        <a href="#why-cooperative-ai" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#why-cooperative-ai`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Why Cooperative AI
         </a>
-        <a href="#why-south-africa" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#why-south-africa`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Why South Africa
         </a>
-        <a href="#timeline" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#timeline`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Timeline
         </a>
-        <a href="#partners" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#partners`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Partners
         </a>
-        <a href="#faq" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#faq`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           FAQ
         </a>
-        <a href="#webinar" class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
+        <a href={`${homePrefix}#webinar`} class="block px-3 py-2 text-text-base hover:text-gray-600 transition-colors duration-200 font-medium">
           Webinar Recording
         </a>
         <div class="p-6 flex justify-center">
@@ -141,16 +151,22 @@ import Image from 'astro/components/Image.astro';
           
           const href = anchorElement.getAttribute('href');
           
-          // Check if this is an external link (ApplyButton) or internal anchor link
+          // External links (including route links) use default browser navigation.
           if (href && (href.startsWith('http') || href.startsWith('https') || href.startsWith('mailto:'))) {
-            // External link - allow normal navigation, just close the menu
             menu.classList.add('hidden');
             hamburgerIcon.classList.remove('hidden');
             crossIcon.classList.add('hidden');
-            return; // Don't prevent default, let the link work normally
+            return;
+          }
+
+          if (href && href.startsWith('/')) {
+            menu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            crossIcon.classList.add('hidden');
+            return;
           }
           
-          // Internal anchor link - handle smooth scrolling
+          // Same-page anchors use smooth scrolling.
           e.preventDefault();
           // Close menu immediately
           menu.classList.add('hidden');
