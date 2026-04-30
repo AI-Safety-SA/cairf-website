@@ -22,7 +22,10 @@ const fellows = loadFellows();
           const isImageRight = index % 2 === 0;
           const initials = fellow.name.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase();
           return (
-            <article class:list={["fellow-entry py-12 md:py-16", { "border-t border-text-muted/25": index !== 0 }]}>
+            <article
+              id={fellow.id}
+              class:list={["fellow-entry py-12 md:py-16", { "border-t border-text-muted/25": index !== 0 }]}
+            >
 
               <div class:list={["fellow-aside", isImageRight ? "photo-right" : "photo-left"]}>
                 <div class="fellow-photo">
@@ -110,6 +113,10 @@ const fellows = loadFellows();
     content: "";
     display: table;
     clear: both;
+  }
+
+  .fellow-entry {
+    scroll-margin-top: 6.5rem;
   }
 
   @media (max-width: 640px) {

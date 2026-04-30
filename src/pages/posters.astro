@@ -70,6 +70,17 @@ const postersWithImages = await Promise.all(
       </section>
     </main>
 
+    <dialog id="poster-lightbox" class="poster-lightbox" aria-label="Poster preview">
+      <button type="button" class="poster-lightbox-close" data-lightbox-close aria-label="Close poster preview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="poster-lightbox-frame">
+        <img id="poster-lightbox-image" class="poster-lightbox-image" alt="" />
+      </div>
+    </dialog>
+
     <Footer />
   </body>
 </html>
@@ -155,3 +166,127 @@ const postersWithImages = await Promise.all(
     .masonry { columns: 1; }
   }
 </style>
+
+<style is:global>
+  body.poster-lightbox-open {
+    overflow: hidden;
+  }
+
+  .poster-lightbox {
+    width: min(96vw, 1240px);
+    max-width: none;
+    margin: auto;
+    padding: 1.25rem;
+    border: 0;
+    border-radius: 24px;
+    background: rgba(14, 14, 14, 0.92);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .poster-lightbox::backdrop {
+    background: rgba(7, 7, 7, 0.8);
+    backdrop-filter: blur(6px);
+  }
+
+  .poster-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.18s ease;
+  }
+
+  .poster-lightbox-close:hover,
+  .poster-lightbox-close:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+
+  .poster-lightbox-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(100vh - 4rem);
+    overflow: auto;
+  }
+
+  .poster-lightbox-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 6rem);
+    border-radius: 14px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (max-width: 720px) {
+    .poster-lightbox {
+      width: calc(100vw - 1rem);
+      padding: 0.75rem;
+      border-radius: 18px;
+    }
+
+    .poster-lightbox-close {
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialog = document.getElementById('poster-lightbox');
+    const image = document.getElementById('poster-lightbox-image');
+
+    if (!(dialog instanceof HTMLDialogElement) || !(image instanceof HTMLImageElement)) return;
+
+    const closeLightbox = () => {
+      if (!dialog.open) return;
+      dialog.close();
+    };
+
+    const openLightbox = (src: string, alt: string) => {
+      document.body.classList.add('poster-lightbox-open');
+      image.src = src;
+      image.alt = alt;
+      dialog.showModal();
+    };
+
+    document.querySelectorAll<HTMLElement>('.poster-lightbox-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const src = trigger.dataset.posterSrc;
+        const alt = trigger.dataset.posterAlt ?? 'Poster preview';
+        if (!src) return;
+        openLightbox(src, alt);
+      });
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) closeLightbox();
+    });
+
+    dialog.querySelectorAll<HTMLElement>('[data-lightbox-close]').forEach((element) => {
+      element.addEventListener('click', closeLightbox);
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('poster-lightbox-open');
+      image.removeAttribute('src');
+      image.alt = '';
+    });
+
+    dialog.addEventListener('cancel', () => {
+      document.body.classList.remove('poster-lightbox-open');
+    });
+  });
+</script>

@@ -22,24 +22,29 @@ function parseProposal(text: string): { title: string; body: string } {
 
 const proposals = poster.fellows.map(f => f.projectProposal).filter(Boolean) as string[];
 const { title, body } = proposals.length ? parseProposal(proposals[0]) : { title: '', body: '' };
-
-const mentors = poster.fellows
-  .flatMap(f => (f.mentors ?? '').split('&').map(m => m.trim()))
-  .filter((m, i, a) => m && a.indexOf(m) === i);
-
 const fellowNames = poster.fellows.map(f => f.name).join(' & ');
+const posterAlt = `${fellowNames} — research poster`;
 ---
 
 <article class="card">
   <div class="pdf-wrap">
     {thumbImage ? (
-      <Image
-        src={thumbImage}
-        alt={`${fellowNames} — research poster`}
-        width={800}
-        loading="lazy"
-        class="poster-img"
-      />
+      <button
+        type="button"
+        class="poster-lightbox-trigger"
+        data-poster-src={thumbImage.src}
+        data-poster-alt={posterAlt}
+        aria-label={`Open poster for ${fellowNames}`}
+      >
+        <Image
+          src={thumbImage}
+          alt={posterAlt}
+          width={800}
+          loading="lazy"
+          class="poster-img"
+        />
+        <span class="poster-lightbox-hint">View full poster</span>
+      </button>
     ) : (
       <div class="pdf-missing" style={`aspect-ratio: ${poster.aspectRatio.toFixed(6)}`}>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -65,18 +70,48 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
           {f.primaryImage && (
             <img src={f.primaryImage} alt={f.name} class="fellow-avatar" loading="lazy" />
           )}
-          <span class="fellow-name">{f.name}</span>
+          <a href={`/fellows#${f.id}`} class="fellow-name-link">
+            <span class="fellow-name">{f.name}</span>
+          </a>
         </div>
       ))}
     </div>
 
     {title && <h3 class="project-title">{title}</h3>}
 
-    {mentors.length > 0 && (
-      <div class="mentors-row">
+    {poster.mentors.length > 0 && (
+      <div class="meta-row">
         <span class="mentor-label">Mentored by</span>
         <div class="mentor-tags">
-          {mentors.map(m => <span class="mentor-tag">{m}</span>)}
+          {poster.mentors.map((mentor) => (
+            mentor.url ? (
+              <a href={mentor.url} target="_blank" rel="noopener noreferrer" class="mentor-tag mentor-tag-link">
+                {mentor.name}
+              </a>
+            ) : (
+              <span class="mentor-tag">{mentor.name}</span>
+            )
+          ))}
+        </div>
+      </div>
+    )}
+
+    {poster.researchManager?.name && (
+      <div class="meta-row">
+        <span class="mentor-label">Research Manager</span>
+        <div class="mentor-tags">
+          {poster.researchManager.url ? (
+            <a
+              href={poster.researchManager.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mentor-tag mentor-tag-link"
+            >
+              {poster.researchManager.name}
+            </a>
+          ) : (
+            <span class="mentor-tag">{poster.researchManager.name}</span>
+          )}
         </div>
       </div>
     )}
@@ -125,10 +160,46 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
     overflow: hidden;
   }
 
+  .poster-lightbox-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+  }
+
+  .poster-lightbox-trigger::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0.02) 0%, rgba(8, 8, 8, 0.3) 100%);
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+
+  .poster-lightbox-trigger:hover::after,
+  .poster-lightbox-trigger:focus-visible::after {
+    opacity: 0.65;
+  }
+
+  .poster-lightbox-trigger:focus-visible {
+    outline: 3px solid hsl(15 85% 56%);
+    outline-offset: -3px;
+  }
+
   .poster-img {
     display: block;
     width: 100%;
     height: auto;
+    transition: transform 0.22s ease;
+  }
+
+  .poster-lightbox-trigger:hover .poster-img,
+  .poster-lightbox-trigger:focus-visible .poster-img {
+    transform: scale(1.015);
   }
 
   .pdf-missing {
@@ -142,6 +213,26 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
     font-weight: 600;
     letter-spacing: 0.04em;
     background: #f0ede7;
+  }
+
+  .poster-lightbox-hint {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   /* Download button floating over PDF */
@@ -209,6 +300,22 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
     line-height: 1.2;
   }
 
+  .fellow-name-link {
+    text-decoration: none;
+  }
+
+  .fellow-name-link:hover .fellow-name,
+  .fellow-name-link:focus-visible .fellow-name {
+    color: hsl(15 85% 42%);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.12em;
+  }
+
+  .fellow-name-link:focus-visible {
+    outline: none;
+  }
+
   .project-title {
     font-family: var(--font-serif);
     font-size: 1rem;
@@ -218,7 +325,7 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
     margin: 0;
   }
 
-  .mentors-row {
+  .meta-row {
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
@@ -249,6 +356,25 @@ const fellowNames = poster.fellows.map(f => f.name).join(' & ');
     padding: 3px 9px;
     border-radius: 999px;
     white-space: nowrap;
+  }
+
+  .mentor-tag-link {
+    text-decoration: none;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .mentor-tag-link:hover,
+  .mentor-tag-link:focus-visible {
+    color: hsl(15 85% 34%);
+    background: hsl(15 85% 46% / 0.14);
+    border-color: hsl(15 85% 46% / 0.36);
+  }
+
+  .mentor-tag-link:focus-visible {
+    outline: none;
   }
 
   .abstract-details {
