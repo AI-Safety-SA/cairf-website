@@ -1,8 +1,6 @@
 ---
-import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 import PosterCard from '../components/PosterCard.astro';
 import { loadPosters } from '../lib/posters';
 
@@ -20,44 +18,26 @@ const postersWithImages = await Promise.all(
 );
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Research Posters | Cooperative AI Research Fellowship</title>
-    <meta name="description" content="Research posters from the 2025 CAIRF cohort, showcasing work on cooperative AI, multi-agent systems, and AI safety." />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body class="font-sans" style="background: hsl(120 85% 5%);">
-    <Header />
-
+<SiteLayout
+  title="Research Posters | Cooperative AI Research Fellowship"
+  description="Research posters from the 2026 CAIRF cohort, showcasing work on cooperative AI, multi-agent systems, and AI safety."
+  bodyClass="font-sans"
+>
     <main>
       <!-- Hero -->
-      <section class="hero">
-        <div class="hero-inner">
-          <p class="overline">2026 Fellowship Cohort</p>
-          <h1 class="page-title">Research Posters</h1>
-        </div>
-
-        <!-- Decorative ruled lines -->
-        <div class="hero-rules" aria-hidden="true">
-          <div class="rule"></div>
-          <div class="rule rule--accent"></div>
-          <div class="rule"></div>
+      <section class="overflow-hidden bg-surface px-6 pb-14 pt-16 text-center text-text-base sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-[740px]">
+          <p class="mb-5 font-sans text-[0.6875rem] font-extrabold uppercase tracking-[0.18em] text-primary">
+            2026 Fellowship Cohort
+          </p>
+          <h1 class="font-serif text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-green-dark">
+            Research Posters
+          </h1>
         </div>
       </section>
 
       <!-- Masonry grid -->
-      <section class="grid-section">
+      <section class="grid-section bg-green-dark text-white">
         <div class="masonry">
           {postersWithImages.map(({ thumbImage, ...poster }) => (
             <PosterCard poster={poster} thumbImage={thumbImage} />
@@ -86,75 +66,9 @@ const postersWithImages = await Promise.all(
         <img id="poster-lightbox-image" class="poster-lightbox-image" alt="" />
       </div>
     </dialog>
-
-    <Footer />
-  </body>
-</html>
+</SiteLayout>
 
 <style>
-  /* ── Hero ──────────────────────────────────────────────── */
-  .hero {
-    position: relative;
-    padding: 5rem 2rem 3.5rem;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 740px;
-    margin: 0 auto;
-  }
-
-  .overline {
-    font-family: var(--font-sans);
-    font-size: 0.6875rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: hsl(15 85% 58%);
-    margin: 0 0 1.25rem;
-  }
-
-  .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.75rem, 7vw, 5rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.05;
-    margin: 0 0 1.25rem;
-    letter-spacing: -0.02em;
-  }
-
-  .page-sub {
-    font-family: var(--font-sans);
-    font-size: clamp(0.9rem, 2vw, 1.0625rem);
-    line-height: 1.65;
-    color: rgba(255,255,255,0.45);
-    margin: 0;
-  }
-
-  /* Decorative horizontal rules */
-  .hero-rules {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin-top: 3.5rem;
-    opacity: 0.18;
-  }
-
-  .rule {
-    height: 1px;
-    background: rgba(255,255,255,0.6);
-  }
-
-  .rule--accent {
-    height: 2px;
-    background: hsl(15 85% 56%);
-    opacity: 1;
-  }
-
   /* ── Masonry grid ──────────────────────────────────────── */
   .grid-section {
     padding: 3rem 1.5rem 6rem;
