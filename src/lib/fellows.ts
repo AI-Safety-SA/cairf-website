@@ -7,6 +7,7 @@ export interface FellowRecord {
   researchInterests?: string;
   projectProposal?: string;
   mentors?: string;
+  researchManager?: string;
   primaryImage?: string;
 }
 

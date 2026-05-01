@@ -9,20 +9,8 @@ interface Props {
 }
 
 const { poster, thumbImage } = Astro.props;
-
-function parseProposal(text: string): { title: string; body: string } {
-  const dashIdx = text.indexOf(' - ');
-  if (dashIdx > 4) return { title: text.slice(0, dashIdx).trim(), body: text.slice(dashIdx + 3).trim() };
-  const colonIdx = text.indexOf(': ');
-  if (colonIdx > 10) return { title: text.slice(0, colonIdx).trim(), body: text.slice(colonIdx + 2).trim() };
-  const dotIdx = text.indexOf('. ');
-  if (dotIdx > 0) return { title: text.slice(0, dotIdx + 1).trim(), body: text.slice(dotIdx + 2).trim() };
-  return { title: text, body: '' };
-}
-
-const proposals = poster.fellows.map(f => f.projectProposal).filter(Boolean) as string[];
-const { title, body } = proposals.length ? parseProposal(proposals[0]) : { title: '', body: '' };
 const fellowNames = poster.fellows.map(f => f.name).join(' & ');
+const fellowIds = poster.fellows.map(f => f.id).join(',');
 const posterAlt = `${fellowNames} — research poster`;
 ---
 
@@ -34,6 +22,7 @@ const posterAlt = `${fellowNames} — research poster`;
         class="poster-lightbox-trigger"
         data-poster-src={thumbImage.src}
         data-poster-alt={posterAlt}
+        data-fellow-ids={fellowIds}
         aria-label={`Open poster for ${fellowNames}`}
       >
         <Image
@@ -43,7 +32,6 @@ const posterAlt = `${fellowNames} — research poster`;
           loading="lazy"
           class="poster-img"
         />
-        <span class="poster-lightbox-hint">View full poster</span>
       </button>
     ) : (
       <div class="pdf-missing" style={`aspect-ratio: ${poster.aspectRatio.toFixed(6)}`}>
@@ -68,7 +56,9 @@ const posterAlt = `${fellowNames} — research poster`;
       {poster.fellows.map(f => (
         <div class="fellow-chip">
           {f.primaryImage && (
-            <img src={f.primaryImage} alt={f.name} class="fellow-avatar" loading="lazy" />
+            <a href={`/fellows#${f.id}`} class="fellow-avatar-link" aria-label={`View ${f.name} on the fellows page`}>
+              <img src={f.primaryImage} alt={f.name} class="fellow-avatar" loading="lazy" />
+            </a>
           )}
           <a href={`/fellows#${f.id}`} class="fellow-name-link">
             <span class="fellow-name">{f.name}</span>
@@ -77,7 +67,7 @@ const posterAlt = `${fellowNames} — research poster`;
       ))}
     </div>
 
-    {title && <h3 class="project-title">{title}</h3>}
+    {poster.title && <h3 class="project-title">{poster.title}</h3>}
 
     {poster.mentors.length > 0 && (
       <div class="meta-row">
@@ -96,35 +86,37 @@ const posterAlt = `${fellowNames} — research poster`;
       </div>
     )}
 
-    {poster.researchManager?.name && (
+    {poster.researchManagers.length > 0 && (
       <div class="meta-row">
-        <span class="mentor-label">Research Manager</span>
+        <span class="mentor-label">{poster.researchManagers.length > 1 ? 'Research Managers' : 'Research Manager'}</span>
         <div class="mentor-tags">
-          {poster.researchManager.url ? (
-            <a
-              href={poster.researchManager.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mentor-tag mentor-tag-link"
-            >
-              {poster.researchManager.name}
-            </a>
-          ) : (
-            <span class="mentor-tag">{poster.researchManager.name}</span>
-          )}
+          {poster.researchManagers.map((manager) => (
+            manager.url ? (
+              <a
+                href={manager.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-tag mentor-tag-link"
+              >
+                {manager.name}
+              </a>
+            ) : (
+              <span class="mentor-tag">{manager.name}</span>
+            )
+          ))}
         </div>
       </div>
     )}
 
-    {body && (
+    {poster.description && (
       <details class="abstract-details">
         <summary class="abstract-summary">
-          <span>Abstract</span>
+          <span>Description</span>
           <svg class="chevron" width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
           </svg>
         </summary>
-        <p class="abstract-text">{body}</p>
+        <p class="abstract-text">{poster.description}</p>
       </details>
     )}
   </div>
@@ -215,26 +207,6 @@ const posterAlt = `${fellowNames} — research poster`;
     background: #f0ede7;
   }
 
-  .poster-lightbox-hint {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.4rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(10, 10, 10, 0.72);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
   /* Download button floating over PDF */
   .dl-btn {
     position: absolute;
@@ -290,6 +262,21 @@ const posterAlt = `${fellowNames} — research poster`;
     object-fit: cover;
     border: 2px solid #e4ddd4;
     flex-shrink: 0;
+  }
+
+  .fellow-avatar-link {
+    display: inline-flex;
+    border-radius: 999px;
+  }
+
+  .fellow-avatar-link:hover .fellow-avatar,
+  .fellow-avatar-link:focus-visible .fellow-avatar {
+    border-color: hsl(15 85% 42%);
+    box-shadow: 0 0 0 3px hsl(15 85% 46% / 0.12);
+  }
+
+  .fellow-avatar-link:focus-visible {
+    outline: none;
   }
 
   .fellow-name {
