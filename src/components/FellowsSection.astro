@@ -1,12 +1,14 @@
 ---
 import { loadFellows } from '../lib/fellows';
+import { loadPosters } from '../lib/posters';
 
 const fellows = loadFellows();
+const posterFellowIds = new Set(loadPosters().flatMap((poster) => poster.fellows.map((fellow) => fellow.id)));
 ---
 
 <section id="fellows" class="bg-surface text-text-base">
   <div class="max-w-5xl mx-auto pt-16 md:pt-20 pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
-    <p class="text-xs uppercase tracking-wider text-primary font-semibold mb-3">Cohort 2025</p>
+    <p class="text-xs uppercase tracking-wider text-primary font-semibold mb-3">Cohort 2026</p>
     <h1 class="text-2xl md:text-3xl font-semibold mb-4">Fellows</h1>
     <p class="text-base md:text-lg text-text-muted max-w-2xl leading-relaxed">
       Meet the fellows accepted to the Cooperative AI Research Fellowship and explore their bios, research interests, and project proposals.
@@ -22,7 +24,10 @@ const fellows = loadFellows();
           const isImageRight = index % 2 === 0;
           const initials = fellow.name.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase();
           return (
-            <article class:list={["fellow-entry py-12 md:py-16", { "border-t border-text-muted/25": index !== 0 }]}>
+            <article
+              id={fellow.id}
+              class:list={["fellow-entry py-12 md:py-16", { "border-t border-text-muted/25": index !== 0 }]}
+            >
 
               <div class:list={["fellow-aside", isImageRight ? "photo-right" : "photo-left"]}>
                 <div class="fellow-photo">
@@ -47,7 +52,17 @@ const fellows = loadFellows();
                 )}
               </div>
 
-              <h2 class="text-2xl md:text-3xl font-semibold mb-6 leading-tight">{fellow.name}</h2>
+              <div class="mb-6 flex items-start justify-between gap-4">
+                <h2 class="flex-1 text-2xl md:text-3xl font-semibold leading-tight">{fellow.name}</h2>
+
+                {posterFellowIds.has(fellow.id) && (
+                  <p class="flex-shrink-0">
+                    <a href={`/posters?poster=${fellow.id}`} class="poster-link">
+                      View poster
+                    </a>
+                  </p>
+                )}
+              </div>
 
               <div class="space-y-5">
                 {fellow.bio && (
@@ -110,6 +125,45 @@ const fellows = loadFellows();
     content: "";
     display: table;
     clear: both;
+  }
+
+  .fellow-entry {
+    scroll-margin-top: 6.5rem;
+  }
+
+  .poster-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: hsl(15 85% 46% / 0.08);
+    border: 1px solid hsl(15 85% 46% / 0.18);
+    color: hsl(15 85% 40%);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .poster-link::after {
+    content: "↗";
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .poster-link:hover,
+  .poster-link:focus-visible {
+    background: hsl(15 85% 46% / 0.14);
+    border-color: hsl(15 85% 46% / 0.28);
+    color: hsl(15 85% 34%);
+    transform: translateY(-1px);
+    outline: none;
   }
 
   @media (max-width: 640px) {

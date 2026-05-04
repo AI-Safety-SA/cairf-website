@@ -1,0 +1,356 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { EnrichedPoster } from '../lib/posters';
+
+interface Props {
+  poster: EnrichedPoster;
+  thumbImage: ImageMetadata | null;
+}
+
+const { poster, thumbImage } = Astro.props;
+const fellowNames = poster.fellows.map(f => f.name).join(' & ');
+const fellowIds = poster.fellows.map(f => f.id).join(',');
+const posterAlt = `${fellowNames} — research poster`;
+---
+
+<article class="card">
+  <div class="pdf-wrap">
+    {thumbImage ? (
+      <button
+        type="button"
+        class="poster-lightbox-trigger"
+        data-poster-src={thumbImage.src}
+        data-poster-alt={posterAlt}
+        data-fellow-ids={fellowIds}
+        aria-label={`Open poster for ${fellowNames}`}
+      >
+        <Image
+          src={thumbImage}
+          alt={posterAlt}
+          width={800}
+          loading="lazy"
+          class="poster-img"
+        />
+      </button>
+    ) : (
+      <div class="pdf-missing" style={`aspect-ratio: ${poster.aspectRatio.toFixed(6)}`}>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span>Research Poster</span>
+      </div>
+    )}
+
+    <a href={poster.pdfPath} download class="dl-btn" aria-label="Download PDF">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+      </svg>
+      <span>PDF</span>
+    </a>
+  </div>
+
+  <div class="info">
+    <div class="fellows-row">
+      {poster.fellows.map(f => (
+        <div class="fellow-chip">
+          {f.primaryImage && (
+            <a href={`/fellows#${f.id}`} class="fellow-avatar-link" aria-label={`View ${f.name} on the fellows page`}>
+              <img src={f.primaryImage} alt={f.name} class="fellow-avatar" loading="lazy" />
+            </a>
+          )}
+          <a href={`/fellows#${f.id}`} class="fellow-name-link">
+            <span class="fellow-name">{f.name}</span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    {poster.title && <h3 class="project-title">{poster.title}</h3>}
+
+    {poster.mentors.length > 0 && (
+      <div class="meta-row">
+        <span class="mentor-label">Mentored by</span>
+        <div class="mentor-tags">
+          {poster.mentors.map((mentor) => (
+            mentor.url ? (
+              <a href={mentor.url} target="_blank" rel="noopener noreferrer" class="mentor-tag mentor-tag-link">
+                {mentor.name}
+              </a>
+            ) : (
+              <span class="mentor-tag">{mentor.name}</span>
+            )
+          ))}
+        </div>
+      </div>
+    )}
+
+    {poster.researchManagers.length > 0 && (
+      <div class="meta-row">
+        <span class="mentor-label">{poster.researchManagers.length > 1 ? 'Research Managers' : 'Research Manager'}</span>
+        <div class="mentor-tags">
+          {poster.researchManagers.map((manager) => (
+            manager.url ? (
+              <a
+                href={manager.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-tag mentor-tag-link"
+              >
+                {manager.name}
+              </a>
+            ) : (
+              <span class="mentor-tag">{manager.name}</span>
+            )
+          ))}
+        </div>
+      </div>
+    )}
+
+  </div>
+</article>
+
+<style>
+  .card {
+    background: #fffdf8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.25),
+      0 8px 24px rgba(0,0,0,0.35),
+      0 0 0 1px rgba(255,255,255,0.06);
+    break-inside: avoid;
+    margin-bottom: 1.75rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.3),
+      0 16px 40px rgba(0,0,0,0.45),
+      0 0 0 1px rgba(255,255,255,0.1);
+  }
+
+  /* Poster image area */
+  .pdf-wrap {
+    position: relative;
+    width: 100%;
+    background: #e8e4de;
+    overflow: hidden;
+  }
+
+  .poster-lightbox-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    text-align: left;
+  }
+
+  .poster-lightbox-trigger::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0.02) 0%, rgba(8, 8, 8, 0.3) 100%);
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+
+  .poster-lightbox-trigger:hover::after,
+  .poster-lightbox-trigger:focus-visible::after {
+    opacity: 0.65;
+  }
+
+  .poster-lightbox-trigger:focus-visible {
+    outline: 3px solid hsl(15 85% 56%);
+    outline-offset: -3px;
+  }
+
+  .poster-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.22s ease;
+  }
+
+  .poster-lightbox-trigger:hover .poster-img,
+  .poster-lightbox-trigger:focus-visible .poster-img {
+    transform: scale(1.015);
+  }
+
+  .pdf-missing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: #888;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: #f0ede7;
+  }
+
+  /* Download button floating over PDF */
+  .dl-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .dl-btn:hover {
+    background: rgba(0,0,0,0.88);
+  }
+
+  /* Info panel */
+  .info {
+    padding: 1.125rem 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    border-top: 2px solid #efe9df;
+  }
+
+  .fellows-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .fellow-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .fellow-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e4ddd4;
+    flex-shrink: 0;
+  }
+
+  .fellow-avatar-link {
+    display: inline-flex;
+    border-radius: 999px;
+  }
+
+  .fellow-avatar-link:hover .fellow-avatar,
+  .fellow-avatar-link:focus-visible .fellow-avatar {
+    border-color: hsl(15 85% 42%);
+    box-shadow: 0 0 0 3px hsl(15 85% 46% / 0.12);
+  }
+
+  .fellow-avatar-link:focus-visible {
+    outline: none;
+  }
+
+  .fellow-name {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    line-height: 1.2;
+  }
+
+  .fellow-name-link {
+    text-decoration: none;
+  }
+
+  .fellow-name-link:hover .fellow-name,
+  .fellow-name-link:focus-visible .fellow-name {
+    color: hsl(15 85% 42%);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.12em;
+  }
+
+  .fellow-name-link:focus-visible {
+    outline: none;
+  }
+
+  .project-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .mentor-label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #aaa;
+  }
+
+  .mentor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .mentor-tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: hsl(15 85% 42%);
+    background: hsl(15 85% 46% / 0.09);
+    border: 1px solid hsl(15 85% 46% / 0.22);
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .mentor-tag-link {
+    text-decoration: none;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .mentor-tag-link:hover,
+  .mentor-tag-link:focus-visible {
+    color: hsl(15 85% 34%);
+    background: hsl(15 85% 46% / 0.14);
+    border-color: hsl(15 85% 46% / 0.36);
+  }
+
+  .mentor-tag-link:focus-visible {
+    outline: none;
+  }
+
+</style>

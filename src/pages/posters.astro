@@ -1,0 +1,226 @@
+---
+import type { ImageMetadata } from 'astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PosterCard from '../components/PosterCard.astro';
+import { loadPosters } from '../lib/posters';
+
+const posters = loadPosters();
+
+const allThumbs = import.meta.glob<{ default: ImageMetadata }>('../assets/Posters/*.png');
+
+const postersWithImages = await Promise.all(
+  posters.map(async (poster) => {
+    const key = `../assets/Posters/${poster.thumbFile}`;
+    const mod = allThumbs[key];
+    const thumbImage = mod ? (await mod()).default : null;
+    return { ...poster, thumbImage };
+  })
+);
+---
+
+<SiteLayout
+  title="Research Posters | Cooperative AI Research Fellowship"
+  description="Research posters from the 2026 CAIRF cohort, showcasing work on cooperative AI, multi-agent systems, and AI safety."
+  bodyClass="font-sans"
+>
+    <main>
+      <!-- Hero -->
+      <section class="overflow-hidden bg-surface px-6 pb-14 pt-16 text-center text-text-base sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-[740px]">
+          <p class="mb-5 font-sans text-[0.6875rem] font-extrabold uppercase tracking-[0.18em] text-primary">
+            2026 Fellowship Cohort
+          </p>
+          <h1 class="font-serif text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-green-dark">
+            Research Posters
+          </h1>
+        </div>
+      </section>
+
+      <!-- Masonry grid -->
+      <section class="grid-section bg-green-dark text-white">
+        <div class="masonry">
+          {postersWithImages.map(({ thumbImage, ...poster }) => (
+            <PosterCard poster={poster} thumbImage={thumbImage} />
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <dialog id="poster-lightbox" class="poster-lightbox" aria-label="Poster preview">
+      <button type="button" class="poster-lightbox-close" data-lightbox-close aria-label="Close poster preview">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="poster-lightbox-frame">
+        <img id="poster-lightbox-image" class="poster-lightbox-image" alt="" />
+      </div>
+    </dialog>
+</SiteLayout>
+
+<style>
+  /* ── Masonry grid ──────────────────────────────────────── */
+  .grid-section {
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .masonry {
+    max-width: 1440px;
+    margin: 0 auto;
+    columns: 3 380px;
+    column-gap: 1.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .grid-section { padding: 2rem 1rem 4rem; }
+    .masonry { columns: 1; }
+  }
+</style>
+
+<style is:global>
+  body.poster-lightbox-open {
+    overflow: hidden;
+  }
+
+  .poster-lightbox {
+    position: relative;
+    width: min(96vw, 1240px);
+    max-width: none;
+    margin: auto;
+    padding: 1.25rem;
+    border: 0;
+    border-radius: 24px;
+    background: rgba(14, 14, 14, 0.92);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .poster-lightbox::backdrop {
+    background: rgba(7, 7, 7, 0.8);
+    backdrop-filter: blur(6px);
+  }
+
+  .poster-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.18s ease;
+  }
+
+  .poster-lightbox-close:hover,
+  .poster-lightbox-close:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+
+  .poster-lightbox-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(100vh - 4rem);
+    overflow: auto;
+  }
+
+  .poster-lightbox-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 6rem);
+    border-radius: 14px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (max-width: 720px) {
+    .poster-lightbox {
+      width: calc(100vw - 1rem);
+      padding: 0.75rem;
+      border-radius: 18px;
+    }
+
+    .poster-lightbox-close {
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialog = document.getElementById('poster-lightbox');
+    const image = document.getElementById('poster-lightbox-image');
+
+    if (!(dialog instanceof HTMLDialogElement) || !(image instanceof HTMLImageElement)) return;
+
+    const closeLightbox = () => {
+      if (!dialog.open) return;
+      dialog.close();
+    };
+
+    const openLightbox = (src: string, alt: string) => {
+      document.body.classList.add('poster-lightbox-open');
+      image.src = src;
+      image.alt = alt;
+      dialog.showModal();
+    };
+
+    document.querySelectorAll<HTMLElement>('.poster-lightbox-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const src = trigger.dataset.posterSrc;
+        const alt = trigger.dataset.posterAlt ?? 'Poster preview';
+        if (!src) return;
+        openLightbox(src, alt);
+      });
+    });
+
+    const requestedPosterFellowId = new URLSearchParams(window.location.search).get('poster');
+    if (requestedPosterFellowId) {
+      const matchingTrigger = Array.from(document.querySelectorAll<HTMLElement>('.poster-lightbox-trigger')).find((trigger) =>
+        (trigger.dataset.fellowIds ?? '')
+          .split(',')
+          .map((value) => value.trim())
+          .includes(requestedPosterFellowId)
+      );
+
+      matchingTrigger?.click();
+    }
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) closeLightbox();
+    });
+
+    dialog.querySelectorAll<HTMLElement>('[data-lightbox-close]').forEach((element) => {
+      element.addEventListener('click', closeLightbox);
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('poster-lightbox-open');
+      image.removeAttribute('src');
+      image.alt = '';
+    });
+
+    dialog.addEventListener('cancel', () => {
+      document.body.classList.remove('poster-lightbox-open');
+    });
+  });
+</script>

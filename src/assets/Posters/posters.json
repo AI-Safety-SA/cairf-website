@@ -1,0 +1,211 @@
+[
+  {
+    "id": "akash",
+    "pdfPath": "/posters/akash.pdf",
+    "thumbFile": "akash.png",
+    "aspectRatio": 1.1973392461197339,
+    "fellowIds": ["akash-kundu"],
+    "title": "Simlarity as a Signal",
+    "description": "Do AI agents cooperate more when they know they are alike? A continuous-similarity framework for eliciting cooperation in LLM social dilemmas.",
+    "mentors": [
+      {
+        "name": "Vincent Conitzer",
+        "url": "https://www.cs.cmu.edu/~conitzer/"
+      },
+      {
+        "name": "Emanuel Tewolde",
+        "url": "https://emanueltewolde.com/"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  },
+  {
+    "id": "bhavyesh",
+    "pdfPath": "/posters/bhavyesh.pdf",
+    "thumbFile": "bhavyesh.png",
+    "aspectRatio": 1.7777777777777777,
+    "fellowIds": ["bhavyesh-sajja"],
+    "title": "Evaluating Rationality in Natural-Language Contracting",
+    "description": "AI Agents are entering the economy, but their ability to negotiate contracts and perform them (\"Rational contracting\") is unclear. What is the theory of rational contracting, and are modern AI agents \"rational\"?",
+    "mentors": [
+      {
+        "name": "Max Kleiman-Weiner",
+        "url": "https://faculty.washington.edu/maxkw/"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  },
+  {
+    "id": "joseph-oscar",
+    "pdfPath": "/posters/joseph-oscar.pdf",
+    "thumbFile": "joseph-oscar.png",
+    "aspectRatio": 0.7066508313539193,
+    "fellowIds": ["joseph-low", "oscar-duys"],
+    "title": "Delegating Deliberation to AI Agents",
+    "description": "How well can current AI agents learn user preferences and represent them in an online, agent-only deliberation setting?",
+    "mentors": [
+      {
+        "name": "Michiel Bakker",
+        "url": "https://miba.dev/"
+      },
+      {
+        "name": "Lewis Hammond",
+        "url": "https://lewishammond.com/"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Claude Formanek",
+        "url": "https://www.linkedin.com/in/claude-formanek/"
+      }
+    ]
+  },
+  {
+    "id": "mariana",
+    "pdfPath": "/posters/mariana.pdf",
+    "thumbFile": "mariana.png",
+    "aspectRatio": 0.6666666666666666,
+    "fellowIds": ["mariana-meireles"],
+    "title": "Toward Collective Intelligence",
+    "description": "Evolutionary pressures for cooperation in language models",
+    "mentors": [
+      {
+        "name": "Zhijing Jin",
+        "url": "https://zhijing-jin.com/"
+      },
+      {
+        "name": "David Guzman Piedrahita",
+        "url": "https://ml.inf.ethz.ch/people/person-detail.MzEyMzc0.TGlzdC8xODA3LC0xNzg2MjE4NDI4.html"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  },
+  {
+    "id": "omer",
+    "pdfPath": "/posters/omer.pdf",
+    "thumbFile": "omer.png",
+    "aspectRatio": 0.7074183976261128,
+    "fellowIds": ["omer-kamal-ebead"],
+    "title": "Contextual Integrity in Multi-Agent LLM Systems",
+    "description": "When should an AI agent share your \"private\" data? When context is enough, when it isn't, and when disposiitions matter",
+    "mentors": [
+      {
+        "name": "Joel Leibo",
+        "url": "https://www.jzleibo.com"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Claude Formanek",
+        "url": "https://www.linkedin.com/in/claude-formanek/"
+      }
+    ]
+  },
+  {
+    "id": "pramod",
+    "pdfPath": "/posters/pramod.pdf",
+    "thumbFile": "pramod.png",
+    "aspectRatio": 0.7074183976261128,
+    "fellowIds": ["pramod-kaushik"],
+    "title": "Strategic Indirect Speech in LLMs",
+    "description": "",
+    "mentors": [
+      {
+        "name": "Sahar Abdelnabi",
+        "url": "https://s-abdelnabi.github.io/"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  },
+  {
+    "id": "qi",
+    "pdfPath": "/posters/qi.pdf",
+    "thumbFile": "qi.png",
+    "aspectRatio": 0.7074183976261128,
+    "fellowIds": ["qi-guo"],
+    "title": "Inter-Agent Influience",
+    "description": "Evaluating persuasion and coercion betwen AI agents",
+    "mentors": [
+      {
+        "name": "Lewis Hammond",
+        "url": "https://lewishammond.com/"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Claude Formanek",
+        "url": "https://www.linkedin.com/in/claude-formanek/"
+      }
+    ]
+  },
+  {
+    "id": "van",
+    "pdfPath": "/posters/van.pdf",
+    "thumbFile": "van.png",
+    "aspectRatio": 1.5,
+    "fellowIds": ["van-quynh-thi-truong"],
+    "title": "Exploring social strattegies for shaping cooperation in multi-agent societies",
+    "description": "Extend the SanctSim framework to test whether mediators, tool-calling for transparency, and cross-model benchmarking can prevent reasoning LLMs from collapsing into free-riding. The project studies whether AI agents can keep each other accountable in different social contexts. The goal is to find common threads between SanctSim and GovSim, seeking empirical insights for fine-tuning that correct free-riding without undermining existing cooperative behaviors.",
+    "mentors": [
+      {
+        "name": "Zhijing Jin",
+        "url": "https://zhijing-jin.com/"
+      },
+      {
+        "name": "David Guzman Piedrahita",
+        "url": "https://ml.inf.ethz.ch/people/person-detail.MzEyMzc0.TGlzdC8xODA3LC0xNzg2MjE4NDI4.html"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  },
+  {
+    "id": "yves",
+    "pdfPath": "/posters/yves.pdf",
+    "thumbFile": "yves.png",
+    "aspectRatio": 0.7066508313539193,
+    "fellowIds": ["yves-bicker"],
+    "title": "MoralGym: Training Cooperative LLM Agents via Social Dilemma Games",
+    "description": "",
+    "mentors": [
+      {
+        "name": "Zhijing Jin",
+        "url": "https://zhijing-jin.com/"
+      },
+      {
+        "name": "David Guzman Piedrahita",
+        "url": "https://ml.inf.ethz.ch/people/person-detail.MzEyMzc0.TGlzdC8xODA3LC0xNzg2MjE4NDI4.html"
+      }
+    ],
+    "researchManagers": [
+      {
+        "name": "Sam Brown",
+        "url": "https://www.linkedin.com/in/sam-brown-likes-making-things/"
+      }
+    ]
+  }
+]

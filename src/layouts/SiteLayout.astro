@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+  bodyStyle?: string;
+}
+
+const {
+  title,
+  description,
+  bodyClass = 'bg-surface font-sans',
+  bodyStyle,
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class={bodyClass} style={bodyStyle}>
+    <Header />
+    <slot />
+    <Footer />
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          const anchorElement = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+          if (!anchorElement) return;
+
+          const href = anchorElement.getAttribute('href');
+          if (href) {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              const header = document.querySelector('header');
+              const headerHeight = header ? header.offsetHeight : 64;
+              const targetPosition = (targetElement as HTMLElement).offsetTop - headerHeight;
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
