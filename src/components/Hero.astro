@@ -1,6 +1,5 @@
 ---
 // Hero section component
-import ApplyButton from './ApplyButton.astro';
 import Image from 'astro/components/Image.astro';
 import landingDesktop from '../assets/images/landing-desktop.jpg';
 import landingMobile from '../assets/images/landing-mobile.jpg';
@@ -42,16 +41,21 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
       </div>
     </div>
     
-    <!-- Bottom section - Application deadline and Apply button -->
+    <!-- Bottom section - Fellowship status and posters CTA -->
     <div class="flex justify-between items-end">
-      <!-- Application status in lower-left -->
-      <div class="text-lg md:text-xl text-white">
-        Applications are now <strong>closed</strong>.
+      <!-- Fellowship status in lower-left -->
+      <div class="max-w-xl text-lg md:text-xl text-white">
+        The 2026 fellowship has <strong>concluded</strong>. Explore the cohort's research outcomes.
       </div>
       
-      <!-- Apply button in lower-right -->
+      <!-- Posters CTA in lower-right -->
       <div>
-        <ApplyButton variant="primary" size="lg"/>
+        <a
+          href="/posters"
+          class="inline-block rounded-sm border-1 border-primary bg-primary/90 px-8 py-2.5 font-sans text-xl font-extrabold text-white transition-all duration-200 hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+        >
+          VIEW POSTERS
+        </a>
       </div>
     </div>
   </div>
@@ -66,14 +70,19 @@ import landingMobile from '../assets/images/landing-mobile.jpg';
         </h1>
         
         <p class="text-sm sm:text-base text-white">
-          Applications are now <strong>closed</strong>.
+          The 2026 fellowship has <strong>concluded</strong>. Explore the cohort's research outcomes.
         </p>
       </div>
     </div>
     
-    <!-- Bottom section for button - ensure it's always visible -->
+    <!-- Bottom section for CTA - ensure it's always visible -->
     <div class="flex justify-center mb-12 lg:mb-0 px-4 sm:px-6 pb-6 pt-4 flex-shrink-0 mobile-safe-area">
-      <ApplyButton variant="primary" size="lg" />
+      <a
+        href="/posters"
+        class="inline-block rounded-sm border-1 border-primary bg-primary/90 px-8 py-2.5 font-sans text-xl font-extrabold text-white transition-all duration-200 hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+      >
+        VIEW POSTERS
+      </a>
     </div>
   </div>
 </section>
