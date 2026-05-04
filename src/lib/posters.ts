@@ -1,4 +1,4 @@
-import postersData from '../assets/posters/posters.json';
+import postersData from '../assets/Posters/posters.json';
 import { loadFellows, type FellowRecord } from './fellows';
 
 export interface ProfileLink {
