@@ -6,11 +6,11 @@ import { loadPosters } from '../lib/posters';
 
 const posters = loadPosters();
 
-const allThumbs = import.meta.glob<{ default: ImageMetadata }>('../assets/Posters/*.png');
+const allThumbs = import.meta.glob<{ default: ImageMetadata }>('../assets/posters/*.png');
 
 const postersWithImages = await Promise.all(
   posters.map(async (poster) => {
-    const key = `../assets/Posters/${poster.thumbFile}`;
+    const key = `../assets/posters/${poster.thumbFile}`;
     const mod = allThumbs[key];
     const thumbImage = mod ? (await mod()).default : null;
     return { ...poster, thumbImage };
